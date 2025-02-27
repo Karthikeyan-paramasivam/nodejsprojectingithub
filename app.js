@@ -1,1 +1,1 @@
-console.log("Hello, pippin JavaScript!");
+console.log("Hello, pippin this new script JavaScript!");
