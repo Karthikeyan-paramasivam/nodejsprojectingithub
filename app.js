@@ -4,7 +4,7 @@ const http = require("http");
 // Create an HTTP server
 const server = http.createServer((req, res) => {
   res.writeHead(200, { "Content-Type": "text/plain" });
-  res.end("Hello, pippin test my company name test doc coming!\n");
+  res.end("Hello, new member and old members!\n");
 });
 
 // Define the port
