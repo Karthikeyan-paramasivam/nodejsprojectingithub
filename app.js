@@ -1,16 +1,26 @@
-//console.log("Hello, pippin this new script JavaScript!");
 const http = require("http");
 
-// Create an HTTP server
 const server = http.createServer((req, res) => {
   res.writeHead(200, { "Content-Type": "text/plain" });
-  res.end("Hello,my name is job now!\n coming team\n");
+
+  if (req.url === "/") {
+    res.end("Welcome to the home page!\n");
+  } else if (req.url === "/about") {
+    res.end("This is the about page. Learn more about us!\n");
+  } else if(req.url === "/user/login") {
+    res.end("User clicked login button!\n");
+  } else if (req.url === "/contact") {
+    res.end("Contact us at: contact@example.com\n");
+  } else if (req.url === "/api/data") {
+    res.writeHead(200, { "Content-Type": "application/json" });
+    res.end(JSON.stringify({ message: "Hello, this is your API data!", status: "success" }));
+  } else {
+    res.writeHead(404, { "Content-Type": "text/plain" });
+    res.end("404 Not Found\n");
+  }
 });
 
-// Define the port
 const PORT = 3000;
-
-// Start the server
 server.listen(PORT, () => {
   console.log(`Server is running at http://localhost:${PORT}`);
 });
