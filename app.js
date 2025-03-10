@@ -4,7 +4,7 @@ const server = http.createServer((req, res) => {
   res.writeHead(200, { "Content-Type": "text/plain" });
 
   if (req.url === "/") {
-    res.end("Welcome to the home test type page12hgj123!\n");
+    res.end("Welcome to the home test type life page12hgj123!\n");
   } else if (req.url === "/about") {
     res.end("This is the about page. Learn more about us!\n");
   } else if(req.url === "/user/login") {
