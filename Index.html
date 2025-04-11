@@ -3,11 +3,12 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Node.js Frontend</title>
+  <title>Pippin Assets</title>
   <style>
     body {
       font-family: Arial, sans-serif;
-      margin: 2em;
+      text-align: center;
+      padding: 2em;
     }
     button {
       margin: 0.5em;
@@ -33,7 +34,7 @@
   <button onclick="makeRequest('/api/data')">API Data</button>
   <button onclick="makeRequest('/something-wrong')">404 Test</button>
 
-  <div id="output">Click a button to make a request</div>
+  <div id="output">Submit</div>
 
   <script>
     function makeRequest(path) {
