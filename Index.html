@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Node.js Frontend</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 2em;
+    }
+    button {
+      margin: 0.5em;
+      padding: 0.75em 1.5em;
+      font-size: 16px;
+      cursor: pointer;
+    }
+    #output {
+      margin-top: 2em;
+      padding: 1em;
+      border: 1px solid #ccc;
+      white-space: pre-wrap;
+      background-color: #f9f9f9;
+    }
+  </style>
+</head>
+<body>
+  <h1>Frontend for Node.js Server</h1>
+  <button onclick="makeRequest('/')">Home</button>
+  <button onclick="makeRequest('/about')">About</button>
+  <button onclick="makeRequest('/user/login')">Login</button>
+  <button onclick="makeRequest('/contact')">Contact</button>
+  <button onclick="makeRequest('/api/data')">API Data</button>
+  <button onclick="makeRequest('/something-wrong')">404 Test</button>
+
+  <div id="output">Click a button to make a request</div>
+
+  <script>
+    function makeRequest(path) {
+      fetch(`http://localhost:3000${path}`)
+        .then(response => {
+          if (response.headers.get('Content-Type')?.includes('application/json')) {
+            return response.json();
+          }
+          return response.text();
+        })
+        .then(data => {
+          const output = typeof data === 'object' ? JSON.stringify(data, null, 2) : data;
+          document.getElementById('output').textContent = output;
+        })
+        .catch(error => {
+          document.getElementById('output').textContent = 'Error: ' + error.message;
+        });
+    }
+  </script>
+</body>
+</html>
