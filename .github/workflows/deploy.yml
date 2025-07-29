@@ -15,10 +15,10 @@ jobs:
       - name: Set up SSH key
         run: |
          mkdir -p ~/.ssh
-         echo "${{ secrets.SSH_PRIVATE_KEY }}" > ~/.ssh/id_rsa
+         echo "${{ id_rsa.pub }}" > ~/.ssh/id_rsa
          chmod 600 ~/.ssh/id_rsa
-         ssh-keyscan -H ${{ secrets.VM_HOST }} >> ~/.ssh/known_hosts
+         ssh-keyscan -H ${{ 34.45.29.108 }} >> ~/.ssh/known_hosts
 
       - name: Connect to VM and run command
         run: |
-         ssh -o StrictHostKeyChecking=no ${{ secrets.VM_USER }}@${{ secrets.VM_HOST }} "echo '✅ Connected from GitHub Actions!'"
+         ssh -o StrictHostKeyChecking=no ${{ karthikeyan }}@${{ 34.45.29.108 }} "echo '✅ Connected from GitHub Actions!'"
