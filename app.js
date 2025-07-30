@@ -4,7 +4,7 @@ const path = require("path");
 
 const server = http.createServer((req, res) => {
   if (req.url === "/") {
-    const filePath = path.join(__dirname, "ndex.html");
+    const filePath = path.join(__dirname, "index.html");
     fs.readFile(filePath, (err, content) => {
       if (err) {
         res.writeHead(500);
