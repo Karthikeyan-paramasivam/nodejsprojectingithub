@@ -26,8 +26,8 @@ jobs:
     - name: Deploy App to VM
       run: |
         ssh -i ~/.ssh/id_rsa -o StrictHostKeyChecking=no ${{ secrets.VM_USER }}@${{ secrets.VM_HOST }} << 'EOF'
-          cd /var/www/your-app
+          cd /var/www/your-app/nodejsprojectingithub
           git pull origin main
           npm install
-          pm2 restart app-name || pm2 start index.js --name app-name
+          pm2 restart your-app || pm2 start app.js --name app-name
         EOF
