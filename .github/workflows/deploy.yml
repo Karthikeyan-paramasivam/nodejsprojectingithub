@@ -26,13 +26,13 @@ jobs:
     - name: Deploy your app
       run: |
         ssh -i ~/.ssh/id_rsa ${{ secrets.VM_USER }}@${{ secrets.VM_HOST }} << 'EOF'
-         cd /var/www/your-app
+         cd /var/www/your-app/nodejsprojectingithub
          git pull origin main
          npm install
 
          # Check if PM2 app exists, if not, start it
          if pm2 list | grep -q "your-app"; then
-          pm2 restart your-app
+          pm2 restart nodejsprojectingithub
          else
           pm2 start index.js --name your-app
          fi
