@@ -21,4 +21,4 @@ jobs:
 
     - name: SSH into VM and run commands
       run: |
-        ssh ${{ secrets.VM_USER }}@${{ secrets.VM_HOST }} "echo '✅ Connected from GitHub Actions!' && uptime"
+        ssh ${{ secrets.VM_USER }}@${{ secrets.VM_HOST }} "echo '✅ Connected from GitHub Actions!!' && uptime"
