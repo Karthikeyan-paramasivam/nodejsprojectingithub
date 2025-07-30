@@ -23,15 +23,11 @@ jobs:
       run: |
         ssh -vvv -i ~/.ssh/id_rsa ${{ secrets.VM_USER }}@${{ secrets.VM_HOST }} true
 
-    - name: SSH into VM and run commands
+    - name: Deploy App to VM
       run: |
-        ssh -i ~/.ssh/id_rsa ${{ secrets.VM_USER }}@${{ secrets.VM_HOST }} "echo '✅ Connected from GitHub Actions!!' && uptime"
-
-    - name: Deploy your app
-      run: |
-        ssh -i ~/.ssh/id_rsa ${{ secrets.VM_USER }}@${{ secrets.VM_HOST }} << 'EOF'
+        ssh -i ~/.ssh/id_rsa -o StrictHostKeyChecking=no ${{ secrets.VM_USER }}@${{ secrets.VM_HOST }} << 'EOF'
           cd /var/www/your-app
           git pull origin main
           npm install
-          pm2 restart your-app
+          pm2 restart app-name || pm2 start index.js --name app-name
         EOF
