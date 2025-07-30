@@ -34,7 +34,7 @@ jobs:
          if pm2 list | grep -q "your-app"; then
           pm2 restart nodejsprojectingithub
          else
-          pm2 start index.js --name your-app
+          pm2 start app.js --name your-app
          fi
 
          pm2 save
