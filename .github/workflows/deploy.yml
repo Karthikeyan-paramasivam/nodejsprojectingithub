@@ -2,40 +2,47 @@ name: Deploy to VM
 
 on:
   push:
-    branches: [main]  # Or whichever branch you want to trigger deploy
+    branches: [main]  # Change if you use a different branch
 
 jobs:
   deploy:
     runs-on: ubuntu-latest
 
     steps:
-    - name: Checkout code
-      uses: actions/checkout@v3
+      - name: Checkout code
+        uses: actions/checkout@v3
 
-    - name: Set up SSH
-      run: |
-        mkdir -p ~/.ssh
-        echo "${{ secrets.SSH_PRIVATE_KEY }}" > ~/.ssh/id_rsa
-        chmod 600 ~/.ssh/id_rsa
-        ssh-keyscan -H ${{ secrets.VM_HOST }} >> ~/.ssh/known_hosts
+      - name: Set up SSH
+        run: |
+          mkdir -p ~/.ssh
+          echo "${{ secrets.SSH_PRIVATE_KEY }}" > ~/.ssh/id_rsa
+          chmod 600 ~/.ssh/id_rsa
+          ssh-keyscan -H ${{ secrets.VM_HOST }} >> ~/.ssh/known_hosts
 
-    - name: Debug Key Load
-      run: |
-        ssh -vvv -i ~/.ssh/id_rsa ${{ secrets.VM_USER }}@${{ secrets.VM_HOST }} true
+      - name: Debug SSH Key
+        run: |
+          ssh -vvv -i ~/.ssh/id_rsa ${{ secrets.VM_USER }}@${{ secrets.VM_HOST }} true
 
-    - name: Deploy your app
-      run: |
-        ssh -i ~/.ssh/id_rsa ${{ secrets.VM_USER }}@${{ secrets.VM_HOST }} << 'EOF'
-         cd /var/www/your-app/nodejsprojectingithub
-         git pull origin main
-         npm install
+      - name: Deploy app via SSH
+        run: |
+          ssh -i ~/.ssh/id_rsa ${{ secrets.VM_USER }}@${{ secrets.VM_HOST }} << 'EOF'
+            cd /var/www/your-app/nodejsprojectingithub
 
-         # Check if PM2 app exists, if not, start it
-         if pm2 list | grep -q "your-app"; then
-          pm2 restart nodejsprojectingithub
-         else
-          pm2 start app.js --name your-app
-         fi
+            echo "➡ Pulling latest code..."
+            git fetch origin main
+            git reset --hard origin/main
+            git clean -fd
 
-         pm2 save
-        EOF
+            echo "📦 Installing dependencies..."
+            npm install
+
+            echo "🚀 Starting or restarting app with PM2..."
+            if pm2 list | grep -q "your-app"; then
+              pm2 restart your-app
+            else
+              pm2 start app.js --name your-app
+            fi
+
+            echo "💾 Saving PM2 process list..."
+            pm2 save
+          EOF
