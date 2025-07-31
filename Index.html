@@ -3,56 +3,13 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Pippin Assets</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      text-align: center;
-      padding: 2em;
-    }
-    button {
-      margin: 0.5em;
-      padding: 0.75em 1.5em;
-      font-size: 16px;
-      cursor: pointer;
-    }
-    #output {
-      margin-top: 2em;
-      padding: 1em;
-      border: 1px solid #ccc;
-      white-space: pre-wrap;
-      background-color: #f9f9f9;
-    }
-  </style>
+  <title>Simple HTML + JS</title>
 </head>
 <body>
-  <h1>Pippin Assets</h1>
-  <button onclick="makeRequest('/')">Home</button>
-  <button onclick="makeRequest('/about')">About</button>
-  <button onclick="makeRequest('/user/login')">Login</button>
-  <button onclick="makeRequest('/contact')">Contact</button>
-  <button onclick="makeRequest('/api/data')">API Data</button>
-  <button onclick="makeRequest('/something-wrong')">502 Test</button>
+  <h1>Hello from HTML</h1>
+  <button onclick="showMessage()">Click Me</button>
 
-  <div id="output">Submit</div>
-
-  <script>
-    function makeRequest(path) {
-      fetch(`${path}`)
-        .then(response => {
-          if (response.headers.get('Content-Type')?.includes('application/json')) {
-            return response.json();
-          }
-          return response.text();
-        })
-        .then(data => {
-          const output = typeof data === 'object' ? JSON.stringify(data, null, 2) : data;
-          document.getElementById('output').textContent = output;
-        })
-        .catch(error => {
-          document.getElementById('output').textContent = 'Error: ' + error.message;
-        });
-    }
-  </script>
+  <!-- Connect the external JS file -->
+  <script src="app.js"></script>
 </body>
 </html>
