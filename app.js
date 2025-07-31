@@ -1,32 +1,50 @@
-// Get references to the HTML elements
-const myButton = document.getElementById('myButton');
-const outputMessage = document.getElementById('outputMessage');
-const ipAndPortParagraph = document.getElementById('ipAndPort'); // New element reference
+const http = require('http');
+const fs = require('fs');
+const path = require('path');
+const { parse } = require('querystring');
 
-// --- Get and display IP/Host and Port ---
-// window.location provides information about the current URL
-const currentHost = 34.56.132.32; // e.g., "localhost" or "192.168.1.5"
-const currentPort = 3000;   // e.g., "3000" or "" (if default http/https port)
+const PORT = 3000;
 
-// You can hardcode the port if you always expect it to be 3000
-const expectedPort = 3000;
+const server = http.createServer((req, res) => {
+  if (req.method === 'GET' && req.url === '/') {
+    const filePath = path.join(__dirname, 'index.html');
+    fs.readFile(filePath, (err, content) => {
+      if (err) {
+        res.writeHead(500);
+        res.end('Error loading page');
+      } else {
+        res.writeHead(200, { 'Content-Type': 'text/html' });
+        res.end(content);
+      }
+    });
+  }
 
-// Display the host and port
-ipAndPortParagraph.textContent = `Accessed via: ${currentHost}:${currentPort || expectedPort}`;
-// The '|| expectedPort' handles cases where the port isn't explicitly in the URL (e.g., default http:80)
-// If you are *always* serving on 3000, you could just do:
-// ipAndPortParagraph.textContent = `Server Address: ${currentHost}:3000`;
+  else if (req.method === 'POST' && req.url === '/submit') {
+    let body = '';
+    req.on('data', chunk => { body += chunk.toString(); });
+    req.on('end', () => {
+      console.log('✅ Submit button clicked');
+      res.writeHead(200, { 'Content-Type': 'text/plain' });
+      res.end('Submit received');
+    });
+  }
 
+  else if (req.method === 'POST' && req.url === '/upload') {
+    let body = '';
+    req.on('data', chunk => { body += chunk.toString(); });
+    req.on('end', () => {
+      console.log('📁 Upload triggered (file upload not handled here)');
+      res.writeHead(200, { 'Content-Type': 'text/plain' });
+      res.end('Upload received');
+    });
+  }
 
-// --- Button click functionality (unchanged) ---
-myButton.addEventListener('click', function() {
-    outputMessage.textContent = 'Voila! JavaScript changed this text!';
-    outputMessage.style.color = '#007bff';
-    console.log('Button was clicked at:', new Date().toLocaleTimeString());
+  else {
+    res.writeHead(404);
+    res.end('Not Found');
+  }
 });
 
-// Initial console log
-console.log('script.js loaded successfully!');
-console.log('Current Host:', currentHost);
-console.log('Current Port:', currentPort);
-console.log('Expected Port (Hardcoded):', expectedPort);
+server.listen(PORT, () => {
+  console.log(`🚀 Server running at http://34.56.132.32:${3000}`);
+});
