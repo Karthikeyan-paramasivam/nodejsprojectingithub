@@ -16,10 +16,13 @@ jobs:
 
       - name: Set up SSH
         run: |
-          mkdir -p ~/.ssh
+          
+          cd ~/.ssh
           cp github-actions.pub authorized_keys
           chmod 600 authorized_keys
           chmod 700 ~/.ssh
+
+          mkdir -p ~/.ssh
 
           echo "${{ secrets.SSH_PRIVATE_KEY }}" > ~/.ssh/id_rsa
           chmod 600 ~/.ssh/id_rsa
