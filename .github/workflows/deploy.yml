@@ -19,15 +19,28 @@ jobs:
           chmod 600 ~/.ssh/id_rsa
           ssh-keyscan -H ${{ secrets.VM_HOST }} >> ~/.ssh/known_hosts
 
-      - name: Debug SSH Key
+      - name: Test SSH connection
         run: |
-          ssh -vvv -i ~/.ssh/id_rsa ${{ secrets.VM_USER }}@${{ secrets.VM_HOST }} true
+          ssh -i ~/.ssh/id_rsa ${{ secrets.VM_USER }}@${{ secrets.VM_HOST }} "echo '✅ SSH connection successful'"
 
       - name: Deploy app via SSH
         run: |
           ssh -i ~/.ssh/id_rsa ${{ secrets.VM_USER }}@${{ secrets.VM_HOST }} << 'EOF'
+            set -e  # Exit immediately on error
+            set -x  # Print commands as they run (debug)
 
-            echo "➡ Pulling latest code..."
+            echo "📂 Changing to project directory..."
+            cd /var/www/your-app/nodejsprojectingithub || { echo "❌ Directory not found"; exit 1; }
+
+            echo "🛡️ Backing up .env if it exists..."
+            if [ -f ".env" ]; then
+              mv .env .env.bak
+            fi
+
+            echo "📄 Copying new .env file from /mnt/.env"
+            cp /mnt/.env .env
+
+            echo "➡ Pulling latest code from Git..."
             git fetch origin main
             git reset --hard origin/main
             git clean -fd
