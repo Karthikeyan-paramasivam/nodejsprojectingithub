@@ -28,6 +28,12 @@ jobs:
           ssh -i ~/.ssh/id_rsa ${{ secrets.VM_USER }}@${{ secrets.VM_HOST }} << 'EOF'
             cd /var/www/your-app/nodejsprojectingithub
 
+             mv ./var/www/your-app/nodejsprojectingithub/.env ./var/www/your-app/nodejsprojectingithub/.env.bak
+
+
+             cp ./mnt/.env ./var/www/your-app/nodejsprojectingithub/.env
+
+
             echo "➡ Pulling latest code..."
             git fetch origin main
             git reset --hard origin/main
