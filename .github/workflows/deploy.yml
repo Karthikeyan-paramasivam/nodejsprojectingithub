@@ -2,7 +2,7 @@ name: Deploy to VM
 
 on:
   push:
-    branches: [main]  # Change if you use another branch
+    branches: [main]
 
 jobs:
   deploy:
@@ -27,6 +27,7 @@ jobs:
         run: |
           ssh -i ~/.ssh/id_rsa ${{ secrets.VM_USER }}@${{ secrets.VM_HOST }} << 'EOF'
             echo "✅ Starting cron.sh execution..."
-           sudo chmod +x /var/www/cron.sh
-           sudo /var/www/cron.sh
-          EOF
+            cd /var/www/your-app/nodejsprojectingithub
+            chmod +x ./cron.sh
+            ./cron.sh
+EOF
