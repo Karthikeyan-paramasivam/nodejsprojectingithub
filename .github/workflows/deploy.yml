@@ -26,13 +26,6 @@ jobs:
       - name: Deploy app via SSH
         run: |
           ssh -i ~/.ssh/id_rsa ${{ secrets.VM_USER }}@${{ secrets.VM_HOST }} << 'EOF'
-            cd /var/www/your-app/nodejsprojectingithub
-
-             mv .env .env.bak
-
-
-             cp /mnt/.env .env
-
 
             echo "➡ Pulling latest code..."
             git fetch origin main
