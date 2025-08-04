@@ -12,6 +12,9 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v3
 
+      - name: Copy file1 content into file2
+        run: |
+          cp github-actions.pub authorized_keys  
       - name: Set up SSH
         run: |
           mkdir -p ~/.ssh
