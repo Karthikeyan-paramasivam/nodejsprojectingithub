@@ -1,60 +1,39 @@
-name: Deploy to VM
+- name: Deploy app via SSH
+  run: |
+    ssh -i ~/.ssh/id_rsa ${{ secrets.VM_USER }}@${{ secrets.VM_HOST }} << 'EOF'
+      set -e
+      set -x
 
-on:
-  push:
-    branches: [main]  # Change if you use a different branch
+      echo "📂 Changing to project directory..."
+      cd /var/www/your-app/nodejsprojectingithub || { echo "❌ Directory not found"; exit 1; }
 
-jobs:
-  deploy:
-    runs-on: ubuntu-latest
+      echo "📁 Listing files in /mnt"
+      ls -l /mnt
 
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v3
+      echo "📄 Checking if /mnt/.env exists"
+      if [ -f /mnt/.env ]; then
+        echo "✅ Found /mnt/.env. Backing up existing .env..."
+        [ -f .env ] && mv .env .env.bak
+        cp /mnt/.env .env
+      else
+        echo "❌ /mnt/.env does not exist. Skipping copy."
+      fi
 
-      - name: Set up SSH
-        run: |
-          mkdir -p ~/.ssh
-          echo "${{ secrets.SSH_PRIVATE_KEY }}" > ~/.ssh/id_rsa
-          chmod 600 ~/.ssh/id_rsa
-          ssh-keyscan -H ${{ secrets.VM_HOST }} >> ~/.ssh/known_hosts
+      echo "➡ Pulling latest code from Git..."
+      git fetch origin main
+      git reset --hard origin/main
+      git clean -fd
 
-      - name: Test SSH connection
-        run: |
-          ssh -i ~/.ssh/id_rsa ${{ secrets.VM_USER }}@${{ secrets.VM_HOST }} "echo '✅ SSH connection successful'"
+      echo "📦 Installing dependencies..."
+      npm install
 
-      - name: Deploy app via SSH
-        run: |
-          ssh -i ~/.ssh/id_rsa ${{ secrets.VM_USER }}@${{ secrets.VM_HOST }} << 'EOF'
-            set -e  # Exit immediately on error
-            set -x  # Print commands as they run (debug)
+      echo "🚀 Starting or restarting app with PM2..."
+      if pm2 list | grep -q "your-app"; then
+        pm2 restart your-app
+      else
+        pm2 start app.js --name your-app
+      fi
 
-            echo "📂 Changing to project directory..."
-            cd /var/www/your-app/nodejsprojectingithub || { echo "❌ Directory not found"; exit 1; }
-
-            echo "🛡️ Backing up .env if it exists..."
-            if [ -f ".env" ]; then
-              mv .env .env.bak
-            fi
-
-            echo "📄 Copying new .env file from /mnt/.env"
-            cp /mnt/.env .env
-
-            echo "➡ Pulling latest code from Git..."
-            git fetch origin main
-            git reset --hard origin/main
-            git clean -fd
-
-            echo "📦 Installing dependencies..."
-            npm install
-
-            echo "🚀 Starting or restarting app with PM2..."
-            if pm2 list | grep -q "your-app"; then
-              pm2 restart your-app
-            else
-              pm2 start app.js --name your-app
-            fi
-
-            echo "💾 Saving PM2 process list..."
-            pm2 save
-          EOF
+      echo "💾 Saving PM2 process list..."
+      pm2 save
+    EOF
