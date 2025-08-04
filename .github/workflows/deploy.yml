@@ -19,11 +19,6 @@ jobs:
           mkdir -p ~/.ssh
           chmod 700 ~/.ssh
 
-          # Optional: if you're using a public key stored in secrets
-          echo "${{ secrets.SSH_PUBLIC_KEY }}" > ~/.ssh/github-actions.pub
-          cp ~/.ssh/github-actions.pub ~/.ssh/authorized_keys
-          chmod 600 ~/.ssh/authorized_keys
-
           echo "${{ secrets.SSH_PRIVATE_KEY }}" > ~/.ssh/id_rsa
           chmod 600 ~/.ssh/id_rsa
 
@@ -31,6 +26,7 @@ jobs:
 
       - name: Test SSH connection
         run: |
+          ssh -i ~/.ssh/id_rsa -o StrictHostKeyChecking=no ${{ secrets.VM_USER }}@${{ secrets.VM_HOST }} "echo '✅ SSH connected!'"
           ssh -i ~/.ssh/id_rsa ${{ secrets.VM_USER }}@${{ secrets.VM_HOST }} "echo '✅ SSH connection successful'"
 
       - name: Run cron.sh on VM
