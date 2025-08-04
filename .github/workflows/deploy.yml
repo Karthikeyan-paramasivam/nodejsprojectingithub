@@ -27,6 +27,6 @@ jobs:
         run: |
           ssh -i ~/.ssh/id_rsa ${{ secrets.VM_USER }}@${{ secrets.VM_HOST }} << 'EOF'
             echo "✅ Starting cron.sh execution..."
-            chmod +x /var/www/cron.sh
-            /var/www/cron.sh
+           sudo chmod +x /var/www/cron.sh
+           sudo /var/www/cron.sh
           EOF
