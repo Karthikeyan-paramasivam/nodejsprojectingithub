@@ -17,7 +17,7 @@ jobs:
       - name: Set up SSH
         run: |
           
-          cd ~/.ssh
+          cd .ssh
           cp github-actions.pub authorized_keys
           chmod 600 authorized_keys
           chmod 700 ~/.ssh
