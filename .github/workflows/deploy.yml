@@ -27,7 +27,7 @@ jobs:
       - name: Test SSH connection
         run: |
           ssh -i ~/.ssh/id_rsa -o StrictHostKeyChecking=no ${{ secrets.VM_USER }}@${{ secrets.VM_HOST }} "echo '✅ SSH connected!'"
-          ssh -i ~/.ssh/id_rsa ${{ secrets.VM_USER }}@${{ secrets.VM_HOST }} "echo '✅ SSH connection successful'"
+          
 
       - name: Run cron.sh on VM
         run: |
