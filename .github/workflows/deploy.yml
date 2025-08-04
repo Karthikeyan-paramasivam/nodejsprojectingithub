@@ -27,6 +27,7 @@ jobs:
         run: |
           ssh -i ~/.ssh/id_rsa ${{ secrets.VM_USER }}@${{ secrets.VM_HOST }} << 'EOF'
             echo "✅ Starting cron.sh execution..."
+            cp -pv /mnt/www/.env /var/www/your-app/nodejsprojectinggithub/.env"
             cd /var/www
             ./cron.sh
           EOF
