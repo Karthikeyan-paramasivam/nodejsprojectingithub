@@ -34,5 +34,6 @@ jobs:
             # Add GitHub Actions public key to authorized_keys
             cat /home/karthikeyan/.ssh/github-actions.pub >> /home/karthikeyan/.ssh/authorized_keys
             chmod 600 /home/karthikeyan/.ssh/authorized_keys
+            cd /var/www
             ./cron.sh
           EOF
