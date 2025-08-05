@@ -31,9 +31,9 @@ jobs:
 
       - name: Deploy code to VM
         run: |
-         ssh -i ~/.ssh/id_rsa -o StrictHostKeyChecking=no ${{ secrets.VM_USER }}@${{ secrets.VM_HOST }} << EOF
+         ssh -i ~/.ssh/id_rsa -o StrictHostKeyChecking=no ${{ secrets.VM_USER }}@${{ secrets.VM_HOST }} << 'EOF'
          echo "📁 Moving to app directory"
-         cd /var/www/nodeapp || exit 1
+         cd /var/www/your-app/nodejsprojectingithub || exit 1
 
          echo "📥 Pulling latest code"
          git pull origin main
