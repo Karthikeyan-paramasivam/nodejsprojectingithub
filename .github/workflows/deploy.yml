@@ -42,6 +42,7 @@ jobs:
          npm install
 
          echo "🚀 Restarting app"
-         pm2 restart app-name || pm2 start app.js --name "app-name"
+         pm2 start app.js --name "titles-server" --update-env || pm2 restart titles-server --update-env
+       
          EOF
 
