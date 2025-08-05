@@ -21,7 +21,7 @@ jobs:
           chmod 600 ~/.ssh/id_rsa
 
           ssh-keyscan -H ${{ secrets.VM_HOST }} >> ~/.ssh/known_hosts
-    
+
       - name: Test SSH connection
         run: |
           ssh -i ~/.ssh/id_rsa -o StrictHostKeyChecking=no ${{ secrets.VM_USER }}@${{ secrets.VM_HOST }} "echo '✅ SSH connected!'"
@@ -36,7 +36,3 @@ jobs:
             echo "✅ authorized_keys updated"
             exit
           EOF
-
-
-      
-
