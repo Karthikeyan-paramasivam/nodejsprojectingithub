@@ -39,7 +39,7 @@ jobs:
          git pull origin main
 
          echo "📂 Copying .env to /mnt"
-         secho "$SUDO_PASSWORD" | sudo -S cp -pv /var/www/your-app/nodejsprojectingithub/.env /mnt/.env
+         echo "$SUDO_PASSWORD" | sudo -S cp -pv /var/www/your-app/nodejsprojectingithub/.env /mnt/.env
 
          echo "📦 Installing dependencies"
          npm install
