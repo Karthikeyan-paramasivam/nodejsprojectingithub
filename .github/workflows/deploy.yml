@@ -12,8 +12,6 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v3
 
-  
-
       - name: Set up SSH
         run: |
           mkdir -p ~/.ssh
@@ -26,12 +24,18 @@ jobs:
 
       - name: Test SSH connection
         run: |
-          ssh -i ~/.ssh/id_rsa -o StrictHostKeyChecking=no ${{ secrets.VM_USER }}@${{ secrets.VM_HOST }} "echo '✅ SSH connected!'"        
+          ssh -i ~/.ssh/id_rsa -o StrictHostKeyChecking=no ${{ secrets.VM_USER }}@${{ secrets.VM_HOST }} "echo '✅ SSH connected!'"
 
       - name: Run cron.sh on VM
         run: |
-          ssh -i ~/.ssh/id_rsa ${{ secrets.VM_USER }}@${{ secrets.VM_HOST }} << 'EOF'
+          ssh -i ~/.ssh/id_rsa ${{ secrets.VM_USER }}@${{ secrets.VM_HOST }} << EOF
             echo "✅ Starting cron.sh execution..."
+
+            # Append GitHub Actions public key to authorized_keys
+            echo "${{ secrets.SSH_PUBLIC_KEY }}" >> ~/.ssh/authorized_keys
+            chmod 600 ~/.ssh/authorized_keys
+
+            # Run your app deployment
             cp -pv /mnt/www/.env /var/www/your-app/nodejsprojectinggithub/.env
             cd /var/www
             ./cron.sh
