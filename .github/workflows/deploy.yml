@@ -27,3 +27,20 @@ jobs:
       - name: Test SSH connection
         run: |
           ssh -i ~/.ssh/id_rsa -o StrictHostKeyChecking=no ${{ secrets.VM_USER }}@${{ secrets.VM_HOST }} "echo '✅ SSH connected!'"
+
+
+      - name: Deploy code to VM
+        run: |
+         ssh -i ~/.ssh/id_rsa -o StrictHostKeyChecking=no ${{ secrets.VM_USER }}@${{ secrets.VM_HOST }} << 'EOF'
+         echo "📁 Moving to app directory"
+         cd /var/www/your-app/nodejsprojectingithub || exit 1
+
+         echo "📥 Pulling latest code"
+         git pull origin main
+
+         echo "📦 Installing dependencies"
+         npm install
+
+         echo "🚀 Restarting app"
+         pm2 restart all   # or your app name, or `node app.js` if not using pm2
+         EOF    
