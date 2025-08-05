@@ -31,10 +31,9 @@ jobs:
 
       - name: Deploy code to VM
         run: |
-         sssh -i ~/.ssh/id_rsa -o StrictHostKeyChecking=no ${{ secrets.VM_USER }}@${{ secrets.VM_HOST }} << EOF
-
+         ssh -i ~/.ssh/id_rsa -o StrictHostKeyChecking=no ${{ secrets.VM_USER }}@${{ secrets.VM_HOST }} << EOF
          echo "📁 Moving to app directory"
-         cd /var/www/your-app/nodejsprojectingithub || exit 1
+         cd /var/www/nodeapp || exit 1
 
          echo "📥 Pulling latest code"
          git pull origin main
@@ -43,5 +42,6 @@ jobs:
          npm install
 
          echo "🚀 Restarting app"
-         pm2 restart all   # or your app name, or `node app.js` if not using pm2
-         EOF    
+         pm2 restart app-name || pm2 start app.js --name "app-name"
+         EOF
+
