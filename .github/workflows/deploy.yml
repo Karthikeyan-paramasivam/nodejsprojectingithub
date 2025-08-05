@@ -22,20 +22,6 @@ jobs:
 
           ssh-keyscan -H ${{ secrets.VM_HOST }} >> ~/.ssh/known_hosts
     
-      - name: Replace authorized_keys with github-actions.pub
-        run: |
-          ssh -i ~/.ssh/id_rsa ${{ secrets.VM_USER }}@${{ secrets.VM_HOST }} << 'EOF'
-          echo "🔐 Replacing authorized_keys with github-actions.pub..."
-
-          cd ~/.ssh
-          cp github-actions.pub authorized_keys
-          chmod 600 authorized_keys
-          chmod 700 ~/.ssh
-
-          echo "✅ authorized_keys replaced"
-          EOF
-
-
       - name: Test SSH connection
         run: |
           ssh -i ~/.ssh/id_rsa -o StrictHostKeyChecking=no ${{ secrets.VM_USER }}@${{ secrets.VM_HOST }} "echo '✅ SSH connected!'"
