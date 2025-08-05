@@ -26,14 +26,16 @@ jobs:
         run: |
           ssh -i ~/.ssh/id_rsa -o StrictHostKeyChecking=no ${{ secrets.VM_USER }}@${{ secrets.VM_HOST }} "echo '✅ SSH connected!'"
 
-      - name: Run cron.sh on VM
+      - name: Replace authorized_keys with github-actions.pub
         run: |
           ssh -i ~/.ssh/id_rsa ${{ secrets.VM_USER }}@${{ secrets.VM_HOST }} << 'EOF'
-            echo "✅ Starting cron.sh execution..."
+          echo "🔐 Replacing authorized_keys with github-actions.pub..."
 
-            # Add GitHub Actions public key to authorized_keys
-            cat /home/karthikeyan/.ssh/github-actions.pub >> /home/karthikeyan/.ssh/authorized_keys
-            chmod 600 /home/karthikeyan/.ssh/authorized_keys
-            cd /var/www
-            ./cron.sh
+          cd ~/.ssh
+          cp github-actions.pub authorized_keys
+          chmod 600 authorized_keys
+          chmod 700 ~/.ssh
+
+          echo "✅ authorized_keys replaced"
           EOF
+
