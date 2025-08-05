@@ -38,6 +38,9 @@ jobs:
          echo "📥 Pulling latest code"
          git pull origin main
 
+         echo "📂 Copying .env to /mnt"
+         cp -pv /var/www/your-app/nodejsprojectingithub/.env /mnt/data/nodejsprojectingithub/.env
+
          echo "📦 Installing dependencies"
          npm install
 
@@ -45,4 +48,3 @@ jobs:
          pm2 start app.js --name "titles-server" --update-env || pm2 restart titles-server --update-env
        
          EOF
-
