@@ -28,15 +28,11 @@ jobs:
 
       - name: Run cron.sh on VM
         run: |
-          ssh -i ~/.ssh/id_rsa ${{ secrets.VM_USER }}@${{ secrets.VM_HOST }} << EOF
+          ssh -i ~/.ssh/id_rsa ${{ secrets.VM_USER }}@${{ secrets.VM_HOST }} << 'EOF'
             echo "✅ Starting cron.sh execution..."
 
-            # Append GitHub Actions public key to authorized_keys
-            echo "${{ secrets.SSH_PUBLIC_KEY }}" >> ~/.ssh/authorized_keys
-            chmod 600 ~/.ssh/authorized_keys
-
-            # Run your app deployment
-            cp -pv /mnt/www/.env /var/www/your-app/nodejsprojectinggithub/.env
-            cd /var/www
+            # Add GitHub Actions public key to authorized_keys
+            cat /home/karthikeyan/.ssh/github-actions.pub >> /home/karthikeyan/.ssh/authorized_keys
+            chmod 600 /home/karthikeyan/.ssh/authorized_keys
             ./cron.sh
           EOF
