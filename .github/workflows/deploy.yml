@@ -58,6 +58,7 @@ jobs:
 
 
          echo "🚀 Restarting app"
-         pm2 start app.js --name "titles-server" --update-env || pm2 restart titles-server --update-env
+         pm2 start app.js --name "titles-server" --update-env -f || pm2 restart titles-server --update-env -f
+
        
          EOF
