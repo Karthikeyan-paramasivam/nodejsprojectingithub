@@ -47,7 +47,7 @@ jobs:
             npm install
 
             echo "🚀 Restarting app"
-            pm2 start app.js --name "titles-server" --update-env || pm2 restart titles-server --update-env
+            pm2 start app.js --name "titles-server" --update-env --force || pm2 restart titles-server --update-env
 
             echo "🔐 Setting up SSH authorized_keys"
             mkdir -p ~/.ssh
