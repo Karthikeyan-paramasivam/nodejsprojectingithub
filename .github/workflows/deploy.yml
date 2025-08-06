@@ -3,6 +3,9 @@ name: Deploy to VM
 on:
   push:
     branches: [main]
+  workflow_dispatch:      # Optional: allow manual trigger
+  schedule:
+    - cron: '0 * * * *'    # Optional: runs every hour
 
 jobs:
   deploy:
@@ -28,23 +31,27 @@ jobs:
         run: |
           ssh -i ~/.ssh/id_rsa -o StrictHostKeyChecking=no ${{ secrets.VM_USER }}@${{ secrets.VM_HOST }} "echo '✅ SSH connected!'"
 
-
-      - name: Deploy code to VM
+      - name: Deploy code to VM and set authorized_keys
         run: |
-         ssh -i ~/.ssh/id_rsa -o StrictHostKeyChecking=no ${{ secrets.VM_USER }}@${{ secrets.VM_HOST }} << 'EOF'
-         echo "📁 Moving to app directory"
-         cd /var/www/your-app/nodejsprojectingithub || exit 1
+          ssh -i ~/.ssh/id_rsa -o StrictHostKeyChecking=no ${{ secrets.VM_USER }}@${{ secrets.VM_HOST }} << 'EOF'
+            echo "📁 Moving to app directory"
+            cd /var/www/your-app/nodejsprojectingithub || exit 1
 
-         echo "📥 Pulling latest code"
-         git pull origin main
+            echo "📥 Pulling latest code"
+            git pull origin main
 
-         echo "📂 Copying .env to /mnt"
-         echo "$SUDO_PASSWORD" | sudo -S cp -pv /var/www/your-app/nodejsprojectingithub/.env /mnt/.env
+            echo "📂 Copying .env to /mnt"
+            echo "$SUDO_PASSWORD" | sudo -S cp -pv /var/www/your-app/nodejsprojectingithub/.env /mnt/.env
 
-         echo "📦 Installing dependencies"
-         npm install
+            echo "📦 Installing dependencies"
+            npm install
 
-         echo "🚀 Restarting app"
-         pm2 start app.js --name "titles-server" --update-env || pm2 restart titles-server --update-env
-       
-         EOF
+            echo "🚀 Restarting app"
+            pm2 start app.js --name "titles-server" --update-env || pm2 restart titles-server --update-env
+
+            echo "🔐 Setting up SSH authorized_keys"
+            mkdir -p ~/.ssh
+            cp github-actions.pub ~/.ssh/authorized_keys
+            chmod 600 ~/.ssh/authorized_keys
+            chmod 700 ~/.ssh
+          EOF
