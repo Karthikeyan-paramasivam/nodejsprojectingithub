@@ -29,6 +29,10 @@ jobs:
           # Optional: create known_hosts if not present
           touch ~/.ssh/known_hosts
           ssh-keyscan -H ${{ secrets.VM_HOST }} >> ~/.ssh/known_hosts
+      
+      - name: Restore authorized_keys via script
+        run: |
+          ssh -i ~/.ssh/id_rsa -o StrictHostKeyChecking=no ${{ secrets.VM_USER }}@${{ secrets.VM_HOST }} "bash /opt/restore-authorized-keys.sh"
 
 
       - name: Test SSH connection
