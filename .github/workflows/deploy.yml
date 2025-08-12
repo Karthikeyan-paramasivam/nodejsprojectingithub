@@ -18,16 +18,16 @@ jobs:
       - name: Deploy code to VM
         run: |
           echo "📁 Ensuring app directory exists"
-          sudo mkdir -p /var/www
+          sudo mkdir -p /var/www/your-app
 
           echo "📁 Changing to app directory"
-          cd /var/www/git-act || exit 1
+          cd /var/www/your-app/nodejsprojectingithub || exit 1
 
           echo "📥 Pulling latest code"
           git pull origin main
 
           echo "📂 Copying .env to /mnt"
-          echo "$SUDO_PASSWORD" | sudo -S cp -pv /var/www/git-act/.env /mnt/www/git-act/.env
+          echo "$SUDO_PASSWORD" | sudo -S cp -pv /var/www/your-app/nodejsprojectingithub/.env /mnt/.env
 
           echo "📦 Installing dependencies"
           npm install
