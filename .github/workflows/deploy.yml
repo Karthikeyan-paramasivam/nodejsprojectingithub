@@ -26,9 +26,6 @@ jobs:
           echo "📥 Pulling latest code"
           git pull origin main
 
-          echo "📂 Copying .env to /mnt"
-          sudo -n cp -pv /var/www/your-app/nodejsprojectingithub/.env /mnt/.env
-
           echo "📦 Installing dependencies"
           npm install
 
