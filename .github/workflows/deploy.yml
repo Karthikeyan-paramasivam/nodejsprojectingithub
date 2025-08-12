@@ -21,10 +21,13 @@ jobs:
           sudo mkdir -p /var/www
 
           echo "📁 Changing to app directory"
-          cd /var/www/your-app/nodejsprojectingithub || exit 1
+          cd /var/www/git-act || exit 1
 
           echo "📥 Pulling latest code"
           git pull origin main
+
+          echo "📂 Copying .env to /mnt"
+          echo "$SUDO_PASSWORD" | sudo -S cp -pv /var/www/git-act/.env /mnt/www/git-act/.env
 
           echo "📦 Installing dependencies"
           npm install
