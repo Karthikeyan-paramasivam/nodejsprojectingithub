@@ -1,7 +1,7 @@
 function showContent(type) {
     const content = document.getElementById('mainContent');
     let html = "";
-    const portInfo = `<p style="color: gray; font-size: 14px;">(Served from port 3000)</p>`;
+    const portInfo = `<p style="color: gray; font-size: 14px;"></p>`;
 
     switch (type) {
         case 'user':
