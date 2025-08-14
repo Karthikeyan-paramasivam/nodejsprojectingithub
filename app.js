@@ -1,50 +1,47 @@
-const http = require('http');
-const fs = require('fs');
-const path = require('path');
-const { parse } = require('querystring');
+function showContent(type) {
+    const content = document.getElementById('mainContent');
+    let html = "";
 
-const PORT = 3000;
+    switch (type) {
+        case 'user':
+            html = `<h3>User Details</h3><p>Name: John Doe</p><p>Role: Admin</p>`;
+            break;
+        case 'mac_laptop':
+            html = `<h3>Mac Laptop</h3><p>Model: MacBook Pro 16"</p><p>Year: 2023</p>`;
+            break;
+        case 'win_laptop':
+            html = `<h3>Windows Laptop</h3><p>Brand: Dell</p><p>Model: XPS 15</p>`;
+            break;
+        case 'desktop':
+            html = `<h3>Desktop</h3><p>Brand: HP</p><p>Model: EliteDesk 800</p>`;
+            break;
+        case 'mouse':
+            html = `<h3>Mouse</h3><p>Type: Wireless</p><p>Brand: Logitech</p>`;
+            break;
+        case 'keyboard':
+            html = `<h3>Keyboard</h3><p>Type: Mechanical</p><p>Brand: Keychron</p>`;
+            break;
+        case 'usb_camera':
+            html = `<h3>USB Camera</h3><p>Resolution: 1080p</p><p>Brand: Logitech</p>`;
+            break;
+        case 'headset':
+            html = `<h3>Headset</h3><p>Type: Over-ear</p><p>Brand: Bose</p>`;
+            break;
+        case 'wifi_device':
+            html = `<h3>WiFi Device</h3><p>Brand: TP-Link</p><p>Speed: 1Gbps</p>`;
+            break;
+        case 'laptop_bag':
+            html = `<h3>Laptop Bag</h3><p>Type: Backpack</p><p>Brand: Samsonite</p>`;
+            break;
+        case 'scrap_system':
+            html = `<h3>Scrap System</h3><p>Status: Not in use</p>`;
+            break;
+        case 'software':
+            html = `<h3>Software</h3><p>OS: Windows 11 / macOS Ventura</p>`;
+            break;
+        default:
+            html = `<h3>Welcome</h3><p>Select an asset to view details.</p>`;
+    }
 
-const server = http.createServer((req, res) => {
-  if (req.method === 'GET' && req.url === '/') {
-    const filePath = path.join(__dirname, 'Index.html');
-    fs.readFile(filePath, (err, content) => {
-      if (err) {
-        res.writeHead(500);
-        res.end('Error loading page');
-      } else {
-        res.writeHead(200, { 'Content-Type': 'text/html' });
-        res.end(content);
-      }
-    });
-  }
-
-  else if (req.method === 'POST' && req.url === '/submit') {
-    let body = '';
-    req.on('data', chunk => { body += chunk.toString(); });
-    req.on('end', () => {
-      console.log('✅ Submit button clicked');
-      res.writeHead(200, { 'Content-Type': 'text/plain' });
-      res.end('Submit received');
-    });
-  }
-
-  else if (req.method === 'POST' && req.url === '/upload') {
-    let body = '';
-    req.on('data', chunk => { body += chunk.toString(); });
-    req.on('end', () => {
-      console.log('📁 Upload triggered (file upload not handled here)');
-      res.writeHead(200, { 'Content-Type': 'text/plain' });
-      res.end('Upload received');
-    });
-  }
-
-  else {
-    res.writeHead(404);
-    res.end('Not Found');
-  }
-});
-
-server.listen(PORT, () => {
-  console.log(`🚀 Server running at http://34.56.132.32:${3000}`);
-});
+    content.innerHTML = html;
+}
