@@ -5,8 +5,7 @@ function showContent(type) {
 
     switch (type) {
         case 'user':
-            let html = `<h3 style="text-align: center; color: rgb(121, 209, 244);">User Details</h3>`;
-            content.innerHTML = html;
+            html = `<h3 style="text-align:center;">User Details</h3>`;
             break;
         case 'mac_laptop':
             html = `<h3>Mac Laptop</h3>`;
