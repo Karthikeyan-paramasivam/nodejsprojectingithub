@@ -1,7 +1,7 @@
 function showContent(type) {
     const content = document.getElementById('mainContent');
     let html = "";
-    const portInfo = `<p style="color: gray; font-size: 14px;">Served from port 3000</p>`;
+    const portInfo = `<p style="color: gray; font-size: 14px;"></p>`;
 
     switch (type) {
         case 'user':
@@ -37,10 +37,21 @@ function showContent(type) {
         case 'scrap_system':
             html = `<h3>Scrap System</h3>${portInfo}`;
             break;
+        case 'software':
+            html = `<h3>Software</h3>${portInfo}`;
+            break;
         default:
-        
+            html = `<h3>Welcome</h3>${portInfo}`;
     }
+
+    html += `
+        <form method="POST" action="/submit">
+            <button type="submit">Submit</button>
+        </form>
+        <form method="POST" action="/upload">
+            <button type="submit">Upload</button>
+        </form>
+    `;
 
     content.innerHTML = html;
 }
-
