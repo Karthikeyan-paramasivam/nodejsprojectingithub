@@ -1,39 +1,40 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Assets</title>
-    <link rel="stylesheet" href="styles.css">
+    <title>Asset Management</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="container">
-        <!-- Left Sidebar -->
-        <aside class="sidebar">
-            <h2>Assets</h2>
-            <ul>
-                <li><button onclick="showContent('user')">User Details</button></li>
-                <li><button onclick="showContent('mac_laptop')">Mac Laptop</button></li>
-                <li><button onclick="showContent('win_laptop')">Windows Laptop</button></li>
-                <li><button onclick="showContent('desktop')">Desktop</button></li>
-                <li><button onclick="showContent('mouse')">Mouse</button></li>
-                <li><button onclick="showContent('keyboard')">Keyboard</button></li>
-                <li><button onclick="showContent('usb_camera')">USB Camera</button></li>
-                <li><button onclick="showContent('headset')">Headset</button></li>
-                <li><button onclick="showContent('wifi_device')">WiFi Device</button></li>
-                <li><button onclick="showContent('laptop_bag')">Laptop Bag</button></li>
-                <li><button onclick="showContent('scrap_system')">Scrap System</button></li>
-                <li><button onclick="showContent('software')">Software</button></li>
-            </ul>
-        </aside>
-
-        <!-- Main Content -->
-        <main class="content" id="mainContent">
-            <h3>Welcome</h3>
-            <p>Select an asset from the left menu to view details.</p>
-        </main>
+<div class="container">
+    <div class="sidebar">
+        <h2>Assets</h2>
+        <ul>
+            <li><button onclick="showContent('user')">User</button></li>
+            <li><button onclick="showContent('mac_laptop')">Mac Laptop</button></li>
+            <li><button onclick="showContent('win_laptop')">Windows Laptop</button></li>
+            <li><button onclick="showContent('desktop')">Desktop</button></li>
+            <li><button onclick="showContent('mouse')">Mouse</button></li>
+            <li><button onclick="showContent('keyboard')">Keyboard</button></li>
+            <li><button onclick="showContent('usb_camera')">USB Camera</button></li>
+            <li><button onclick="showContent('headset')">Headset</button></li>
+            <li><button onclick="showContent('wifi_device')">WiFi Device</button></li>
+            <li><button onclick="showContent('laptop_bag')">Laptop Bag</button></li>
+            <li><button onclick="showContent('scrap_system')">Scrap System</button></li>
+            <li><button onclick="showContent('software')">Software</button></li>
+        </ul>
     </div>
-
-    <script src="app.js"></script>
+    <div class="content" id="mainContent">
+        <h3>Welcome</h3>
+        <p>Select an asset to view details.</p>
+        <p style="color: gray; font-size: 14px;">(Served from port 3000)</p>
+        <form method="POST" action="/submit">
+            <button type="submit">Submit</button>
+        </form>
+        <form method="POST" action="/upload">
+            <button type="submit">Upload</button>
+        </form>
+    </div>
+</div>
+<script src="script.js"></script>
 </body>
 </html>

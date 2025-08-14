@@ -1,49 +1,54 @@
-function showContent(type) {
-    const content = document.getElementById('mainContent');
-    let html = "";
+const http = require('http');
+const fs = require('fs');
+const path = require('path');
 
-    const portInfo = `<p style="color: gray; font-size: 14px;">(Served from port 3000)</p>`;
+const PORT = 3000;
 
-    switch (type) {
-        case 'user':
-            html = `<h3>User Details</h3><p>Name: John Doe</p><p>Role: Admin</p>${portInfo}`;
-            break;
-        case 'mac_laptop':
-            html = `<h3>Mac Laptop</h3><p>Model: MacBook Pro 16"</p><p>Year: 2023</p>${portInfo}`;
-            break;
-        case 'win_laptop':
-            html = `<h3>Windows Laptop</h3><p>Brand: Dell</p><p>Model: XPS 15</p>${portInfo}`;
-            break;
-        case 'desktop':
-            html = `<h3>Desktop</h3><p>Brand: HP</p><p>Model: EliteDesk 800</p>${portInfo}`;
-            break;
-        case 'mouse':
-            html = `<h3>Mouse</h3><p>Type: Wireless</p><p>Brand: Logitech</p>${portInfo}`;
-            break;
-        case 'keyboard':
-            html = `<h3>Keyboard</h3><p>Type: Mechanical</p><p>Brand: Keychron</p>${portInfo}`;
-            break;
-        case 'usb_camera':
-            html = `<h3>USB Camera</h3><p>Resolution: 1080p</p><p>Brand: Logitech</p>${portInfo}`;
-            break;
-        case 'headset':
-            html = `<h3>Headset</h3><p>Type: Over-ear</p><p>Brand: Bose</p>${portInfo}`;
-            break;
-        case 'wifi_device':
-            html = `<h3>WiFi Device</h3><p>Brand: TP-Link</p><p>Speed: 1Gbps</p>${portInfo}`;
-            break;
-        case 'laptop_bag':
-            html = `<h3>Laptop Bag</h3><p>Type: Backpack</p><p>Brand: Samsonite</p>${portInfo}`;
-            break;
-        case 'scrap_system':
-            html = `<h3>Scrap System</h3><p>Status: Not in use</p>${portInfo}`;
-            break;
-        case 'software':
-            html = `<h3>Software</h3><p>OS: Windows 11 / macOS Ventura</p>${portInfo}`;
-            break;
-        default:
-            html = `<h3>Welcome</h3><p>Select an asset to view details.</p>${portInfo}`;
+const server = http.createServer((req, res) => {
+  let filePath = '';
+  let contentType = 'text/html';
+
+  if (req.method === 'GET' && req.url === '/') {
+    filePath = path.join(__dirname, 'index.html');
+  } else if (req.url.endsWith('.css')) {
+    filePath = path.join(__dirname, req.url);
+    contentType = 'text/css';
+  } else if (req.url.endsWith('.js')) {
+    filePath = path.join(__dirname, req.url);
+    contentType = 'application/javascript';
+  } else if (req.method === 'POST' && req.url === '/submit') {
+    req.on('data', () => {}); // We don't need the data content for now
+    req.on('end', () => {
+      console.log('✅ Submit button clicked');
+      res.writeHead(200, { 'Content-Type': 'text/plain' });
+      res.end('Submit received');
+    });
+    return;
+  } else if (req.method === 'POST' && req.url === '/upload') {
+    req.on('data', () => {});
+    req.on('end', () => {
+      console.log('📁 Upload triggered');
+      res.writeHead(200, { 'Content-Type': 'text/plain' });
+      res.end('Upload received');
+    });
+    return;
+  } else {
+    res.writeHead(404);
+    res.end('Not Found');
+    return;
+  }
+
+  fs.readFile(filePath, (err, content) => {
+    if (err) {
+      res.writeHead(500);
+      res.end('Error loading page');
+    } else {
+      res.writeHead(200, { 'Content-Type': contentType });
+      res.end(content);
     }
+  });
+});
 
-    content.innerHTML = html;
-}
+server.listen(PORT, () => {
+  console.log(`🚀 Server running at http://34.56.132.32:${PORT}`);
+});
