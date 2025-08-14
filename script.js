@@ -8,40 +8,40 @@ function showContent(type) {
             html = `<h3>User Details</h3>`;
             break;
         case 'mac_laptop':
-            html = `<h3>Mac Laptop</h3>${portInfo}`;
+            html = `<h3>Mac Laptop</h3>`;
             break;
         case 'win_laptop':
-            html = `<h3>Windows Laptop</h3>${portInfo}`;
+            html = `<h3>Windows Laptop</h3>`;
             break;
         case 'desktop':
-            html = `<h3>Desktop</h3>${portInfo}`;
+            html = `<h3>Desktop</h3>`;
             break;
         case 'mouse':
-            html = `<h3>Mouse</h3>${portInfo}`;
+            html = `<h3>Mouse</h3>`;
             break;
         case 'keyboard':
-            html = `<h3>Keyboard</h3>${portInfo}`;
+            html = `<h3>Keyboard</h3>`;
             break;
         case 'usb_camera':
-            html = `<h3>USB Camera</h3>${portInfo}`;
+            html = `<h3>USB Camera</h3>`;
             break;
         case 'headset':
-            html = `<h3>Headset</h3>${portInfo}`;
+            html = `<h3>Headset</h3>`;
             break;
         case 'wifi_device':
-            html = `<h3>WiFi Device</h3>${portInfo}`;
+            html = `<h3>WiFi Device</h3>`;
             break;
         case 'laptop_bag':
-            html = `<h3>Laptop Bag</h3>${portInfo}`;
+            html = `<h3>Laptop Bag</h3>`;
             break;
         case 'scrap_system':
-            html = `<h3>Scrap System</h3>${portInfo}`;
+            html = `<h3>Scrap System</h3>`;
             break;
         case 'software':
-            html = `<h3>Software</h3>${portInfo}`;
+            html = `<h3>Software</h3>`;
             break;
         default:
-            html = `<h3>Welcome</h3>${portInfo}`;
+            html = `<h3>Welcome</h3>`;
     }
 
     content.innerHTML = html;
