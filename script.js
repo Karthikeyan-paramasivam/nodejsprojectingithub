@@ -37,11 +37,8 @@ function showContent(type) {
         case 'scrap_system':
             html = `<h3>Scrap System</h3>${portInfo}`;
             break;
-        case 'software':
-            html = `<h3>Software</h3>${portInfo}`;
-            break;
         default:
-            html = `<h3>Welcome</h3>${portInfo}`;
+        
     }
 
     content.innerHTML = html;
