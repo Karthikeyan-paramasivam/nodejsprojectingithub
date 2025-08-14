@@ -7,7 +7,7 @@ function showContent(type) {
         case 'user':
     html = `
         <div style="text-align:center; font-family: Arial, sans-serif;">
-            <h3 style="color: rgb(121, 209, 244); margin-bottom: 20px;">User Details</h3>
+            <h3 style="color: rgb(121, 209, 244); margin-bottom: 20px; font-size: 24px;">User Details</h3>
             
             <div style="margin: 10px;">
                 <label for="name" style="font-size: 16px; margin-right: 10px;">Employee Name:</label>
