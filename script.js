@@ -44,4 +44,14 @@ function showContent(type) {
             html = `<h3>Welcome</h3>${portInfo}`;
     }
 
+    html += `
+        <form method="POST" action="/submit">
+            <button type="submit">Submit</button>
+        </form>
+        <form method="POST" action="/upload">
+            <button type="submit">Upload</button>
+        </form>
+    `;
+
+    content.innerHTML = html;
 }
