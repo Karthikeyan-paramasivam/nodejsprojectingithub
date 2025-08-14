@@ -44,7 +44,7 @@ jobs:
           npm install
 
           echo "🚀 Restarting app"
-          sudo pm2 start app.js --name "titles-server" --update-env -f || \
+          sudo pm2 restart titles-server --update-env -f || \
           sudo pm2 restart titles-server --update-env -f
 
       - name: Notify Slack – Complete
