@@ -54,9 +54,6 @@ function showContent(type) {
         `;
     break;
 }
-
-
-
         case 'mac_laptop':
             html = `<h3 style="text-align:center;">Mac Laptop</h3>`;
             break;
