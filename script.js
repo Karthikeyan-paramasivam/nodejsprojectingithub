@@ -20,12 +20,6 @@ function showContent(type) {
                 <input id="empNo" type="text" placeholder="Enter Employee No" 
                        style="padding: 10px; font-size: 16px; width: 250px; border-radius: 8px; border: 1px solid #ccc;">
             </div>
-
-            <div style="margin: 10px;">
-                <label for="empNo" style="font-size: 16px; margin-right: 10px;">Employee No:</label>
-                <input id="empNo" type="text" placeholder="Enter Employee No" 
-                       style="padding: 10px; font-size: 16px; width: 250px; border-radius: 8px; border: 1px solid #ccc;">
-            </div>
             
             <button onclick="submitUser()" 
                     style="margin-top: 15px; padding: 10px 20px; font-size: 16px; background-color: rgb(121, 209, 244); color: white; border: none; border-radius: 8px; cursor: pointer;">
@@ -81,6 +75,9 @@ function showContent(type) {
             break;
         case 'scrap_system':
             html = `<h3 style="text-align:center;">Scrap System</h3>`;
+            break;
+        case 'software':
+            html = `<h3 style="text-align:center;">Software</h3>`;
             break;
         default:
             html = `<h3 style="text-align:center;">Welcome</h3>`;
