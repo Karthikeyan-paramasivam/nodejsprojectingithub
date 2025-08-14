@@ -1,11 +1,11 @@
 function showContent(type) {
     const content = document.getElementById('mainContent');
     let html = "";
-    const portInfo = `<p style="color: gray; font-size: 14px;">Served from port 3000</p>`;
+    
 
     switch (type) {
         case 'user':
-            html = `<h3>User Details</h3>${portInfo}`;
+            html = `<h3>User Details</h3>`;
             break;
         case 'mac_laptop':
             html = `<h3>Mac Laptop</h3>${portInfo}`;
