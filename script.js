@@ -9,21 +9,24 @@ function showContent(type) {
         <div style="text-align:center; font-family: Arial, sans-serif;">
             <h3 style="color: rgb(121, 209, 244); margin-bottom: 20px;">User Details</h3>
             
-            <input id="name" type="text" placeholder="Enter Name" 
-                   style="padding: 10px; font-size: 16px; margin: 10px; width: 250px; border-radius: 8px; border: 1px solid #ccc;">
-            
-            <br>
-            
-            <input id="empNo" type="text" placeholder="Enter Employee No" 
-                   style="padding: 10px; font-size: 16px; margin: 10px; width: 250px; border-radius: 8px; border: 1px solid #ccc;">
-            
-            <br>
+            <div style="margin: 10px;">
+                <label for="name" style="font-size: 16px; margin-right: 10px;">Name:</label>
+                <input id="name" type="text" placeholder="Enter Name" 
+                       style="padding: 10px; font-size: 16px; width: 250px; border-radius: 8px; border: 1px solid #ccc;">
+            </div>
+
+            <div style="margin: 10px;">
+                <label for="empNo" style="font-size: 16px; margin-right: 10px;">Emp No:</label>
+                <input id="empNo" type="text" placeholder="Enter Employee No" 
+                       style="padding: 10px; font-size: 16px; width: 250px; border-radius: 8px; border: 1px solid #ccc;">
+            </div>
             
             <button onclick="submitUser()" 
-                    style="padding: 10px 20px; font-size: 16px; background-color: rgb(121, 209, 244); color: white; border: none; border-radius: 8px; cursor: pointer;">
+                    style="margin-top: 15px; padding: 10px 20px; font-size: 16px; background-color: rgb(121, 209, 244); color: white; border: none; border-radius: 8px; cursor: pointer;">
                 Submit
             </button>
         </div>
+
         <script>
             function submitUser() {
                 const name = document.getElementById('name').value;
@@ -41,6 +44,7 @@ function showContent(type) {
         </script>
     `;
     break;
+
 
         case 'mac_laptop':
             html = `<h3 style="text-align:center;">Mac Laptop</h3>`;
