@@ -9,7 +9,7 @@ const server = http.createServer((req, res) => {
   let contentType = 'text/html';
 
   if (req.method === 'GET' && req.url === '/') {
-    filePath = path.join(__dirname, 'index.html');
+    filePath = path.join(__dirname, 'Index.html');
   } else if (req.url.endsWith('.css')) {
     filePath = path.join(__dirname, req.url);
     contentType = 'text/css';
@@ -50,5 +50,5 @@ const server = http.createServer((req, res) => {
 });
 
 server.listen(PORT, () => {
-  console.log(`🚀 Server running at http://34.56.132.32:${3000}`);
+  console.log(`🚀 Server running at http://34.56.132.32:${PORT}`);
 });
