@@ -4,8 +4,8 @@ function showContent(type) {
     
 
     switch (type) {
-    case 'user':
-        html = `
+        case 'user':
+    html = `
         <div style="text-align:center; font-family: Arial, sans-serif;">
             <h3 style="color: rgb(121, 209, 244); margin-bottom: 20px; font-size: 40px;">User Details</h3>
             
@@ -19,41 +19,26 @@ function showContent(type) {
                     style="margin-top: 15px; padding: 10px 20px; font-size: 16px; background-color: rgb(121, 209, 244); color: white; border: none; border-radius: 8px; cursor: pointer;">
                 Submit
             </button>
-
-            <div id="userResult" style="margin-top: 20px; font-size: 16px;"></div>
         </div>
 
         <script>
             function submitUser() {
-                const empNo = document.getElementById('empNo').value.trim();
-                if (!empNo) {
-                    alert("Please enter Employee No");
-                    return;
-                }
-
-                fetch("https://script.google.com/macros/s/AKfycbzvodU_B27nwyoLng9msSlT7B6sdBpmEB9v_AKsMELnrTvSfYknb2zijos3M6RH_9GT/exec", {
+                const empNo = document.getElementById('empNo').value;
+                
+                fetch('/save-user', {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({ empNo })
+                    body: JSON.stringify({ name, empNo })
                 })
                 .then(res => res.json())
-                .then(data => {
-                    const resultDiv = document.getElementById('userResult');
-                    if (data.found) {
-                        resultDiv.innerHTML = "<b>Employee Found:</b><br>" +
-                                              "Name: " + data.details.Name + "<br>" +
-                                              "Department: " + data.details.Department + "<br>" +
-                                              "Email: " + data.details.Email;
-                    } else {
-                        resultDiv.innerHTML = "<span style='color:red;'>Employee not found</span>";
-                    }
-                })
+                .then(data => alert(data.message))
                 .catch(err => console.error(err));
             }
         </script>
-        `;
+    `;
     break;
-}
+
+
         case 'mac_laptop':
             html = `<h3 style="text-align:center;">Mac Laptop</h3>`;
             break;
