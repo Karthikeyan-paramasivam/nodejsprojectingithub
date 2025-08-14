@@ -1,19 +1,39 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Button Form</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Assets</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <h1 style="text-align: center;">Pippin Assets 2025 update</h1>
+    <div class="container">
+        <!-- Left Sidebar -->
+        <aside class="sidebar">
+            <h2>Assets</h2>
+            <ul>
+                <li><button onclick="showContent('user')">User Details</button></li>
+                <li><button onclick="showContent('mac_laptop')">Mac Laptop</button></li>
+                <li><button onclick="showContent('win_laptop')">Windows Laptop</button></li>
+                <li><button onclick="showContent('desktop')">Desktop</button></li>
+                <li><button onclick="showContent('mouse')">Mouse</button></li>
+                <li><button onclick="showContent('keyboard')">Keyboard</button></li>
+                <li><button onclick="showContent('usb_camera')">USB Camera</button></li>
+                <li><button onclick="showContent('headset')">Headset</button></li>
+                <li><button onclick="showContent('wifi_device')">WiFi Device</button></li>
+                <li><button onclick="showContent('laptop_bag')">Laptop Bag</button></li>
+                <li><button onclick="showContent('scrap_system')">Scrap System</button></li>
+                <li><button onclick="showContent('software')">Software</button></li>
+            </ul>
+        </aside>
 
-  <form action="/submit" method="POST" style="text-align: center;">
-    <button type="submit">Submit</button>
-  </form>
+        <!-- Main Content -->
+        <main class="content" id="mainContent">
+            <h3>Welcome</h3>
+            <p>Select an asset from the left menu to view details.</p>
+        </main>
+    </div>
 
-  <form action="/upload" method="POST" enctype="multipart/form-data" style="text-align: center; margin-top: 20px;">
-    <input type="file" name="file" />
-    <button type="submit">Upload</button>
-  </form>
+    <script src="app.js"></script>
 </body>
 </html>
