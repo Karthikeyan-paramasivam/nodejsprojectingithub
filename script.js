@@ -10,13 +10,13 @@ function showContent(type) {
             <h3 style="color: rgb(121, 209, 244); margin-bottom: 20px;">User Details</h3>
             
             <div style="margin: 10px;">
-                <label for="name" style="font-size: 16px; margin-right: 10px;">Pippin Employee Name:</label>
+                <label for="name" style="font-size: 16px; margin-right: 10px;">Employee Name:</label>
                 <input id="name" type="text" placeholder="Enter Name" 
                        style="padding: 10px; font-size: 16px; width: 250px; border-radius: 8px; border: 1px solid #ccc;">
             </div>
 
             <div style="margin: 10px;">
-                <label for="empNo" style="font-size: 16px; margin-right: 10px;">Pippin Employee No:</label>
+                <label for="empNo" style="font-size: 16px; margin-right: 10px;">Employee No:</label>
                 <input id="empNo" type="text" placeholder="Enter Employee No" 
                        style="padding: 10px; font-size: 16px; width: 250px; border-radius: 8px; border: 1px solid #ccc;">
             </div>
