@@ -9,6 +9,8 @@ function showContent(type) {
         <div style="text-align:center; font-family: Arial, sans-serif;">
             <h3 style="color: rgb(121, 209, 244); margin-bottom: 20px; font-size: 40px;">User Details</h3>
             
+            
+
             <div style="margin: 10px;">
                 <label for="empNo" style="font-size: 16px; margin-right: 10px;">Employee No:</label>
                 <input id="empNo" type="text" placeholder="Enter Employee No" 
