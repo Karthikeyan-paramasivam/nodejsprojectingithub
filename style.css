@@ -34,7 +34,7 @@ body {
 .sidebar button {
     background: none;
     border: none;
-    color: white;
+    color: rgb(121, 209, 244);
     cursor: pointer;
     font-size: 16px;
     text-align: left;
