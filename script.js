@@ -83,7 +83,7 @@ function submitUser() {
     })
     .catch(err => {
         resultMsg.style.color = 'red';
-        resultMsg.textContent = "⚠️ Error checking details.";
+        resultMsg.textContent = "Error checking details.";
         console.error(err);
     });
 }
