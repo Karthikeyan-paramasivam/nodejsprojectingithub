@@ -13,16 +13,33 @@ function showContent(type) {
                         <input id="empNo" type="text" placeholder="Enter Employee No"
                                style="padding: 10px; font-size: 16px; width: 250px; border-radius: 8px; border: 1px solid #ccc;">
                     </div>
-                    <button onclick="submitUser()"
+                    <button id="submitBtn"
                             style="margin-top: 15px; padding: 10px 20px; font-size: 16px; background-color: rgba(232, 121, 244, 1); color: white; border: none; border-radius: 8px; cursor: pointer;">
                         Submit
                     </button>
                     <p id="resultMsg" style="margin-top: 20px; font-size: 18px; color: green;"></p>
                 </div>
             `;
+            content.innerHTML = html;
+
+            // Attach event listener after injecting the HTML
+            document.getElementById('submitBtn').addEventListener('click', submitUser);
             break;
+
+        case 'mac_laptop': html = `<h3 style="text-align:center;">Mac Laptop</h3>`; break;
+        case 'win_laptop': html = `<h3 style="text-align:center;">Windows Laptop</h3>`; break;
+        case 'desktop': html = `<h3 style="text-align:center;">Desktop</h3>`; break;
+        case 'mouse': html = `<h3 style="text-align:center;">Mouse</h3>`; break;
+        case 'keyboard': html = `<h3 style="text-align:center;">Keyboard</h3>`; break;
+        case 'usb_camera': html = `<h3 style="text-align:center;">USB Camera</h3>`; break;
+        case 'headset': html = `<h3 style="text-align:center;">Headset</h3>`; break;
+        case 'wifi_device': html = `<h3 style="text-align:center;">WiFi Device</h3>`; break;
+        case 'laptop_bag': html = `<h3 style="text-align:center;">Laptop Bag</h3>`; break;
+        case 'scrap_system': html = `<h3 style="text-align:center;">Scrap System</h3>`; break;
+        case 'software': html = `<h3 style="text-align:center;">Software</h3>`; break;
+
         default:
-            html = `<h3 style="text-align:center;">${type.replace('_', ' ').toUpperCase()}</h3>`;
+            html = `<h3 style="text-align:center;">Welcome</h3>`;
     }
 
     content.innerHTML = html;
@@ -32,7 +49,7 @@ function showContent(type) {
 function submitUser() {
     const empNo = document.getElementById('empNo').value.trim();
     const resultMsg = document.getElementById('resultMsg');
-    const gsheetApiUrl = "https://script.google.com/a/macros/pippintitle.com/s/AKfycbzhhAaCan9Q7vUl18szvCW4VHM38XR8m6mrDbsXI5O9iNrpZFvCkAvexq_27YO3RpqD/exechttps://script.google.com/macros/s/AKfycbzhhAaCan9Q7vUl18szvCW4VHM38XR8m6mrDbsXI5O9iNrpZFvCkAvexq_27YO3RpqD/exec";
+    const gsheetApiUrl = "https://script.google.com/macros/s/AKfycbzhhAaCan9Q7vUl18szvCW4VHM38XR8m6mrDbsXI5O9iNrpZFvCkAvexq_27YO3RpqD/exec";
 
     if (!empNo) {
         resultMsg.style.color = 'red';
@@ -40,14 +57,17 @@ function submitUser() {
         return;
     }
 
+    // Remove old JSONP script if exists
     const oldScript = document.getElementById('jsonpScript');
     if (oldScript) oldScript.remove();
 
+    // Create new JSONP script
     const script = document.createElement('script');
     script.id = 'jsonpScript';
     script.src = `${gsheetApiUrl}?empNo=${encodeURIComponent(empNo)}&callback=handleResponse`;
     document.body.appendChild(script);
 
+    // Callback to handle the response
     window.handleResponse = function(data) {
         if (!data) {
             resultMsg.style.color = 'red';
