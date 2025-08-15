@@ -45,9 +45,11 @@ jobs:
 
           echo "🚀 Starting or restarting app"
           if sudo pm2 list | grep -q "titles-server"; then
-          sudo pm2 restart titles-server --update-env
+           echo "Restarting existing titles-server..."
+           sudo pm2 restart titles-server --update-env
           else
-          sudo pm2 start app.js --name "titles-server" --update-env
+           echo "Starting new titles-server..."
+           sudo pm2 start app.js --name "titles-server" --update-env
           fi
           sudo pm2 save
 
