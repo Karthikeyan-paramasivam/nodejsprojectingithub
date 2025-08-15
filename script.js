@@ -74,10 +74,10 @@ function submitUser() {
     .then(data => {
         if (data.exists) {
             resultMsg.style.color = 'green';
-            resultMsg.textContent = "✅ Details available for Employee ID: " + empNo;
+            resultMsg.textContent = "Details available for Employee ID: " + empNo;
         } else {
             resultMsg.style.color = 'red';
-            resultMsg.textContent = "❌ No details found for Employee ID: " + empNo;
+            resultMsg.textContent = "No details found for Employee ID: " + empNo;
         }
     })
     .catch(err => {
