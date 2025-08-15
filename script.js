@@ -65,13 +65,20 @@ function showContent(type) {
 function submitUser() {
     const empNo = document.getElementById('empNo').value;
     const resultMsg = document.getElementById('resultMsg');
+    const gsheetApiUrl = "https://script.google.com/macros/s/AKfycbzhhAaCan9Q7vUl18szvCW4VHM38XR8m6mrDbsXI5O9iNrpZFvCkAvexq_27YO3RpqD/exec";
 
-    // Replace this with your Google Apps Script Web App URL
-    const gsheetApiUrl = "https://script.google.com/macros/s/AKfycbzhhAaCan9Q7vUl18szvCW4VHM38XR8m6mrDbsXI5O9iNrpZFvCkAvexq_27YO3RpqD/exechttps://script.google.com/macros/s/AKfycbzhhAaCan9Q7vUl18szvCW4VHM38XR8m6mrDbsXI5O9iNrpZFvCkAvexq_27YO3RpqD/exec";
+    // Remove old script if exists
+    const oldScript = document.getElementById('jsonpScript');
+    if (oldScript) oldScript.remove();
 
-    fetch(`${gsheetApiUrl}?empNo=${encodeURIComponent(empNo)}`)
-    .then(res => res.json())
-    .then(data => {
+    // Create new script for JSONP
+    const script = document.createElement('script');
+    script.id = 'jsonpScript';
+    script.src = `${gsheetApiUrl}?empNo=${encodeURIComponent(empNo)}&callback=handleResponse`;
+    document.body.appendChild(script);
+
+    // Define callback function
+    window.handleResponse = function(data) {
         if (data.exists) {
             resultMsg.style.color = 'green';
             let detailsHtml = `<p>✅ Details available for Employee ID: ${empNo}</p><ul>`;
@@ -84,11 +91,5 @@ function submitUser() {
             resultMsg.style.color = 'red';
             resultMsg.textContent = `❌ No details found for Employee ID: ${empNo}`;
         }
-    })
-    .catch(err => {
-        resultMsg.style.color = 'red';
-        resultMsg.textContent = "Error checking details.";
-        console.error(err);
-    });
-
+    }
 }
