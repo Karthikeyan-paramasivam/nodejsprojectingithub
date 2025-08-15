@@ -22,21 +22,6 @@ function showContent(type) {
                 Submit
             </button>
         </div>
-
-        <script>
-            function submitUser() {
-                const empNo = document.getElementById('empNo').value;
-                
-                fetch('/save-user', {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({ empNo })
-                })
-                .then(res => res.json())
-                .then(data => alert(data.message))
-                .catch(err => console.error(err));
-            }
-        </script>
     `;
     break;
         case 'mac_laptop':
@@ -77,5 +62,18 @@ function showContent(type) {
     }
 
     content.innerHTML = html;
+}
+
+function submitUser() {
+    const empNo = document.getElementById('empNo').value;
+    
+    fetch('/save-user', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ empNo })
+    })
+    .then(res => res.json())
+    .then(data => alert(data.message))
+    .catch(err => console.error(err));
 }
 

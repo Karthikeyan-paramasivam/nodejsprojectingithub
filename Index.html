@@ -29,5 +29,27 @@
         <p style="color: gray; font-size: 44px; text-align: center;">Your asset management hub</p>
     </div>
 </div>
+<script>
+function submitUser() {
+    const empNo = document.getElementById('empNo').value;
+
+    if (!empNo) {
+        alert("Please enter Employee Number");
+        return;
+    }
+
+    fetch('/save-user', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ empNo })
+    })
+    .then(res => res.json())
+    .then(data => alert(data.message || "User saved successfully!"))
+    .catch(err => {
+        console.error(err);
+        alert("Error saving user");
+    });
+}
+</script>
 </body>
 </html>
