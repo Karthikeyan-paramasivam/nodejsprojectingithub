@@ -22,34 +22,6 @@ function showContent(type) {
         </div>
     `;
     break;
-           
-    content.innerHTML = html;
-}
-
-function submitUser() {
-    const empNo = document.getElementById('empNo').value;
-    const resultMsg = document.getElementById('resultMsg');
-    
-    fetch('/save-user', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ empNo })
-    })
-    .then(res => res.json())
-    .then(data => {
-        if (data.exists) {
-            resultMsg.style.color = 'green';
-            resultMsg.textContent = "✅ Details available for Employee ID: " + empNo;
-        } else {
-            resultMsg.style.color = 'red';
-            resultMsg.textContent = "❌ No details found for Employee ID: " + empNo;
-        }
-    })
-    .catch(err => {
-        resultMsg.style.color = 'red';
-        resultMsg.textContent = "Error checking details.";
-        console.error(err);
-    });
         case 'mac_laptop':
             html = `<h3 style="text-align:center;">Mac Laptop</h3>`;
             break;
@@ -87,5 +59,32 @@ function submitUser() {
             html = `<h3 style="text-align:center;">Welcome</h3>`;
     }
 
+    content.innerHTML = html;
+}
+
+function submitUser() {
+    const empNo = document.getElementById('empNo').value;
+    const resultMsg = document.getElementById('resultMsg');
+    
+    fetch('/save-user', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ empNo })
+    })
+    .then(res => res.json())
+    .then(data => {
+        if (data.exists) {
+            resultMsg.style.color = 'green';
+            resultMsg.textContent = "✅ Details available for Employee ID: " + empNo;
+        } else {
+            resultMsg.style.color = 'red';
+            resultMsg.textContent = "❌ No details found for Employee ID: " + empNo;
+        }
+    })
+    .catch(err => {
+        resultMsg.style.color = 'red';
+        resultMsg.textContent = "Error checking details.";
+        console.error(err);
+    });
 }
 
