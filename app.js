@@ -6,20 +6,16 @@ const PORT = 3000;
 
 const server = http.createServer((req, res) => {
   let filePath = path.join(__dirname, req.url === '/' ? 'Index.html' : req.url);
-  
-  // File extension
   const ext = path.extname(filePath).toLowerCase();
   let contentType = 'text/html';
-  
+
   const mimeTypes = {
     '.html': 'text/html',
     '.css': 'text/css',
     '.js': 'application/javascript'
   };
-  
-  if (mimeTypes[ext]) {
-    contentType = mimeTypes[ext];
-  }
+
+  if (mimeTypes[ext]) contentType = mimeTypes[ext];
 
   fs.readFile(filePath, (err, content) => {
     if (err) {
