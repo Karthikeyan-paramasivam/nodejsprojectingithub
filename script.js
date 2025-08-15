@@ -32,7 +32,7 @@ function showContent(type) {
 function submitUser() {
     const empNo = document.getElementById('empNo').value.trim();
     const resultMsg = document.getElementById('resultMsg');
-    const gsheetApiUrl = "https://script.google.com/macros/s/AKfycbzhhAaCan9Q7vUl18szvCW4VHM38XR8m6mrDbsXI5O9iNrpZFvCkAvexq_27YO3RpqD/exec";
+    const gsheetApiUrl = "https://script.google.com/a/macros/pippintitle.com/s/AKfycbzhhAaCan9Q7vUl18szvCW4VHM38XR8m6mrDbsXI5O9iNrpZFvCkAvexq_27YO3RpqD/exechttps://script.google.com/macros/s/AKfycbzhhAaCan9Q7vUl18szvCW4VHM38XR8m6mrDbsXI5O9iNrpZFvCkAvexq_27YO3RpqD/exec";
 
     if (!empNo) {
         resultMsg.style.color = 'red';
