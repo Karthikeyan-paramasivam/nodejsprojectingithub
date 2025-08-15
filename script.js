@@ -12,7 +12,7 @@ function showContent(type) {
             
 
             <div style="margin: 10px;">
-                <label for="empNo" style="font-size: 16px; margin-right: 10px;">Employee No:</label>
+                <label for="empNo" style="font-size: 16px; margin-right: 10px;">Employee No</label>
                 <input id="empNo" type="text" placeholder="Enter Employee No" 
                        style="padding: 10px; font-size: 16px; width: 250px; border-radius: 8px; border: 1px solid #ccc;">
             </div>
