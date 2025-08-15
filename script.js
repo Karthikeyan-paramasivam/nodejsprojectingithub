@@ -18,6 +18,7 @@ function showContent(type) {
                     style="margin-top: 15px; padding: 10px 20px; font-size: 16px; background-color: rgba(232, 121, 244, 1); color: white; border: none; border-radius: 8px; cursor: pointer;">
                 Submit
             </button>
+            <p id="resultMsg" style="margin-top: 20px; font-size: 18px; color: green;"></p>
         </div>
     `;
     break;
@@ -63,6 +64,7 @@ function showContent(type) {
 
 function submitUser() {
     const empNo = document.getElementById('empNo').value;
+    const resultMsg = document.getElementById('resultMsg');
     
     fetch('/save-user', {
         method: 'POST',
@@ -70,7 +72,19 @@ function submitUser() {
         body: JSON.stringify({ empNo })
     })
     .then(res => res.json())
-    .then(data => alert(data.message))
-    .catch(err => console.error(err));
+    .then(data => {
+        if (data.exists) {
+            resultMsg.style.color = 'green';
+            resultMsg.textContent = "✅ Details available for Employee ID: " + empNo;
+        } else {
+            resultMsg.style.color = 'red';
+            resultMsg.textContent = "❌ No details found for Employee ID: " + empNo;
+        }
+    })
+    .catch(err => {
+        resultMsg.style.color = 'red';
+        resultMsg.textContent = "⚠️ Error checking details.";
+        console.error(err);
+    });
 }
 
