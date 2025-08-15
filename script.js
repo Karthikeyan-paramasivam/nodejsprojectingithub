@@ -8,17 +8,14 @@ function showContent(type) {
     html = `
         <div style="text-align:center; font-family: Arial, sans-serif;">
             <h3 style="color: rgb(121, 209, 244); margin-bottom: 20px; font-size: 40px;">User Details</h3>
-            
-            
-
-            <div style="margin: 10px;">
+                <div style="margin: 10px;">
                 <label for="empNo" style="font-size: 16px; margin-right: 10px;">Employee No</label>
                 <input id="empNo" type="text" placeholder="Enter Employee No" 
                        style="padding: 10px; font-size: 16px; width: 250px; border-radius: 8px; border: 1px solid #ccc;">
             </div>
             
             <button onclick="submitUser()" 
-                    style="margin-top: 15px; padding: 10px 20px; font-size: 16px; background-color: rgba(127, 121, 244, 1); color: white; border: none; border-radius: 8px; cursor: pointer;">
+                    style="margin-top: 15px; padding: 10px 20px; font-size: 16px; background-color: rgba(232, 121, 244, 1); color: white; border: none; border-radius: 8px; cursor: pointer;">
                 Submit
             </button>
         </div>
