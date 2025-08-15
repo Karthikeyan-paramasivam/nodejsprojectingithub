@@ -49,7 +49,7 @@ function submitUser() {
     const resultMsg = document.getElementById('resultMsg');
     
     // Replace this with your actual Apps Script Web App URL
-    const gsheetApiUrl = "https://script.google.com/macros/s/YOUR_DEPLOYMENT_ID/exec";
+    const gsheetApiUrl = "https://script.google.com/macros/s/AKfycbzhhAaCan9Q7vUl18szvCW4VHM38XR8m6mrDbsXI5O9iNrpZFvCkAvexq_27YO3RpqD/exec";
 
     if (!empNo) {
         resultMsg.style.color = 'red';
