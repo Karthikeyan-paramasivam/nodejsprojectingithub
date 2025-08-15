@@ -65,26 +65,24 @@ function showContent(type) {
 function submitUser() {
     const empNo = document.getElementById('empNo').value;
     const resultMsg = document.getElementById('resultMsg');
-    
-    fetch('/save-user', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ empNo })
-    })
-    .then(res => res.json())
-    .then(data => {
-        if (data.exists) {
-            resultMsg.style.color = 'green';
-            resultMsg.textContent = "✅ Details available for Employee ID: " + empNo;
-        } else {
-            resultMsg.style.color = 'red';
-            resultMsg.textContent = "❌ No details found for Employee ID: " + empNo;
-        }
-    })
-    .catch(err => {
-        resultMsg.style.color = 'red';
-        resultMsg.textContent = "Error checking details.";
-        console.error(err);
-    });
-}
 
+    // Replace this with your Google Apps Script Web App URL
+    const gsheetApiUrl = "https://script.google.com/macros/s/AKfycbzvodU_B27nwyoLng9msSlT7B6sdBpmEB9v_AKsMELnrTvSfYknb2zijos3M6RH_9GT/exec";
+
+    fetch(`${gsheetApiUrl}?empNo=${encodeURIComponent(empNo)}`)
+        .then(res => res.json())
+        .then(data => {
+            if (data.exists) {
+                resultMsg.style.color = 'green';
+                resultMsg.textContent = "✅ Details available for Employee ID: " + empNo;
+            } else {
+                resultMsg.style.color = 'red';
+                resultMsg.textContent = "❌ No details found for Employee ID: " + empNo;
+            }
+        })
+        .catch(err => {
+            resultMsg.style.color = 'red';
+            resultMsg.textContent = "Error checking details.";
+            console.error(err);
+        });
+}
