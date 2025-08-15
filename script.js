@@ -18,7 +18,7 @@ function showContent(type) {
             </div>
             
             <button onclick="submitUser()" 
-                    style="margin-top: 15px; padding: 10px 20px; font-size: 16px; background-color: rgba(244, 121, 199, 1); color: white; border: none; border-radius: 8px; cursor: pointer;">
+                    style="margin-top: 15px; padding: 10px 20px; font-size: 16px; background-color: rgba(127, 121, 244, 1); color: white; border: none; border-radius: 8px; cursor: pointer;">
                 Submit
             </button>
         </div>
