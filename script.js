@@ -74,10 +74,15 @@ function submitUser() {
     .then(data => {
         if (data.exists) {
             resultMsg.style.color = 'green';
-            resultMsg.textContent = "Details available for Employee ID: " + empNo;
+            let detailsHtml = `<p>✅ Details available for Employee ID: ${empNo}</p><ul>`;
+            for (const [key, value] of Object.entries(data.details)) {
+                detailsHtml += `<li><strong>${key}:</strong> ${value}</li>`;
+            }
+            detailsHtml += `</ul>`;
+            resultMsg.innerHTML = detailsHtml;
         } else {
             resultMsg.style.color = 'red';
-            resultMsg.textContent = "No details found for Employee ID: " + empNo;
+            resultMsg.textContent = `❌ No details found for Employee ID: ${empNo}`;
         }
     })
     .catch(err => {
@@ -85,4 +90,5 @@ function submitUser() {
         resultMsg.textContent = "Error checking details.";
         console.error(err);
     });
+
 }
