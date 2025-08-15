@@ -43,6 +43,8 @@ jobs:
           echo "📦 Installing dependencies"
           npm install
 
+      - name: 🚀 Start or Restart PM2 App
+        run: |
           echo "🚀 Starting or restarting app"
           if sudo pm2 list | grep -q "titles-server"; then
            echo "Restarting existing titles-server..."
