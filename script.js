@@ -18,7 +18,7 @@ function showContent(type) {
             </div>
             
             <button onclick="submitUser()" 
-                    style="margin-top: 15px; padding: 10px 20px; font-size: 16px; background-color: rgb(121, 209, 244); color: white; border: none; border-radius: 8px; cursor: pointer;">
+                    style="margin-top: 15px; padding: 10px 20px; font-size: 16px; background-color: rgba(244, 121, 199, 1); color: white; border: none; border-radius: 8px; cursor: pointer;">
                 Submit
             </button>
         </div>
@@ -30,7 +30,7 @@ function showContent(type) {
                 fetch('/save-user', {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({ name, empNo })
+                    body: JSON.stringify({ empNo })
                 })
                 .then(res => res.json())
                 .then(data => alert(data.message))
@@ -39,8 +39,6 @@ function showContent(type) {
         </script>
     `;
     break;
-
-
         case 'mac_laptop':
             html = `<h3 style="text-align:center;">Mac Laptop</h3>`;
             break;
