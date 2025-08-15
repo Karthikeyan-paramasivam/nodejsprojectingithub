@@ -67,22 +67,22 @@ function submitUser() {
     const resultMsg = document.getElementById('resultMsg');
 
     // Replace this with your Google Apps Script Web App URL
-    const gsheetApiUrl = "https://script.google.com/macros/s/AKfycbzvodU_B27nwyoLng9msSlT7B6sdBpmEB9v_AKsMELnrTvSfYknb2zijos3M6RH_9GT/exec";
+    const gsheetApiUrl = "https://script.google.com/a/macros/pippintitle.com/s/AKfycbzhhAaCan9Q7vUl18szvCW4VHM38XR8m6mrDbsXI5O9iNrpZFvCkAvexq_27YO3RpqD/exec";
 
     fetch(`${gsheetApiUrl}?empNo=${encodeURIComponent(empNo)}`)
-        .then(res => res.json())
-        .then(data => {
-            if (data.exists) {
-                resultMsg.style.color = 'green';
-                resultMsg.textContent = "✅ Details available for Employee ID: " + empNo;
-            } else {
-                resultMsg.style.color = 'red';
-                resultMsg.textContent = "❌ No details found for Employee ID: " + empNo;
-            }
-        })
-        .catch(err => {
+    .then(res => res.json())
+    .then(data => {
+        if (data.exists) {
+            resultMsg.style.color = 'green';
+            resultMsg.textContent = "✅ Details available for Employee ID: " + empNo;
+        } else {
             resultMsg.style.color = 'red';
-            resultMsg.textContent = "Error checking details.";
-            console.error(err);
-        });
+            resultMsg.textContent = "❌ No details found for Employee ID: " + empNo;
+        }
+    })
+    .catch(err => {
+        resultMsg.style.color = 'red';
+        resultMsg.textContent = "Error checking details.";
+        console.error(err);
+    });
 }
