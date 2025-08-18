@@ -119,42 +119,42 @@ function showContent(type) {
           <div style="display: flex; flex-direction: column;">
           <label for="monitor">Number of Monitor</label>
           <select id="monitor" style="padding: 8px; width: 150px; border-radius: 5px; border: 1px solid #ccc;">
-          <option value="">-- Select Number of Monitor --</option>
-          <option value="monitor-1">monitor-2</option>
+          <option value="">-- Select Monitor --</option>
+          <option value="monitor-1">Monitor-2</option>
           </select>
           </div>
 
           <div style="display: flex; flex-direction: column;">
           <label for="monitor_id">Monitor Assets ID-2</label>
-          <input id="ass_idpc" type="text" placeholder="Enter Assets_ID" style="padding: 8px; width: 150px; border-radius: 5px; border: 1px solid #ccc;">
+          <input id="ass_idpc" type="text" placeholder="Monitor Assets_ID-2" style="padding: 8px; width: 150px; border-radius: 5px; border: 1px solid #ccc;">
           </div>
 
 
           <div style="display: flex; flex-direction: column;">
             <label for="monitor_ser_num">Monitor Serial Number-2</label>
-            <input id="ser_num" type="text" placeholder="PC Serial_Number" style="padding: 8px; width: 150px; border-radius: 5px; border: 1px solid #ccc;">
+            <input id="ser_num" type="text" placeholder="Monitor Serial_Number-2" style="padding: 8px; width: 150px; border-radius: 5px; border: 1px solid #ccc;">
           </div>
           </div>
 
           <div style="display: flex; align-items: center; gap: 20px; margin: 10px 0;">
 
           <div style="display: flex; flex-direction: column;">
-          <label for="monitor">Number of Monitor</label>
+          <label for="monitor">Monitor-3</label>
           <select id="monitor" style="padding: 8px; width: 150px; border-radius: 5px; border: 1px solid #ccc;">
-          <option value="">-- Select Number of Monitor --</option>
-          <option value="monitor-1">monitor-3</option>
+          <option value="">-- Select Monitor --</option>
+          <option value="monitor-1">Monitor-3</option>
           </select>
           </div>
 
           <div style="display: flex; flex-direction: column;">
           <label for="monitor_id">Monitor Assets ID-3</label>
-          <input id="ass_idpc" type="text" placeholder="Enter Assets_ID" style="padding: 8px; width: 150px; border-radius: 5px; border: 1px solid #ccc;">
+          <input id="ass_idpc" type="text" placeholder="Monitor Assets_ID-3" style="padding: 8px; width: 150px; border-radius: 5px; border: 1px solid #ccc;">
           </div>
 
 
           <div style="display: flex; flex-direction: column;">
             <label for="monitor_ser_num">Monitor Serial Number-3</label>
-            <input id="ser_num" type="text" placeholder="PC Serial_Number" style="padding: 8px; width: 150px; border-radius: 5px; border: 1px solid #ccc;">
+            <input id="ser_num" type="text" placeholder="Monitor Serial_Number-3" style="padding: 8px; width: 150px; border-radius: 5px; border: 1px solid #ccc;">
           </div>
           </div>
 
@@ -163,7 +163,7 @@ function showContent(type) {
           <div style="display: flex; flex-direction: column;">
           <label for="mouse">Mouse</label>
           <select id="mouse" style="padding: 8px; width: 150px; border-radius: 5px; border: 1px solid #ccc;">
-          <option value="">-- Select Mouse Type --</option>
+          <option value="">-- Mouse Type --</option>
           <option value="w.mouse">Wired Mouse</option>
           <option value="ws.mouse">Wireless Mouse</option>
           </select>
