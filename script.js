@@ -93,6 +93,7 @@ function showContent(type) {
           </div>
 
           <div style="display: flex; align-items: center; gap: 20px; margin: 10px 0;">
+
           <div style="display: flex; flex-direction: column;">
           <label for="mouse">Mouse</label>
           <select id="mouse" style="padding: 8px; width: 150px; border-radius: 5px; border: 1px solid #ccc;">
@@ -111,6 +112,7 @@ function showContent(type) {
           <div style="display: flex; flex-direction: column;">
             <label for="mouse_serial">Mouse Serial Number</label>
             <input id="mouse_serial" type="text" placeholder="PC Serial_Number" style="padding: 8px; width: 150px; border-radius: 5px; border: 1px solid #ccc;">
+          </div>
           </div>
 
           <div style="text-align: left; margin-bottom: 20px;">
