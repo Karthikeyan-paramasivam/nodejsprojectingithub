@@ -89,11 +89,11 @@ function showContent(type) {
           </div>
 
           <div style="text-align: left; margin-bottom: 20px;">
-  <button id="saveUserBtn"
-          style="margin-top: 15px; padding: 10px 20px; background-color: green; color: white; border: none; border-radius: 8px; cursor: pointer;">
-    Save
-  </button>
-</div>
+          <button id="saveUserBtn"
+          style="margin-top: 15px; padding: 20px 20px; background-color: green; color: white; border: none; border-radius: 8px; cursor: pointer;">
+           Save
+         </button>
+         </div>
 
         </div>
       `;
