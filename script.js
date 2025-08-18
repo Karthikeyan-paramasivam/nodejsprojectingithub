@@ -161,6 +161,29 @@ function showContent(type) {
           <div style="display: flex; align-items: center; gap: 20px; margin: 10px 0;">
 
           <div style="display: flex; flex-direction: column;">
+          <label for="Headset">Headset</label>
+          <select id="Headset" style="padding: 8px; width: 150px; border-radius: 5px; border: 1px solid #ccc;">
+          <option value="">-- Headset Type --</option>
+          <option value="w.mouse">Wired Headset</option>
+          <option value="ws.mouse">Wireless Headset</option>
+          </select>
+          </div>
+
+          <div style="display: flex; flex-direction: column;">
+          <label for="Headset">Headset Assets ID</label>
+          <input id="Headset" type="text" style="padding: 8px; width: 150px; border-radius: 5px; border: 1px solid #ccc;">
+          </div>
+
+
+          <div style="display: flex; flex-direction: column;">
+            <label for="Headset_serial">Headset Serial Number</label>
+            <input id="Headset_serial" type="text" style="padding: 8px; width: 150px; border-radius: 5px; border: 1px solid #ccc;">
+          </div>
+          </div>
+
+          <div style="display: flex; align-items: center; gap: 20px; margin: 10px 0;">
+
+          <div style="display: flex; flex-direction: column;">
           <label for="mouse">Mouse</label>
           <select id="mouse" style="padding: 8px; width: 150px; border-radius: 5px; border: 1px solid #ccc;">
           <option value="">-- Mouse Type --</option>
