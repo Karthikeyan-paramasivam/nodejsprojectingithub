@@ -67,21 +67,24 @@ function showContent(type) {
             <input id="empName" type="text" placeholder="Enter Employee Name">
           </div>
 
-          <div style="text-align: left; margin: 25px;">
-            <label for="pc">PC Type</label>
-            <select id="pc">
-              <option value="">-- Select PC Type--</option>
-              <option value="Desktop">Desktop</option>
-              <option value="Win_Laptop">Win_Laptop</option>
-              <option value="MAC_Laptop">MAC_Laptop</option>
-              <option value="Laptop">Laptop</option>
-            </select>
-          </div>
+          <div style="display: flex; align-items: center; gap: 20px; margin: 10px 0;">
+  <div style="display: flex; flex-direction: column;">
+    <label for="pc">PC Type</label>
+    <select id="pc" style="padding: 8px; width: 150px; border-radius: 5px; border: 1px solid #ccc;">
+      <option value="">-- Select PC Type --</option>
+      <option value="Desktop">Desktop</option>
+      <option value="Win_Laptop">Win Laptop</option>
+      <option value="MAC_Laptop">MAC Laptop</option>
+      <option value="Laptop">Laptop</option>
+    </select>
+  </div>
 
-          <div style="margin: 10px;">
-            <label for="ass_idpc">PC Assets ID</label>
-            <input id="ass_idpc" type="text" placeholder="Enter Assets_ID">
-          </div>
+  <div style="display: flex; flex-direction: column;">
+    <label for="ass_idpc">PC Assets ID</label>
+    <input id="ass_idpc" type="text" placeholder="Enter Assets_ID" style="padding: 8px; width: 150px; border-radius: 5px; border: 1px solid #ccc;">
+  </div>
+</div>
+
 
           <div style="margin: 10px;">
             <label for="ser_num">PC Serial_Number</label>
@@ -90,7 +93,7 @@ function showContent(type) {
 
           <div style="text-align: left; margin-bottom: 20px;">
           <button id="saveUserBtn"
-          style="margin-top: 15px; padding: 20px 20px; background-color: green; color: white; border: none; border-radius: 8px; cursor: pointer;">
+          style="margin-top: 15px; padding: 10px 20px; background-color: green; color: white; border: none; border-radius: 8px; cursor: pointer;">
            Save
          </button>
          </div>
