@@ -93,6 +93,7 @@ function showContent(type) {
                   style="margin-top: 15px; texpadding: 10px 20px; background-color: green; color: white; border: none; border-radius: 8px; cursor: pointer;">
             Save
           </button>
+          </div>
         </div>
       `;
       content.innerHTML = html;
