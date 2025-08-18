@@ -70,7 +70,7 @@ function showContent(type) {
           <div style="text-align: left; margin: 10px;">
             <label for="pc">PC Type</label>
             <select id="pc">
-              <option value="">-- Select PC --</option>
+              <option value="">-- Select PC Type--</option>
               <option value="Desktop">Desktop</option>
               <option value="Win_Laptop">Win_Laptop</option>
               <option value="MAC_Laptop">MAC_Laptop</option>
