@@ -8,7 +8,7 @@ function showContent(type) {
             html = `
                 <!-- Create Button (Top-Left Corner) -->
             <button id="createBtn"
-                    style="position: absolute; top: 20px; left: 50px;
+                    style="position: absolute; top: 20px; left: 230px;
                            padding: 10px 20px; font-size: 16px;
                            background-color: rgba(121, 209, 244, 1);
                            color: white; border: none; border-radius: 8px; cursor: pointer;">
