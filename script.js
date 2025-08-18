@@ -6,7 +6,7 @@ function showContent(type) {
   switch (type) {
     case 'user':
       html = `
-        <!-- Create Button (Top-Left Corner) -->
+        <!-- Create Button -->
         <button id="createBtn"
                 style="position: absolute; top: 30px; left: 270px;
                        padding: 20px 30px; font-size: 20px;
@@ -34,6 +34,10 @@ function showContent(type) {
           <p id="resultMsg" style="margin-top: 20px; font-size: 18px; color: green;"></p>
         </div>
       `;
+      content.innerHTML = html;
+
+      // Attach event listener AFTER button exists
+      document.getElementById("submitBtn").addEventListener("click", submitUser);
       break;
 
     case 'createUser':
@@ -53,55 +57,52 @@ function showContent(type) {
                    style="padding: 10px; font-size: 16px; width: 250px; border-radius: 8px; border: 1px solid #ccc;">
           </div>
 
-            <div style="margin: 10px;">
-        <label for="pc" style="font-size: 16px; margin-right: 10px;">PC</label>
-        <select id="pc" 
-                style="padding: 10px; font-size: 16px; width: 270px; border-radius: 8px; border: 1px solid #ccc;">
-          <option value="">-- Select PC --</option>
-          <option value="Desktop">Desktop</option>
-          <option value="Laptop">Win_Laptop</option>
-          <option value="Laptop">MAC_Laptop</option>
-          <option value="Laptop">Laptop</option>
-        </select>
-      </div>
+          <div style="margin: 10px;">
+            <label for="pc" style="font-size: 16px; margin-right: 10px;">PC</label>
+            <select id="pc" 
+                    style="padding: 10px; font-size: 16px; width: 270px; border-radius: 8px; border: 1px solid #ccc;">
+              <option value="">-- Select PC --</option>
+              <option value="Desktop">Desktop</option>
+              <option value="Win_Laptop">Win_Laptop</option>
+              <option value="MAC_Laptop">MAC_Laptop</option>
+              <option value="Laptop">Laptop</option>
+            </select>
+          </div>
 
-      <div style="margin: 10px;">
-        <label for="ass_idpc" style="font-size: 16px; margin-right: 10px;">Assets_ID</label>
-        <input id="ass_idpc" type="text" placeholder="Enter Assets_ID"
-               style="padding: 10px; font-size: 16px; width: 250px; border-radius: 8px; border: 1px solid #ccc;">
-      </div>
+          <div style="margin: 10px;">
+            <label for="ass_idpc" style="font-size: 16px; margin-right: 10px;">Assets_ID</label>
+            <input id="ass_idpc" type="text" placeholder="Enter Assets_ID"
+                   style="padding: 10px; font-size: 16px; width: 250px; border-radius: 8px; border: 1px solid #ccc;">
+          </div>
 
-      <div style="margin: 10px;">
-        <label for="ser_num" style="font-size: 16px; margin-right: 10px;">Serial_Number</label>
-        <input id="ser_num" type="text" placeholder="Enter Serial Number"
-               style="padding: 10px; font-size: 16px; width: 250px; border-radius: 8px; border: 1px solid #ccc;">
-      </div>
+          <div style="margin: 10px;">
+            <label for="ser_num" style="font-size: 16px; margin-right: 10px;">Serial_Number</label>
+            <input id="ser_num" type="text" placeholder="Enter Serial Number"
+                   style="padding: 10px; font-size: 16px; width: 250px; border-radius: 8px; border: 1px solid #ccc;">
+          </div>
 
-      <button id="saveUserBtn"
-              style="margin-top: 15px; padding: 10px 20px; font-size: 16px;
-                     background-color: green; color: white; border: none;
-                     border-radius: 8px; cursor: pointer;">
-        Save
-      </button>
-    </div>
-  `;
-  break;
+          <button id="saveUserBtn"
+                  style="margin-top: 15px; padding: 10px 20px; font-size: 16px;
+                         background-color: green; color: white; border: none;
+                         border-radius: 8px; cursor: pointer;">
+            Save
+          </button>
+        </div>
+      `;
+      content.innerHTML = html;
 
-    case 'mac_laptop': html = `<h3 style="text-align:center;">Mac Laptop</h3>`; break;
-    case 'win_laptop': html = `<h3 style="text-align:center;">Windows Laptop</h3>`; break;
-    case 'desktop': html = `<h3 style="text-align:center;">Desktop</h3>`; break;
-    case 'mouse': html = `<h3 style="text-align:center;">Mouse</h3>`; break;
-    case 'keyboard': html = `<h3 style="text-align:center;">Keyboard</h3>`; break;
-    case 'usb_camera': html = `<h3 style="text-align:center;">USB Camera</h3>`; break;
-    case 'headset': html = `<h3 style="text-align:center;">Headset</h3>`; break;
-    case 'wifi_device': html = `<h3 style="text-align:center;">WiFi Device</h3>`; break;
-    case 'laptop_bag': html = `<h3 style="text-align:center;">Laptop Bag</h3>`; break;
-    case 'scrap_system': html = `<h3 style="text-align:center;">Scrap System</h3>`; break;
-    case 'software': html = `<h3 style="text-align:center;">Software</h3>`; break;
-    default: html = `<h3 style="text-align:center;">Welcome to Pippin Assets</h3>`;
+      // Attach event listener AFTER button exists
+      document.getElementById("saveUserBtn").addEventListener("click", () => {
+        alert("✅ User Created Successfully!");
+        showContent("user");
+      });
+      break;
+
+    // Other sidebar cases
+    default:
+      html = `<h3 style="text-align:center;">Welcome to Pippin Assets</h3>`;
+      content.innerHTML = html;
   }
-
-  content.innerHTML = html;
 }
 
 // --- Submit User ---
@@ -115,7 +116,7 @@ function submitUser() {
     return;
   }
 
-  fetch("employees.json")  // Ensure employees.json is in same folder
+  fetch("employees.json")
     .then(res => res.json())
     .then(data => {
       if (data[empNo]) {
@@ -139,16 +140,7 @@ function submitUser() {
     });
 }
 
-// --- Attach Submit Button ---
-document.getElementById("submitBtn").addEventListener("click", submitUser);
-
-// --- Attach actions dynamically for other buttons ---
-document.addEventListener("click", function(event) {
-  if (event.target.id === "createBtn") {
-    showContent("createUser");
-  }
-  if (event.target.id === "saveUserBtn") {
-    alert("✅ User Created Successfully!");
-    showContent("user"); // go back to User page
-  }
+// --- Initialize page ---
+document.addEventListener("DOMContentLoaded", () => {
+  showContent("user"); // show user page on load
 });
