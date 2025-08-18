@@ -19,7 +19,7 @@ function showContent(type) {
         <div style="text-align: center; margin-bottom: 20px;">
   <button id="createBtn"
           style="padding: 10px 20px; font-size: 16px;
-                 background-color: rgba(121, 209, 244, 1); color: white;
+                 background-color: rgba(144, 244, 121, 1); color: white;
                  border: none; border-radius: 8px; cursor: pointer;">
     Create New User
   </button>
