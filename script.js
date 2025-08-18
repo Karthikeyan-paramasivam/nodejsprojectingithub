@@ -38,7 +38,7 @@ function showContent(type) {
 
     case 'createUser':
       html = `
-        <div style="text-align:top; font-family: Arial, sans-serif;">
+        <div font-family: Arial, sans-serif;">
           <h3 style="color: rgb(121, 209, 244); margin-bottom: 20px; font-size: 40px;">Create User</h3>
           
           <div style="margin: 10px;">
