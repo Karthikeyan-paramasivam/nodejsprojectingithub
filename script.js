@@ -53,6 +53,21 @@ function showContent(type) {
                    style="padding: 10px; font-size: 16px; width: 250px; border-radius: 8px; border: 1px solid #ccc;">
           </div>
 
+         <div style="margin: 10px;">
+            <label for="pc" style="font-size: 16px; margin-right: 10px;">PC</label>
+            <input id="pc" type="text" placeholder="PC"
+            <label for="ass_idpc" style="font-size: 16px; margin-right: 10px;">Assets_ID</label>
+            <input id="ass_idpc" type="text" placeholder="Assets_ID"
+            <label for="ser_num" style="font-size: 16px; margin-right: 10px;">Serial_Number</label>
+            <input id="ser_num" type="text" placeholder="Serial_Number"
+                   style="padding: 10px; font-size: 16px; width: 250px; border-radius: 8px; border: 1px solid #ccc;">
+          </div>
+
+
+
+
+
+
           <button id="saveUserBtn"
                   style="margin-top: 15px; padding: 10px 20px; font-size: 16px;
                          background-color: green; color: white; border: none;
