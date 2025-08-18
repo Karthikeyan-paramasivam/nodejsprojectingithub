@@ -16,7 +16,7 @@ function showContent(type) {
         ${welcomeHtml}
 
         <!-- Create Button -->
-        <div style="text-align: center; margin-bottom: 20px;">
+        <div style="text-align: center;">
   <button id="createBtn"
           style="padding: 10px 20px; font-size: 16px;
                  background-color: rgba(144, 244, 121, 1); color: white;
