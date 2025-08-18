@@ -38,7 +38,7 @@ function showContent(type) {
 
     case 'createUser':
       html = `
-        <div font-family: Arial, sans-serif;">
+        <div style="text-align:center; font-family: Arial, sans-serif;">
           <h3 style="color: rgb(121, 209, 244); margin-bottom: 20px; font-size: 40px;">Create User</h3>
           
           <div style="margin: 10px;">
@@ -58,9 +58,11 @@ function showContent(type) {
         <select id="pc" 
                 style="padding: 10px; font-size: 16px; width: 270px; border-radius: 8px; border: 1px solid #ccc;">
           <option value="">-- Select PC --</option>
-          <option value="Laptop">Laptop</option>
           <option value="Desktop">Desktop</option>
-        </select>
+          <option value="Desktop">Min_Desktop</option>
+          <option value="Laptop">Win_Laptop</option>
+          <option value="Laptop">MAC_Laptop</option>
+          </select>
       </div>
 
       <div style="margin: 10px;">
