@@ -167,3 +167,23 @@ function drop(ev) {
   const data = ev.dataTransfer.getData("text");
   document.getElementById("pc").value = data; // fill dropped text into input
 }
+
+function saveUserToSheet() {
+  const data = {
+    empNo: document.getElementById("newEmpNo").value,
+    name: document.getElementById("empName").value,
+    pc: document.getElementById("pc").value,
+    assetId: document.getElementById("ass_idpc").value,
+    serialNo: document.getElementById("ser_num").value
+  };
+
+  fetch("https://script.google.com/macros/s/AKfycbwORw_VT08TOjLmVGqgZhzxWPnr1RWJWXnq0NOxnOpn7tR0DaaNyD5ntow7lzExNFvP/exec", {
+    method: "POST",
+    body: JSON.stringify(data),
+    headers: { "Content-Type": "application/json" }
+  })
+  .then(res => res.text())
+  .then(msg => alert(msg))
+  .catch(err => alert("⚠️ Error: " + err));
+}
+
