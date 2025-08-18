@@ -104,13 +104,13 @@ function showContent(type) {
 
           <div style="display: flex; flex-direction: column;">
           <label for="monitor_id">Monitor Assets ID-1</label>
-          <input id="ass_idpc" type="text" placeholder="Monitor Assets ID-1" style="padding: 8px; width: 150px; border-radius: 5px; border: 1px solid #ccc;">
+          <input id="ass_idpc" type="text" style="padding: 8px; width: 150px; border-radius: 5px; border: 1px solid #ccc;">
           </div>
 
 
           <div style="display: flex; flex-direction: column;">
             <label for="monitor_ser_num">Monitor Serial Number-1</label>
-            <input id="ser_num" type="text" placeholder="Monitor Serial Number-1" style="padding: 8px; width: 150px; border-radius: 5px; border: 1px solid #ccc;">
+            <input id="ser_num" type="text" style="padding: 8px; width: 150px; border-radius: 5px; border: 1px solid #ccc;">
           </div>
           </div>
 
