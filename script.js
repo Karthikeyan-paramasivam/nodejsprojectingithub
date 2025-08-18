@@ -139,7 +139,7 @@ function submitUser() {
     resultMsg.textContent = "⚠️ Error fetching data.";
     console.error(err);
   });
-
+}
 
 // Attach actions dynamically
 document.addEventListener("click", function(event) {
