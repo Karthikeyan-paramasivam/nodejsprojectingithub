@@ -3,6 +3,12 @@ function showContent(type) {
   const content = document.getElementById('mainContent');
   let html = "";
 
+  // Common welcome message
+  const welcomeHtml = `
+    <h3 style="text-align:center; color: rgb(121, 209, 244); font-size: 50px; margin-bottom: 20px;">
+      Welcome to Pippin Assets
+    </h3>
+  `;
 
   switch (type) {
     case 'user':
