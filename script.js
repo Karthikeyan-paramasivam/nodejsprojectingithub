@@ -5,7 +5,7 @@ function showContent(type) {
 
   // Common welcome message
   const welcomeHtml = `
-    <h3 style="text-align:center; color: rgb(121, 209, 244); font-size: 30px; margin-bottom: 20px;">
+    <h3 style="text-align:center; color: rgb(121, 209, 244); font-size: 50px; margin-bottom: 5px;">
       Welcome to Pippin Assets
     </h3>
   `;
