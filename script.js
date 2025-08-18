@@ -95,7 +95,7 @@ function showContent(type) {
           <div style="display: flex; align-items: center; gap: 20px; margin: 10px 0;">
 
           <div style="display: flex; flex-direction: column;">
-          <label for="monitor">Number of Monitor</label>
+          <label for="monitor">Monitor-1</label>
           <select id="monitor" style="padding: 8px; width: 150px; border-radius: 5px; border: 1px solid #ccc;">
           <option value="">-- Select Monitor --</option>
           <option value="monitor-1">Monitor-1</option>
@@ -117,7 +117,7 @@ function showContent(type) {
           <div style="display: flex; align-items: center; gap: 20px; margin: 10px 0;">
 
           <div style="display: flex; flex-direction: column;">
-          <label for="monitor">Number of Monitor</label>
+          <label for="monitor">Monitor-2</label>
           <select id="monitor" style="padding: 8px; width: 150px; border-radius: 5px; border: 1px solid #ccc;">
           <option value="">-- Select Monitor --</option>
           <option value="monitor-1">Monitor-2</option>
