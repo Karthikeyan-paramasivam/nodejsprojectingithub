@@ -1,108 +1,93 @@
-// Sidebar content switching
-function showContent(type) {
-  const content = document.getElementById('mainContent');
-  let html = "";
+// --- Initialize Pages ---
+function initPages() {
+  const mainContent = document.getElementById("mainContent");
 
-  switch (type) {
-    case 'user':
-      html = `
-        <!-- Create Button -->
-        <button id="createBtn"
-                style="position: absolute; top: 30px; left: 270px;
-                       padding: 20px 30px; font-size: 20px;
-                       background-color: rgba(121, 209, 244, 1);
-                       color: white; border: none; border-radius: 8px; cursor: pointer;">
-          Create
-        </button>
+  // --- User Page ---
+  const userPage = document.createElement("div");
+  userPage.id = "userPage";
+  userPage.style.display = "block"; // visible by default
+  userPage.innerHTML = `
+    <button id="createBtn" style="margin: 20px; padding: 15px 25px; font-size: 18px;
+           background-color: rgba(121, 209, 244, 1); color: white; border: none; border-radius: 8px; cursor: pointer;">
+      Create User
+    </button>
 
-        <div style="text-align:center; font-family: Arial, sans-serif;">
-          <h3 style="color: rgb(121, 209, 244); margin-bottom: 20px; font-size: 40px;">User Details</h3>
-          <div style="margin: 10px;">
-            <label for="empNo" style="font-size: 16px; margin-right: 10px;">Employee No</label>
-            <input id="empNo" type="text" placeholder="Enter Employee No"
-                   style="padding: 10px; font-size: 16px; width: 250px; border-radius: 8px; border: 1px solid #ccc;">
-          </div>
+    <div id="userForm" style="text-align:center; font-family: Arial, sans-serif; margin-top: 20px;">
+      <h3 style="color: rgb(121, 209, 244); font-size: 40px; margin-bottom: 20px;">User Details</h3>
+      <div style="margin: 10px;">
+        <label for="empNo" style="font-size: 16px; margin-right: 10px;">Employee No</label>
+        <input id="empNo" type="text" placeholder="Enter Employee No"
+               style="padding: 10px; font-size: 16px; width: 250px; border-radius: 8px; border: 1px solid #ccc;">
+      </div>
+      <button id="submitBtn"
+              style="margin-top: 15px; padding: 10px 20px; font-size: 16px;
+                     background-color: rgba(232, 121, 244, 1); color: white;
+                     border: none; border-radius: 8px; cursor: pointer;">
+        Submit
+      </button>
+      <p id="resultMsg" style="margin-top: 20px; font-size: 18px; color: green;"></p>
+    </div>
+  `;
 
-          <!-- Submit Button -->
-          <button id="submitBtn"
-                  style="margin-top: 15px; padding: 10px 20px; font-size: 16px;
-                         background-color: rgba(232, 121, 244, 1); color: white;
-                         border: none; border-radius: 8px; cursor: pointer;">
-            Submit
-          </button>
+  // --- Create User Page ---
+  const createPage = document.createElement("div");
+  createPage.id = "createPage";
+  createPage.style.display = "none"; // hidden by default
+  createPage.innerHTML = `
+    <div style="text-align:center; font-family: Arial, sans-serif; margin-top: 20px;">
+      <h3 style="color: rgb(121, 209, 244); font-size: 40px; margin-bottom: 20px;">Create User</h3>
+      <div style="margin: 10px;">
+        <label for="newEmpNo" style="font-size: 16px; margin-right: 10px;">Employee No</label>
+        <input id="newEmpNo" type="text" placeholder="Enter Employee No"
+               style="padding: 10px; font-size: 16px; width: 250px; border-radius: 8px; border: 1px solid #ccc;">
+      </div>
+      <div style="margin: 10px;">
+        <label for="empName" style="font-size: 16px; margin-right: 10px;">Employee Name</label>
+        <input id="empName" type="text" placeholder="Enter Employee Name"
+               style="padding: 10px; font-size: 16px; width: 250px; border-radius: 8px; border: 1px solid #ccc;">
+      </div>
+      <div style="margin: 10px;">
+        <label for="pc" style="font-size: 16px; margin-right: 10px;">PC</label>
+        <select id="pc" style="padding: 10px; font-size: 16px; width: 270px; border-radius: 8px; border: 1px solid #ccc;">
+          <option value="">-- Select PC --</option>
+          <option value="Desktop">Desktop</option>
+          <option value="Win_Laptop">Win_Laptop</option>
+          <option value="MAC_Laptop">MAC_Laptop</option>
+          <option value="Laptop">Laptop</option>
+        </select>
+      </div>
+      <div style="margin: 10px;">
+        <label for="ass_idpc" style="font-size: 16px; margin-right: 10px;">Assets_ID</label>
+        <input id="ass_idpc" type="text" placeholder="Enter Assets_ID"
+               style="padding: 10px; font-size: 16px; width: 250px; border-radius: 8px; border: 1px solid #ccc;">
+      </div>
+      <div style="margin: 10px;">
+        <label for="ser_num" style="font-size: 16px; margin-right: 10px;">Serial Number</label>
+        <input id="ser_num" type="text" placeholder="Enter Serial Number"
+               style="padding: 10px; font-size: 16px; width: 250px; border-radius: 8px; border: 1px solid #ccc;">
+      </div>
+      <button id="saveUserBtn" style="margin-top: 15px; padding: 10px 20px; font-size: 16px;
+              background-color: green; color: white; border: none; border-radius: 8px; cursor: pointer;">
+        Save
+      </button>
+    </div>
+  `;
 
-          <p id="resultMsg" style="margin-top: 20px; font-size: 18px; color: green;"></p>
-        </div>
-      `;
-      content.innerHTML = html;
+  // Add pages to mainContent
+  mainContent.appendChild(userPage);
+  mainContent.appendChild(createPage);
 
-      // Attach event listener AFTER button exists
-      document.getElementById("submitBtn").addEventListener("click", submitUser);
-      break;
-
-    case 'createUser':
-      html = `
-        <div style="text-align:center; font-family: Arial, sans-serif;">
-          <h3 style="color: rgb(121, 209, 244); margin-bottom: 20px; font-size: 40px;">Create User</h3>
-          
-          <div style="margin: 10px;">
-            <label for="newEmpNo" style="font-size: 16px; margin-right: 10px;">Employee No</label>
-            <input id="newEmpNo" type="text" placeholder="Enter Employee No"
-                   style="padding: 10px; font-size: 16px; width: 250px; border-radius: 8px; border: 1px solid #ccc;">
-          </div>
-
-          <div style="margin: 10px;">
-            <label for="empName" style="font-size: 16px; margin-right: 10px;">Employee Name</label>
-            <input id="empName" type="text" placeholder="Enter Employee Name"
-                   style="padding: 10px; font-size: 16px; width: 250px; border-radius: 8px; border: 1px solid #ccc;">
-          </div>
-
-          <div style="margin: 10px;">
-            <label for="pc" style="font-size: 16px; margin-right: 10px;">PC</label>
-            <select id="pc" 
-                    style="padding: 10px; font-size: 16px; width: 270px; border-radius: 8px; border: 1px solid #ccc;">
-              <option value="">-- Select PC --</option>
-              <option value="Desktop">Desktop</option>
-              <option value="Win_Laptop">Win_Laptop</option>
-              <option value="MAC_Laptop">MAC_Laptop</option>
-              <option value="Laptop">Laptop</option>
-            </select>
-          </div>
-
-          <div style="margin: 10px;">
-            <label for="ass_idpc" style="font-size: 16px; margin-right: 10px;">Assets_ID</label>
-            <input id="ass_idpc" type="text" placeholder="Enter Assets_ID"
-                   style="padding: 10px; font-size: 16px; width: 250px; border-radius: 8px; border: 1px solid #ccc;">
-          </div>
-
-          <div style="margin: 10px;">
-            <label for="ser_num" style="font-size: 16px; margin-right: 10px;">Serial_Number</label>
-            <input id="ser_num" type="text" placeholder="Enter Serial Number"
-                   style="padding: 10px; font-size: 16px; width: 250px; border-radius: 8px; border: 1px solid #ccc;">
-          </div>
-
-          <button id="saveUserBtn"
-                  style="margin-top: 15px; padding: 10px 20px; font-size: 16px;
-                         background-color: green; color: white; border: none;
-                         border-radius: 8px; cursor: pointer;">
-            Save
-          </button>
-        </div>
-      `;
-      content.innerHTML = html;
-
-      // Attach event listener AFTER button exists
-      document.getElementById("saveUserBtn").addEventListener("click", () => {
-        alert("✅ User Created Successfully!");
-        showContent("user");
-      });
-      break;
-
-    // Other sidebar cases
-    default:
-      html = `<h3 style="text-align:center;">Welcome to Pippin Assets</h3>`;
-      content.innerHTML = html;
-  }
+  // --- Event Listeners ---
+  document.getElementById("submitBtn").addEventListener("click", submitUser);
+  document.getElementById("createBtn").addEventListener("click", () => {
+    userPage.style.display = "none";
+    createPage.style.display = "block";
+  });
+  document.getElementById("saveUserBtn").addEventListener("click", () => {
+    alert("✅ User Created Successfully!");
+    createPage.style.display = "none";
+    userPage.style.display = "block";
+  });
 }
 
 // --- Submit User ---
@@ -140,7 +125,7 @@ function submitUser() {
     });
 }
 
-// --- Initialize page ---
+// --- Initialize on DOM Load ---
 document.addEventListener("DOMContentLoaded", () => {
-  showContent("user"); // show user page on load
+  initPages();
 });
