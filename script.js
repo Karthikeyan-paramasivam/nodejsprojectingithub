@@ -82,13 +82,13 @@ function showContent(type) {
 
           <div style="display: flex; flex-direction: column;">
           <label for="ass_idpc">PC Assets ID</label>
-          <input id="ass_idpc" type="text" placeholder="Enter Assets_ID" style="padding: 8px; width: 150px; border-radius: 5px; border: 1px solid #ccc;">
+          <input id="ass_idpc" type="text" style="padding: 8px; width: 150px; border-radius: 5px; border: 1px solid #ccc;">
           </div>
 
 
           <div style="display: flex; flex-direction: column;">
             <label for="ser_num">PC Serial Number</label>
-            <input id="ser_num" type="text" placeholder="PC Serial_Number" style="padding: 8px; width: 150px; border-radius: 5px; border: 1px solid #ccc;">
+            <input id="ser_num" type="text" style="padding: 8px; width: 150px; border-radius: 5px; border: 1px solid #ccc;">
           </div>
           </div>
 
@@ -126,13 +126,13 @@ function showContent(type) {
 
           <div style="display: flex; flex-direction: column;">
           <label for="monitor_id">Monitor Assets ID-2</label>
-          <input id="ass_idpc" type="text" placeholder="Monitor Assets_ID-2" style="padding: 8px; width: 150px; border-radius: 5px; border: 1px solid #ccc;">
+          <input id="ass_idpc" type="text" style="padding: 8px; width: 150px; border-radius: 5px; border: 1px solid #ccc;">
           </div>
 
 
           <div style="display: flex; flex-direction: column;">
             <label for="monitor_ser_num">Monitor Serial Number-2</label>
-            <input id="ser_num" type="text" placeholder="Monitor Serial_Number-2" style="padding: 8px; width: 150px; border-radius: 5px; border: 1px solid #ccc;">
+            <input id="ser_num" type="text" style="padding: 8px; width: 150px; border-radius: 5px; border: 1px solid #ccc;">
           </div>
           </div>
 
@@ -148,13 +148,13 @@ function showContent(type) {
 
           <div style="display: flex; flex-direction: column;">
           <label for="monitor_id">Monitor Assets ID-3</label>
-          <input id="ass_idpc" type="text" placeholder="Monitor Assets_ID-3" style="padding: 8px; width: 150px; border-radius: 5px; border: 1px solid #ccc;">
+          <input id="ass_idpc" type="text" style="padding: 8px; width: 150px; border-radius: 5px; border: 1px solid #ccc;">
           </div>
 
 
           <div style="display: flex; flex-direction: column;">
             <label for="monitor_ser_num">Monitor Serial Number-3</label>
-            <input id="ser_num" type="text" placeholder="Monitor Serial_Number-3" style="padding: 8px; width: 150px; border-radius: 5px; border: 1px solid #ccc;">
+            <input id="ser_num" type="text" style="padding: 8px; width: 150px; border-radius: 5px; border: 1px solid #ccc;">
           </div>
           </div>
 
@@ -194,13 +194,13 @@ function showContent(type) {
 
           <div style="display: flex; flex-direction: column;">
           <label for="mouse_assets">Mouse Assets ID</label>
-          <input id="mouse_assets" type="text" placeholder="Enter Assets_ID" style="padding: 8px; width: 150px; border-radius: 5px; border: 1px solid #ccc;">
+          <input id="mouse_assets" type="text" style="padding: 8px; width: 150px; border-radius: 5px; border: 1px solid #ccc;">
           </div>
 
 
           <div style="display: flex; flex-direction: column;">
             <label for="mouse_serial">Mouse Serial Number</label>
-            <input id="mouse_serial" type="text" placeholder="PC Serial_Number" style="padding: 8px; width: 150px; border-radius: 5px; border: 1px solid #ccc;">
+            <input id="mouse_serial" type="text" style="padding: 8px; width: 150px; border-radius: 5px; border: 1px solid #ccc;">
           </div>
           </div>
 
