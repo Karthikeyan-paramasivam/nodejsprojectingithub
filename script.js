@@ -42,56 +42,17 @@ function showContent(type) {
         document.getElementById('submitBtn').addEventListener('click', submitUser);
     }
 }
-
-// Employee lookup using JSONP
 function submitUser() {
-    const empNo = document.getElementById('empNo').value.trim();
-    const resultMsg = document.getElementById('resultMsg');
-    
-    // Replace this with your actual Apps Script Web App URL
-    const gsheetApiUrl = "https://script.google.com/macros/s/AKfycbzhhAaCan9Q7vUl18szvCW4VHM38XR8m6mrDbsXI5O9iNrpZFvCkAvexq_27YO3RpqD/exec";
+  const empNo = document.getElementById("empNo").value.trim();
+  const resultMsg = document.getElementById("resultMsg");
 
-    if (!empNo) {
-        resultMsg.style.color = 'red';
-        resultMsg.textContent = "❌ Please enter an Employee ID";
-        return;
-    }
+  if (!empNo) {
+    resultMsg.style.color = "red";
+    resultMsg.textContent = "❌ Please enter an Employee ID";
+    return;
+  }
 
-    // Remove old JSONP script if exists
-    const oldScript = document.getElementById('jsonpScript');
-    if (oldScript) oldScript.remove();
-
-    // Create new JSONP script
-    const script = document.createElement('script');
-    script.id = 'jsonpScript';
-    script.src = `${gsheetApiUrl}?empNo=${encodeURIComponent(empNo)}&callback=handleResponse`;
-    document.body.appendChild(script);
-
-    // JSONP callback
-    window.handleResponse = function(data) {
-        if (!data) {
-            resultMsg.style.color = 'red';
-            resultMsg.textContent = "❌ No response from server.";
-            return;
-        }
-
-        if (data.error) {
-            resultMsg.style.color = 'red';
-            resultMsg.textContent = `❌ ${data.error}`;
-            return;
-        }
-
-        if (data.exists) {
-            resultMsg.style.color = 'green';
-            let detailsHtml = `<p>✅ Details available for Employee ID: ${empNo}</p><ul>`;
-            for (const [key, value] of Object.entries(data.details)) {
-                detailsHtml += `<li><strong>${key}:</strong> ${value}</li>`;
-            }
-            detailsHtml += `</ul>`;
-            resultMsg.innerHTML = detailsHtml;
-        } else {
-            resultMsg.style.color = 'red';
-            resultMsg.textContent = "❌ No details found for this Employee ID.";
-        }
-    };
+  // Just show a simple message for now
+  resultMsg.style.color = "green";
+  resultMsg.textContent = `✅ Employee ID ${empNo} submitted successfully!`;
 }
