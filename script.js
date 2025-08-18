@@ -67,21 +67,22 @@ function showContent(type) {
             <input id="empName" type="text" placeholder="Enter Employee Name">
           </div>
 
-          <div style="text-align: left; margin: 10px;">
-            <label for="pc">PC</label>
-            <select id="pc">
-              <option value="">-- Select PC --</option>
-              <option value="Desktop">Desktop</option>
-              <option value="Win_Laptop">Win_Laptop</option>
-              <option value="MAC_Laptop">MAC_Laptop</option>
-              <option value="Laptop">Laptop</option>
-            </select>
-          </div>
+         <div style="display: flex; align-items: center; margin: 10px;">
+         <label for="pc" style="width: 150px;">PC</label>
+         <select id="pc" style="flex: 1; padding: 5px;">
+         <option value="">-- Select PC --</option>
+         <option value="Desktop">Desktop</option>
+         <option value="Win_Laptop">Win_Laptop</option>
+         <option value="MAC_Laptop">MAC_Laptop</option>
+         <option value="Laptop">Laptop</option>
+         </select>
+         </div>
 
-          <div style="margin: 10px;">
-            <label for="ass_idpc">PC Assets ID</label>
-            <input id="ass_idpc" type="text" placeholder="Enter Assets_ID">
-          </div>
+        <div style="display: flex; align-items: center; margin: 10px;">
+        <label for="ass_idpc" style="width: 150px;">PC Assets ID</label>
+        <input id="ass_idpc" type="text" placeholder="Enter Assets_ID" style="flex: 1; padding: 5px;">
+        </div>
+
 
           <div style="margin: 10px;">
             <label for="ser_num">PC Serial_Number</label>
