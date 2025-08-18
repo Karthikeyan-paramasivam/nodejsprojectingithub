@@ -114,32 +114,44 @@ function submitUser() {
     resultMsg.textContent = "❌ Please enter an Employee ID";
     return;
   }
-
-  fetch("https://script.google.com/macros/s/AKfycbwORw_VT08TOjLmVGqgZhzxWPnr1RWJWXnq0NOxnOpn7tR0DaaNyD5ntow7lzExNFvP/exec")
-  .then(res => res.text())  // get raw text
-  .then(text => {
-    const data = JSON.parse(text);  // parse into JSON
-
-    if (data[empNo]) {
-      const details = data[empNo];
-      resultMsg.style.color = "green";
-      let detailsHtml = `<p>✅ Details for Employee ID: ${empNo}</p><ul>`;
-      for (const [key, value] of Object.entries(details)) {
-        detailsHtml += `<li><strong>${key}:</strong> ${value}</li>`;
-      }
-      detailsHtml += "</ul>";
-      resultMsg.innerHTML = detailsHtml;
-    } else {
-      resultMsg.style.color = "red";
-      resultMsg.textContent = "❌ No details found for this Employee ID.";
-    }
-  })
-  .catch(err => {
-    resultMsg.style.color = "red";
-    resultMsg.textContent = "⚠️ Error fetching data.";
-    console.error(err);
-  });
 }
+   
+function submitUser() {
+  const empNo = document.getElementById("empNo").value.trim();
+  const resultMsg = document.getElementById("resultMsg");
+
+  if (!empNo) {
+    resultMsg.style.color = "red";
+    resultMsg.textContent = "❌ Please enter an Employee ID";
+    return;
+  }
+
+  fetch("employees.json")  // Use your file here
+    .then(res => res.json())
+    .then(data => {
+      if (data[empNo]) {
+        const details = data[empNo];
+        resultMsg.style.color = "green";
+        let detailsHtml = `<p>✅ Details for Employee ID: ${empNo}</p><ul>`;
+        for (const [key, value] of Object.entries(details)) {
+          detailsHtml += `<li><strong>${key}:</strong> ${value}</li>`;
+        }
+        detailsHtml += "</ul>";
+        resultMsg.innerHTML = detailsHtml;
+      } else {
+        resultMsg.style.color = "red";
+        resultMsg.textContent = "❌ No details found for this Employee ID.";
+      }
+    })
+    .catch(err => {
+      resultMsg.style.color = "red";
+      resultMsg.textContent = "⚠️ Error fetching data.";
+      console.error(err);
+    });
+}
+
+// Attach to button click
+document.getElementById("submitBtn").addEventListener("click", submitUser);
 
 // Attach actions dynamically
 document.addEventListener("click", function(event) {
