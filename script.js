@@ -90,6 +90,27 @@ function showContent(type) {
             <input id="ser_num" type="text" placeholder="PC Serial_Number" style="padding: 8px; width: 150px; border-radius: 5px; border: 1px solid #ccc;">
           </div>
 
+          <div style="display: flex; align-items: center; gap: 20px; margin: 10px 0;">
+          <div style="display: flex; flex-direction: column;">
+          <label for="mouse">Mouse</label>
+          <select id="mouse" style="padding: 8px; width: 150px; border-radius: 5px; border: 1px solid #ccc;">
+          <option value="">-- Select Mouse Type --</option>
+          <option value="w.mouse">Wired Mouse</option>
+          <option value="ws.mouse">Wireless Mouse</option>
+          </select>
+          </div>
+
+          <div style="display: flex; flex-direction: column;">
+          <label for="mouse_assets">Mouse Assets ID</label>
+          <input id="mouse_assets" type="text" placeholder="Enter Assets_ID" style="padding: 8px; width: 150px; border-radius: 5px; border: 1px solid #ccc;">
+          </div>
+
+
+          <div style="display: flex; flex-direction: column;">
+            <label for="mouse_serial">Mouse Serial_Number</label>
+            <input id="mouse_serial" type="text" placeholder="PC Serial_Number" style="padding: 8px; width: 150px; border-radius: 5px; border: 1px solid #ccc;">
+          </div>
+
           <div style="text-align: left; margin-bottom: 20px;">
           <button id="saveUserBtn"
           style="margin-top: 15px; padding: 10px 20px; background-color: green; color: white; border: none; border-radius: 8px; cursor: pointer;">
