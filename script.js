@@ -53,30 +53,45 @@ function showContent(type) {
                    style="padding: 10px; font-size: 16px; width: 250px; border-radius: 8px; border: 1px solid #ccc;">
           </div>
 
-         <div style="margin: 10px;">
-            <label for="pc" style="font-size: 16px; margin-right: 10px;">PC</label>
-            <input id="pc" type="text" placeholder="PC"
-            <label for="ass_idpc" style="font-size: 16px; margin-right: 10px;">Assets_ID</label>
-            <input id="ass_idpc" type="text" placeholder="Assets_ID"
-            <label for="ser_num" style="font-size: 16px; margin-right: 10px;">Serial_Number</label>
-            <input id="ser_num" type="text" placeholder="Serial_Number"
-                   style="padding: 10px; font-size: 16px; width: 250px; border-radius: 8px; border: 1px solid #ccc;">
+        <!-- Drag & Drop for PC Type -->
+      <div style="margin: 10px;">
+        <label style="font-size: 16px; margin-right: 10px;">PC</label>
+        <div id="pcOptions" style="display: flex; gap: 10px; justify-content:center; margin-bottom: 10px;">
+          <div draggable="true" ondragstart="drag(event)" id="laptop"
+               style="padding: 10px 20px; border: 1px solid #ccc; border-radius: 6px; cursor: grab; background:#f0f0f0;">
+            Laptop
           </div>
-
-
-
-
-
-
-          <button id="saveUserBtn"
-                  style="margin-top: 15px; padding: 10px 20px; font-size: 16px;
-                         background-color: green; color: white; border: none;
-                         border-radius: 8px; cursor: pointer;">
-            Save
-          </button>
+          <div draggable="true" ondragstart="drag(event)" id="desktop"
+               style="padding: 10px 20px; border: 1px solid #ccc; border-radius: 6px; cursor: grab; background:#f0f0f0;">
+            Desktop
+          </div>
         </div>
-      `;
-      break;
+        <input id="pc" type="text" placeholder="Drop PC type here"
+               style="padding: 10px; font-size: 16px; width: 250px; border-radius: 8px; border: 1px solid #ccc;"
+               ondrop="drop(event)" ondragover="allowDrop(event)">
+      </div>
+
+      <div style="margin: 10px;">
+        <label for="ass_idpc" style="font-size: 16px; margin-right: 10px;">Assets_ID</label>
+        <input id="ass_idpc" type="text" placeholder="Enter Assets_ID"
+               style="padding: 10px; font-size: 16px; width: 250px; border-radius: 8px; border: 1px solid #ccc;">
+      </div>
+
+      <div style="margin: 10px;">
+        <label for="ser_num" style="font-size: 16px; margin-right: 10px;">Serial_Number</label>
+        <input id="ser_num" type="text" placeholder="Enter Serial_Number"
+               style="padding: 10px; font-size: 16px; width: 250px; border-radius: 8px; border: 1px solid #ccc;">
+      </div>
+
+      <button id="saveUserBtn"
+              style="margin-top: 15px; padding: 10px 20px; font-size: 16px;
+                     background-color: green; color: white; border: none;
+                     border-radius: 8px; cursor: pointer;">
+        Save
+      </button>
+    </div>
+  `;
+  break;
 
     case 'mac_laptop': html = `<h3 style="text-align:center;">Mac Laptop</h3>`; break;
     case 'win_laptop': html = `<h3 style="text-align:center;">Windows Laptop</h3>`; break;
@@ -143,3 +158,18 @@ document.addEventListener("click", function(event) {
     showContent("user"); // go back to User page
   }
 });
+
+// ---- Drag & Drop Helpers for PC field ----
+function allowDrop(ev) {
+  ev.preventDefault();
+}
+
+function drag(ev) {
+  ev.dataTransfer.setData("text", ev.target.innerText);
+}
+
+function drop(ev) {
+  ev.preventDefault();
+  const data = ev.dataTransfer.getData("text");
+  document.getElementById("pc").value = data; // fill dropped text into input
+}
