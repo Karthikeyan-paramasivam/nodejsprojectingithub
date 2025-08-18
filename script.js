@@ -112,16 +112,3 @@ function submitUser() {
     });
 }
 
-// Attach submitUser to button dynamically
-document.addEventListener("click", function(event) {
-  if (event.target.id === "submitBtn") {
-    submitUser();
-  }
-  if (event.target.id === "createBtn") {
-    showContent("createUser");
-  }
-  if (event.target.id === "saveUserBtn") {
-    alert("✅ User Created Successfully!");
-    showContent("user"); // go back to User page
-  }
-});
