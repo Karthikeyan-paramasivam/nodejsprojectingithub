@@ -57,7 +57,7 @@ function showContent(type) {
         <div style="text-align:center; font-family: Arial, sans-serif;">
           <h3 style="color: rgb(121, 209, 244); margin-bottom: 20px; font-size: 28px;">Create User</h3>
           
-          <div style="margin: 10px;">
+          <div style="text-align: left; margin: 10px;">
             <label for="newEmpNo">Employee No</label>
             <input id="newEmpNo" type="text" placeholder="Enter Employee No">
           </div>
@@ -79,12 +79,12 @@ function showContent(type) {
           </div>
 
           <div style="margin: 10px;">
-            <label for="ass_idpc">Assets_ID</label>
+            <label for="ass_idpc">PC Assets ID</label>
             <input id="ass_idpc" type="text" placeholder="Enter Assets_ID">
           </div>
 
           <div style="margin: 10px;">
-            <label for="ser_num">Serial_Number</label>
+            <label for="ser_num">PC Serial_Number</label>
             <input id="ser_num" type="text" placeholder="Enter Serial Number">
           </div>
 
