@@ -6,6 +6,14 @@ function showContent(type) {
     switch (type) {
         case 'user':
             html = `
+                <!-- Create Button (Top-Left Corner) -->
+            <button id="createBtn"
+                    style="position: absolute; top: 20px; left: 20px;
+                           padding: 10px 20px; font-size: 16px;
+                           background-color: rgba(121, 209, 244, 1);
+                           color: white; border: none; border-radius: 8px; cursor: pointer;">
+                Create
+            </button>
                 <div style="text-align:center; font-family: Arial, sans-serif;">
                     <h3 style="color: rgb(121, 209, 244); margin-bottom: 20px; font-size: 40px;">User Details</h3>
                     <div style="margin: 10px;">
@@ -18,12 +26,6 @@ function showContent(type) {
                             style="margin-top: 15px; padding: 10px 20px; font-size: 16px; background-color: rgba(232, 121, 244, 1); color: white; border: none; border-radius: 8px; cursor: pointer;">
                         Submit
                     </button>
-
-                    <!-- Create Button -->
-                <button id="createBtn"
-                        style="margin-top: 15px; margin-left: 10px; padding: 10px 20px; font-size: 16px; background-color: rgba(121, 209, 244, 1); color: white; border: none; border-radius: 8px; cursor: pointer;">
-                    Create
-                </button>
                     <p id="resultMsg" style="margin-top: 20px; font-size: 18px; color: green;"></p>
                 </div>
             `;
