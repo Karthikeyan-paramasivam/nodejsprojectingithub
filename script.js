@@ -88,10 +88,12 @@ function showContent(type) {
             <input id="ser_num" type="text" placeholder="Enter Serial Number">
           </div>
 
-          <button id="saveUserBtn"
-                  style="margin-top: 15px; text-align: left; padding: 10px 20px; background-color: green; color: white; border: none; border-radius: 8px; cursor: pointer;">
-            Save
-          </button>
+       <button id="saveUserBtn"
+        style="margin-top: 15px; padding: 10px 20px; background-color: green; color: white;
+               border: none; border-radius: 8px; cursor: pointer; width: 150px; text-align: left;">
+               Save
+       </button>
+
         </div>
       `;
       content.innerHTML = html;
