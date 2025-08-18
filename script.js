@@ -97,20 +97,20 @@ function showContent(type) {
           <div style="display: flex; flex-direction: column;">
           <label for="monitor">Number of Monitor</label>
           <select id="monitor" style="padding: 8px; width: 150px; border-radius: 5px; border: 1px solid #ccc;">
-          <option value="">-- Select Number of Monitor --</option>
-          <option value="monitor-1">monitor-1</option>
+          <option value="">-- Select Monitor --</option>
+          <option value="monitor-1">Monitor-1</option>
           </select>
           </div>
 
           <div style="display: flex; flex-direction: column;">
           <label for="monitor_id">Monitor Assets ID-1</label>
-          <input id="ass_idpc" type="text" placeholder="Enter Assets_ID" style="padding: 8px; width: 150px; border-radius: 5px; border: 1px solid #ccc;">
+          <input id="ass_idpc" type="text" placeholder="Monitor Assets ID-1" style="padding: 8px; width: 150px; border-radius: 5px; border: 1px solid #ccc;">
           </div>
 
 
           <div style="display: flex; flex-direction: column;">
             <label for="monitor_ser_num">Monitor Serial Number-1</label>
-            <input id="ser_num" type="text" placeholder="PC Serial_Number" style="padding: 8px; width: 150px; border-radius: 5px; border: 1px solid #ccc;">
+            <input id="ser_num" type="text" placeholder="Monitor Serial Number-1" style="padding: 8px; width: 150px; border-radius: 5px; border: 1px solid #ccc;">
           </div>
           </div>
 
