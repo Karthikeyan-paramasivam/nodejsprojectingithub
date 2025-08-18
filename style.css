@@ -49,6 +49,7 @@ body {
     flex: 1;
     padding: 20px;
 }
+
 .welcome-msg {
   text-align: center;
   color: rgb(121, 209, 244);
