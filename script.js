@@ -68,6 +68,7 @@ function showContent(type) {
           </div>
 
           <div style="display: flex; align-items: center; gap: 20px; margin: 10px 0;">
+
           <div style="display: flex; flex-direction: column;">
           <label for="pc">PC Type</label>
           <select id="pc" style="padding: 8px; width: 150px; border-radius: 5px; border: 1px solid #ccc;">
@@ -85,25 +86,21 @@ function showContent(type) {
           </div>
 
 
-          <div style="display: flex; align-items: flex-start; gap: 20px; margin: 10px 0;">
-  <!-- PC Serial Number -->
-  <div style="display: flex; flex-direction: column;">
-    <label for="ser_num">PC Serial Number</label>
-    <input id="ser_num" type="text" placeholder="PC Serial_Number"
-           style="padding: 8px; width: 150px; border-radius: 5px; border: 1px solid #ccc;">
-  </div>
+          <div style="display: flex; flex-direction: column;">
+            <label for="ser_num">PC Serial Number</label>
+            <input id="ser_num" type="text" placeholder="PC Serial_Number" style="padding: 8px; width: 150px; border-radius: 5px; border: 1px solid #ccc;">
+          </div>
+          </div>
 
-  <!-- Mouse -->
-  <div style="display: flex; flex-direction: column;">
-    <label for="mouse">Mouse</label>
-    <select id="mouse" style="padding: 8px; width: 150px; border-radius: 5px; border: 1px solid #ccc;">
-      <option value="">-- Select Mouse Type --</option>
-      <option value="w.mouse">Wired Mouse</option>
-      <option value="ws.mouse">Wireless Mouse</option>
-    </select>
-  </div>
-</div>
-
+          <div style="display: flex; align-items: center; gap: 20px; margin: 10px 0;">
+          <div style="display: flex; flex-direction: column;">
+          <label for="mouse">Mouse</label>
+          <select id="mouse" style="padding: 8px; width: 150px; border-radius: 5px; border: 1px solid #ccc;">
+          <option value="">-- Select Mouse Type --</option>
+          <option value="w.mouse">Wired Mouse</option>
+          <option value="ws.mouse">Wireless Mouse</option>
+          </select>
+          </div>
 
           <div style="display: flex; flex-direction: column;">
           <label for="mouse_assets">Mouse Assets ID</label>
