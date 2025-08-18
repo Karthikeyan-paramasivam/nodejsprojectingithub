@@ -167,29 +167,3 @@ function drop(ev) {
   const data = ev.dataTransfer.getData("text");
   document.getElementById("pc").value = data; // fill dropped text into input
 }
-
-const express = require("express");
-const fs = require("fs");
-const app = express();
-
-app.use(express.json());
-
-// Save new employee
-app.post("/addEmployee", (req, res) => {
-  const newEmployee = req.body;
-
-  fs.readFile("employees.json", "utf8", (err, data) => {
-    if (err) return res.status(500).send("Error reading file");
-
-    let employees = JSON.parse(data || "[]");
-    employees.push(newEmployee);
-
-    fs.writeFile("employees.json", JSON.stringify(employees, null, 2), err => {
-      if (err) return res.status(500).send("Error saving file");
-      res.send({ message: "✅ Employee saved successfully!" });
-    });
-  });
-});
-
-app.listen(3000, () => console.log("Server running on http://34.56.132.32:3000"));
-
