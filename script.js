@@ -13,10 +13,17 @@ function showContent(type) {
                         <input id="empNo" type="text" placeholder="Enter Employee No"
                                style="padding: 10px; font-size: 16px; width: 250px; border-radius: 8px; border: 1px solid #ccc;">
                     </div>
+                     <!-- Submit Button -->
                     <button id="submitBtn"
                             style="margin-top: 15px; padding: 10px 20px; font-size: 16px; background-color: rgba(232, 121, 244, 1); color: white; border: none; border-radius: 8px; cursor: pointer;">
                         Submit
                     </button>
+
+                    <!-- Create Button -->
+                <button id="createBtn"
+                        style="margin-top: 15px; margin-left: 10px; padding: 10px 20px; font-size: 16px; background-color: rgba(121, 209, 244, 1); color: white; border: none; border-radius: 8px; cursor: pointer;">
+                    Create
+                </button>
                     <p id="resultMsg" style="margin-top: 20px; font-size: 18px; color: green;"></p>
                 </div>
             `;
