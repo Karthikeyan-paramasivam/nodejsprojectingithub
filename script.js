@@ -67,7 +67,7 @@ function showContent(type) {
             <input id="empName" type="text" placeholder="Enter Employee Name">
           </div>
 
-          <div style="text-align: left; margin: 10px;">
+          <div style="text-align: left; margin: 20px;">
             <label for="pc">PC Type</label>
             <select id="pc">
               <option value="">-- Select PC Type--</option>
