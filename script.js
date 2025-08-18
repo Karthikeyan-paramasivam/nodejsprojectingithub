@@ -53,22 +53,14 @@ function showContent(type) {
                    style="padding: 10px; font-size: 16px; width: 250px; border-radius: 8px; border: 1px solid #ccc;">
           </div>
 
-        <!-- Drag & Drop for PC Type -->
-      <div style="margin: 10px;">
-        <label style="font-size: 16px; margin-right: 10px;">PC</label>
-        <div id="pcOptions" style="display: flex; gap: 10px; justify-content:center; margin-bottom: 10px;">
-          <div draggable="true" ondragstart="drag(event)" id="laptop"
-               style="padding: 10px 20px; border: 1px solid #ccc; border-radius: 6px; cursor: grab; background:#f0f0f0;">
-            Laptop
-          </div>
-          <div draggable="true" ondragstart="drag(event)" id="desktop"
-               style="padding: 10px 20px; border: 1px solid #ccc; border-radius: 6px; cursor: grab; background:#f0f0f0;">
-            Desktop
-          </div>
-        </div>
-        <input id="pc" type="text" placeholder="Drop PC type here"
-               style="padding: 10px; font-size: 16px; width: 250px; border-radius: 8px; border: 1px solid #ccc;"
-               ondrop="drop(event)" ondragover="allowDrop(event)">
+            <div style="margin: 10px;">
+        <label for="pc" style="font-size: 16px; margin-right: 10px;">PC</label>
+        <select id="pc" 
+                style="padding: 10px; font-size: 16px; width: 270px; border-radius: 8px; border: 1px solid #ccc;">
+          <option value="">-- Select PC --</option>
+          <option value="Laptop">Laptop</option>
+          <option value="Desktop">Desktop</option>
+        </select>
       </div>
 
       <div style="margin: 10px;">
@@ -79,7 +71,7 @@ function showContent(type) {
 
       <div style="margin: 10px;">
         <label for="ser_num" style="font-size: 16px; margin-right: 10px;">Serial_Number</label>
-        <input id="ser_num" type="text" placeholder="Enter Serial_Number"
+        <input id="ser_num" type="text" placeholder="Enter Serial Number"
                style="padding: 10px; font-size: 16px; width: 250px; border-radius: 8px; border: 1px solid #ccc;">
       </div>
 
