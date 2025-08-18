@@ -17,7 +17,7 @@ function showContent(type) {
 
         <!-- Create Button -->
         <button id="createBtn"
-                style="margin: 20px; padding: 10px 20px; font-size: 16px;
+                style="text-align:center; padding: 10px 20px; font-size: 16px;
                        background-color: rgba(121, 209, 244, 1); color: white;
                        border: none; border-radius: 8px; cursor: pointer;">
           Create User
