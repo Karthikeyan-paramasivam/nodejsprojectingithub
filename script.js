@@ -115,7 +115,7 @@ function submitUser() {
     return;
   }
 
-  fetch("employees.json")
+  fetch("https://script.google.com/macros/s/AKfycbwORw_VT08TOjLmVGqgZhzxWPnr1RWJWXnq0NOxnOpn7tR0DaaNyD5ntow7lzExNFvP/exec")
     .then(res => res.json())
     .then(data => {
       if (data[empNo]) {
