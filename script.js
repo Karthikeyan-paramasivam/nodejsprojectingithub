@@ -16,12 +16,14 @@ function showContent(type) {
         ${welcomeHtml}
 
         <!-- Create Button -->
-        <button id="createBtn"
-                style="text-align:center; padding: 10px 20px; font-size: 16px;
-                       background-color: rgba(121, 209, 244, 1); color: white;
-                       border: none; border-radius: 8px; cursor: pointer;">
-          Create User
-        </button>
+        <div style="text-align: center; margin-bottom: 20px;">
+  <button id="createBtn"
+          style="padding: 10px 20px; font-size: 16px;
+                 background-color: rgba(121, 209, 244, 1); color: white;
+                 border: none; border-radius: 8px; cursor: pointer;">
+    Create New User
+  </button>
+</div>
 
         <div style="text-align:center; font-family: Arial, sans-serif;">
           <h3 style="color: rgb(121, 209, 244); margin-bottom: 20px; font-size: 28px;">User Details</h3>
