@@ -52,7 +52,26 @@ function submitUser() {
     return;
   }
 
-  // Just show a simple message for now
-  resultMsg.style.color = "green";
-  resultMsg.textContent = `✅ Employee ID ${empNo} submitted successfully!`;
+  fetch("employees.json") // 👈 looks in same folder as index.html
+    .then(res => res.json())
+    .then(data => {
+      if (data[empNo]) {
+        const details = data[empNo];
+        resultMsg.style.color = "green";
+        let detailsHtml = `<p>✅ Details for Employee ID: ${empNo}</p><ul>`;
+        for (const [key, value] of Object.entries(details)) {
+          detailsHtml += `<li><strong>${key}:</strong> ${value}</li>`;
+        }
+        detailsHtml += "</ul>";
+        resultMsg.innerHTML = detailsHtml;
+      } else {
+        resultMsg.style.color = "red";
+        resultMsg.textContent = "❌ No details found for this Employee ID.";
+      }
+    })
+    .catch(err => {
+      resultMsg.style.color = "red";
+      resultMsg.textContent = "⚠️ Error fetching data.";
+      console.error(err);
+    });
 }
