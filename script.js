@@ -116,28 +116,30 @@ function submitUser() {
   }
 
   fetch("https://script.google.com/macros/s/AKfycbwORw_VT08TOjLmVGqgZhzxWPnr1RWJWXnq0NOxnOpn7tR0DaaNyD5ntow7lzExNFvP/exec")
-    .then(res => res.text()) 
-    .then(data => {
-      if (data[empNo]) {
-        const details = data[empNo];
-        resultMsg.style.color = "green";
-        let detailsHtml = `<p>✅ Details for Employee ID: ${empNo}</p><ul>`;
-        for (const [key, value] of Object.entries(details)) {
-          detailsHtml += `<li><strong>${key}:</strong> ${value}</li>`;
-        }
-        detailsHtml += "</ul>";
-        resultMsg.innerHTML = detailsHtml;
-      } else {
-        resultMsg.style.color = "red";
-        resultMsg.textContent = "❌ No details found for this Employee ID.";
+  .then(res => res.text())  // get raw text
+  .then(text => {
+    const data = JSON.parse(text);  // parse into JSON
+
+    if (data[empNo]) {
+      const details = data[empNo];
+      resultMsg.style.color = "green";
+      let detailsHtml = `<p>✅ Details for Employee ID: ${empNo}</p><ul>`;
+      for (const [key, value] of Object.entries(details)) {
+        detailsHtml += `<li><strong>${key}:</strong> ${value}</li>`;
       }
-    })
-    .catch(err => {
+      detailsHtml += "</ul>";
+      resultMsg.innerHTML = detailsHtml;
+    } else {
       resultMsg.style.color = "red";
-      resultMsg.textContent = "⚠️ Error fetching data.";
-      console.error(err);
-    });
-}
+      resultMsg.textContent = "❌ No details found for this Employee ID.";
+    }
+  })
+  .catch(err => {
+    resultMsg.style.color = "red";
+    resultMsg.textContent = "⚠️ Error fetching data.";
+    console.error(err);
+  });
+
 
 // Attach actions dynamically
 document.addEventListener("click", function(event) {
