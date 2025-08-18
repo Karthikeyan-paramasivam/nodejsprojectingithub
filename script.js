@@ -30,6 +30,33 @@ function showContent(type) {
                 </div>
             `;
             break;
+
+        case 'createUser':
+        html = `
+            <div style="text-align:center; font-family: Arial, sans-serif;">
+                <h3 style="color: rgb(121, 209, 244); margin-bottom: 20px; font-size: 40px;">Create User</h3>
+                
+                <div style="margin: 10px;">
+                    <label for="newEmpNo" style="font-size: 16px; margin-right: 10px;">Employee No</label>
+                    <input id="newEmpNo" type="text" placeholder="Enter Employee No"
+                           style="padding: 10px; font-size: 16px; width: 250px; border-radius: 8px; border: 1px solid #ccc;">
+                </div>
+
+                <div style="margin: 10px;">
+                    <label for="empName" style="font-size: 16px; margin-right: 10px;">Employee Name</label>
+                    <input id="empName" type="text" placeholder="Enter Employee Name"
+                           style="padding: 10px; font-size: 16px; width: 250px; border-radius: 8px; border: 1px solid #ccc;">
+                </div>
+
+                <button id="saveUserBtn"
+                        style="margin-top: 15px; padding: 10px 20px; font-size: 16px;
+                               background-color: green; color: white; border: none; border-radius: 8px; cursor: pointer;">
+                    Save
+                </button>
+            </div>
+        `;
+        break;
+}
         case 'mac_laptop': html = `<h3 style="text-align:center;">Mac Laptop</h3>`; break;
         case 'win_laptop': html = `<h3 style="text-align:center;">Windows Laptop</h3>`; break;
         case 'desktop': html = `<h3 style="text-align:center;">Desktop</h3>`; break;
@@ -84,3 +111,17 @@ function submitUser() {
       console.error(err);
     });
 }
+
+// Attach submitUser to button dynamically
+document.addEventListener("click", function(event) {
+  if (event.target.id === "submitBtn") {
+    submitUser();
+  }
+  if (event.target.id === "createBtn") {
+    showContent("createUser");
+  }
+  if (event.target.id === "saveUserBtn") {
+    alert("✅ User Created Successfully!");
+    showContent("user"); // go back to User page
+  }
+});
