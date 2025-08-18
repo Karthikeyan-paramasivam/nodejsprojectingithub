@@ -57,17 +57,17 @@ function showContent(type) {
         <div style="text-align:center; font-family: Arial, sans-serif;">
           <h3 style="color: rgb(121, 209, 244); margin-bottom: 20px; font-size: 28px;">Create User</h3>
           
-          <div style="text-align: left; margin: 10px;">
+          <div style="text-align: left; margin: 25px;">
             <label for="newEmpNo">Employee No</label>
             <input id="newEmpNo" type="text" placeholder="Enter Employee No">
           </div>
 
-          <div style="text-align: left; margin: 10px;">
+          <div style="text-align: left; margin: 25px;">
             <label for="empName">Employee Name</label>
             <input id="empName" type="text" placeholder="Enter Employee Name">
           </div>
 
-          <div style="text-align: left; margin: 20px;">
+          <div style="text-align: left; margin: 25px;">
             <label for="pc">PC Type</label>
             <select id="pc">
               <option value="">-- Select PC Type--</option>
@@ -89,7 +89,7 @@ function showContent(type) {
           </div>
 
           <button id="saveUserBtn"
-                  style="margin-top: 15px; padding: 10px 20px; background-color: green; color: white; border: none; border-radius: 8px; cursor: pointer;">
+                  style="margin-top: 15px; text-align: left; padding: 10px 20px; background-color: green; color: white; border: none; border-radius: 8px; cursor: pointer;">
             Save
           </button>
         </div>
