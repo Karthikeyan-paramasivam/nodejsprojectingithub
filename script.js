@@ -104,18 +104,7 @@ function showContent(type) {
   content.innerHTML = html;
 }
 
-// User search
-function submitUser() {
-  const empNo = document.getElementById("empNo").value.trim();
-  const resultMsg = document.getElementById("resultMsg");
-
-  if (!empNo) {
-    resultMsg.style.color = "red";
-    resultMsg.textContent = "❌ Please enter an Employee ID";
-    return;
-  }
-}
-   
+// --- Submit User ---
 function submitUser() {
   const empNo = document.getElementById("empNo").value.trim();
   const resultMsg = document.getElementById("resultMsg");
@@ -126,7 +115,7 @@ function submitUser() {
     return;
   }
 
-  fetch("employees.json")  // Use your file here
+  fetch("employees.json")  // Ensure employees.json is in same folder
     .then(res => res.json())
     .then(data => {
       if (data[empNo]) {
@@ -150,14 +139,11 @@ function submitUser() {
     });
 }
 
-// Attach to button click
+// --- Attach Submit Button ---
 document.getElementById("submitBtn").addEventListener("click", submitUser);
 
-// Attach actions dynamically
+// --- Attach actions dynamically for other buttons ---
 document.addEventListener("click", function(event) {
-  if (event.target.id === "submitBtn") {
-    submitUser();
-  }
   if (event.target.id === "createBtn") {
     showContent("createUser");
   }
@@ -166,18 +152,3 @@ document.addEventListener("click", function(event) {
     showContent("user"); // go back to User page
   }
 });
-
-// ---- Drag & Drop Helpers for PC field ----
-function allowDrop(ev) {
-  ev.preventDefault();
-}
-
-function drag(ev) {
-  ev.dataTransfer.setData("text", ev.target.innerText);
-}
-
-function drop(ev) {
-  ev.preventDefault();
-  const data = ev.dataTransfer.getData("text");
-  document.getElementById("pc").value = data; // fill dropped text into input
-}
