@@ -3,9 +3,18 @@ function showContent(type) {
   const content = document.getElementById('mainContent');
   let html = "";
 
+  // Common welcome message
+  const welcomeHtml = `
+    <h3 style="text-align:center; color: rgb(121, 209, 244); font-size: 32px; margin-bottom: 20px;">
+      Welcome to Pippin Assets
+    </h3>
+  `;
+
   switch (type) {
     case 'user':
       html = `
+        ${welcomeHtml}
+
         <!-- Create Button -->
         <button id="createBtn"
                 style="margin: 20px; padding: 10px 20px; font-size: 16px;
@@ -15,7 +24,7 @@ function showContent(type) {
         </button>
 
         <div style="text-align:center; font-family: Arial, sans-serif;">
-          <h3 style="color: rgb(121, 209, 244); margin-bottom: 20px; font-size: 32px;">User Details</h3>
+          <h3 style="color: rgb(121, 209, 244); margin-bottom: 20px; font-size: 28px;">User Details</h3>
           <div style="margin: 10px;">
             <label for="empNo" style="font-size: 16px; margin-right: 10px;">Employee No</label>
             <input id="empNo" type="text" placeholder="Enter Employee No"
@@ -34,15 +43,17 @@ function showContent(type) {
       `;
       content.innerHTML = html;
 
-      // Attach event listeners AFTER elements are in DOM
+      // Attach event listeners
       document.getElementById("submitBtn").addEventListener("click", submitUser);
       document.getElementById("createBtn").addEventListener("click", () => showContent("createUser"));
       break;
 
     case 'createUser':
       html = `
+        ${welcomeHtml}
+
         <div style="text-align:center; font-family: Arial, sans-serif;">
-          <h3 style="color: rgb(121, 209, 244); margin-bottom: 20px; font-size: 32px;">Create User</h3>
+          <h3 style="color: rgb(121, 209, 244); margin-bottom: 20px; font-size: 28px;">Create User</h3>
           
           <div style="margin: 10px;">
             <label for="newEmpNo">Employee No</label>
@@ -75,7 +86,8 @@ function showContent(type) {
             <input id="ser_num" type="text" placeholder="Enter Serial Number">
           </div>
 
-          <button id="saveUserBtn" style="margin-top: 15px; padding: 10px 20px; background-color: green; color: white; border: none; border-radius: 8px; cursor: pointer;">
+          <button id="saveUserBtn"
+                  style="margin-top: 15px; padding: 10px 20px; background-color: green; color: white; border: none; border-radius: 8px; cursor: pointer;">
             Save
           </button>
         </div>
@@ -84,12 +96,12 @@ function showContent(type) {
 
       document.getElementById("saveUserBtn").addEventListener("click", () => {
         alert("✅ User Created Successfully!");
-        showContent("user");
+        showContent("user"); // Go back to user details page
       });
       break;
 
     default:
-      html = `<h3 style="text-align:center; color: rgb(121, 209, 244); font-size: 32px;">Welcome to Pippin Assets</h3>`;
+      html = welcomeHtml;
       content.innerHTML = html;
   }
 }
