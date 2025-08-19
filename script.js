@@ -184,7 +184,7 @@ function showContent(type) {
           </div>
           </div>
 
-          <div style="display: flex; align-items: center; gap: 20px; margin: 10px 0;">
+          <div id ="headset-block" style="display: flex; align-items: center; gap: 20px; margin: 10px 0;">
 
           <div style="display: flex; flex-direction: column;">
           <label for="Headset">Headset</label>
@@ -205,9 +205,17 @@ function showContent(type) {
             <label for="Headset_serial">Headset Serial Number</label>
             <input id="Headset_serial" type="text" style="padding: 8px; width: 150px; border-radius: 5px; border: 1px solid #ccc;">
           </div>
+
+          <!-- Remove button -->
+          <div style="display: flex; flex-direction: column; justify-content: flex-end;">
+          <button type="button" onclick="removeMonitor('monitor3-block')"
+          style="padding: 6px 12px; background-color: green; color: white; border: none; border-radius: 6px; cursor: pointer;">
+          Remove
+          </button>
+          </div>
           </div>
 
-          <div style="display: flex; align-items: center; gap: 20px; margin: 10px 0;">
+          <div id="mouse-block" style="display: flex; align-items: center; gap: 20px; margin: 10px 0;">
 
           <div style="display: flex; flex-direction: column;">
           <label for="mouse">Mouse</label>
@@ -227,6 +235,14 @@ function showContent(type) {
           <div style="display: flex; flex-direction: column;">
             <label for="mouse_serial">Mouse Serial Number</label>
             <input id="mouse_serial" type="text" style="padding: 8px; width: 150px; border-radius: 5px; border: 1px solid #ccc;">
+          </div>
+
+          <!-- Remove button -->
+          <div style="display: flex; flex-direction: column; justify-content: flex-end;">
+          <button type="button" onclick="removeMonitor('monitor3-block')"
+          style="padding: 6px 12px; background-color: green; color: white; border: none; border-radius: 6px; cursor: pointer;">
+          Remove
+          </button>
           </div>
           </div>
 
