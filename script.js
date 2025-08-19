@@ -66,7 +66,8 @@ function showContent(type) {
             <label for="empName">Employee Name</label>
             <input id="empName" type="text" placeholder="Enter Employee Name">
           </div>
-
+          
+          <!-- PC Section -->
           <div style="display: flex; align-items: center; gap: 20px; margin: 10px 0;">
 
           <div style="display: flex; flex-direction: column;">
@@ -92,6 +93,8 @@ function showContent(type) {
           </div>
           </div>
 
+
+          <!-- Monitor Section -->
           <div style="display: flex; align-items: center; gap: 20px; margin: 10px 0;">
 
           <div style="display: flex; flex-direction: column;">
@@ -156,7 +159,36 @@ function showContent(type) {
             <label for="monitor_ser_num">Monitor Serial Number-3</label>
             <input id="ser_num" type="text" style="padding: 8px; width: 150px; border-radius: 5px; border: 1px solid #ccc;">
           </div>
-          </div>
+
+          <div id="monitor3-block" style="display: flex; align-items: center; gap: 20px; margin: 10px 0;">
+
+  <div style="display: flex; flex-direction: column;">
+    <label for="monitor3">Monitor-3</label>
+    <select id="monitor3" style="padding: 8px; width: 150px; border-radius: 5px; border: 1px solid #ccc;">
+      <option value="">-- Select Monitor --</option>
+      <option value="monitor-3">Monitor-3</option>
+    </select>
+  </div>
+
+  <div style="display: flex; flex-direction: column;">
+    <label for="monitor3_id">Monitor Assets ID-3</label>
+    <input id="monitor3_id" type="text" style="padding: 8px; width: 150px; border-radius: 5px; border: 1px solid #ccc;">
+  </div>
+
+  <div style="display: flex; flex-direction: column;">
+    <label for="monitor3_serial">Monitor Serial Number-3</label>
+    <input id="monitor3_serial" type="text" style="padding: 8px; width: 150px; border-radius: 5px; border: 1px solid #ccc;">
+  </div>
+
+  <!-- Remove button -->
+  <div style="display: flex; flex-direction: column; justify-content: flex-end;">
+    <button type="button" onclick="removeMonitor('monitor3-block')"
+      style="padding: 6px 12px; background-color: red; color: white; border: none; border-radius: 6px; cursor: pointer;">
+      Remove
+    </button>
+  </div>
+</div>
+
 
           <div style="display: flex; align-items: center; gap: 20px; margin: 10px 0;">
 
@@ -266,3 +298,10 @@ function submitUser() {
 document.addEventListener("DOMContentLoaded", () => {
   showContent("user"); // default view
 });
+
+function removeMonitor(blockId) {
+  const block = document.getElementById(blockId);
+  if (block) {
+    block.remove(); // removes only for current session
+  }
+}
