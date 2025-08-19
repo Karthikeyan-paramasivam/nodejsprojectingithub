@@ -208,7 +208,7 @@ function showContent(type) {
 
           <!-- Remove button -->
           <div style="display: flex; flex-direction: column; justify-content: flex-end;">
-          <button type="button" onclick="removeMonitor('monitor3-block')"
+          <button type="button" onclick="removeMonitor('headset-block')"
           style="padding: 6px 12px; background-color: green; color: white; border: none; border-radius: 6px; cursor: pointer;">
           Remove
           </button>
@@ -239,7 +239,7 @@ function showContent(type) {
 
           <!-- Remove button -->
           <div style="display: flex; flex-direction: column; justify-content: flex-end;">
-          <button type="button" onclick="removeMonitor('monitor3-block')"
+          <button type="button" onclick="removeMonitor('mouse-block')"
           style="padding: 6px 12px; background-color: green; color: white; border: none; border-radius: 6px; cursor: pointer;">
           Remove
           </button>
