@@ -139,27 +139,7 @@ function showContent(type) {
           </div>
           </div>
 
-          <div style="display: flex; align-items: center; gap: 20px; margin: 10px 0;">
-
-          <div style="display: flex; flex-direction: column;">
-          <label for="monitor">Monitor-3</label>
-          <select id="monitor" style="padding: 8px; width: 150px; border-radius: 5px; border: 1px solid #ccc;">
-          <option value="">-- Select Monitor --</option>
-          <option value="monitor-1">Monitor-3</option>
-          </select>
-          </div>
-
-          <div style="display: flex; flex-direction: column;">
-          <label for="monitor_id">Monitor Assets ID-3</label>
-          <input id="ass_idpc" type="text" style="padding: 8px; width: 150px; border-radius: 5px; border: 1px solid #ccc;">
-          </div>
-
-
-          <div style="display: flex; flex-direction: column;">
-            <label for="monitor_ser_num">Monitor Serial Number-3</label>
-            <input id="ser_num" type="text" style="padding: 8px; width: 150px; border-radius: 5px; border: 1px solid #ccc;">
-          </div>
-
+          
           <div id="monitor3-block" style="display: flex; align-items: center; gap: 20px; margin: 10px 0;">
 
   <div style="display: flex; flex-direction: column;">
