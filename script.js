@@ -95,8 +95,8 @@ function showContent(type) {
 
 
           <!-- Monitor Section -->
-          <div style="display: flex; align-items: center; gap: 20px; margin: 10px 0;">
-
+          <div id="monitor1-block" style="display: flex; align-items: center; gap: 20px; margin: 10px 0;">
+          
           <div style="display: flex; flex-direction: column;">
           <label for="monitor">Monitor-1</label>
           <select id="monitor" style="padding: 8px; width: 150px; border-radius: 5px; border: 1px solid #ccc;">
@@ -118,14 +118,14 @@ function showContent(type) {
 
            <!-- Remove button -->
           <div style="display: flex; flex-direction: column; justify-content: flex-end;">
-          <button type="button" onclick="removeMonitor('monitor2-block')"
+          <button type="button" onclick="removeMonitor('monitor1-block')"
           style="padding: 6px 12px; background-color: red; color: white; border: none; border-radius: 6px; cursor: pointer;">
           Remove
           </button>
           </div>
           </div>
-          
-          <div style="display: flex; align-items: center; gap: 20px; margin: 10px 0;">
+
+          <div id="monitor2-block" style="display: flex; align-items: center; gap: 20px; margin: 10px 0;">
 
           <div style="display: flex; flex-direction: column;">
           <label for="monitor">Monitor-2</label>
@@ -293,6 +293,7 @@ document.addEventListener("DOMContentLoaded", () => {
   showContent("user"); // default view
 });
 
+// Remove button 
 function removeMonitor(blockId) {
   const block = document.getElementById(blockId);
   if (block) {
