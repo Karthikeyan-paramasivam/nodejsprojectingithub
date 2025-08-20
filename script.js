@@ -91,27 +91,25 @@ function showContent(type) {
       <label>PC Serial Number</label>
       <input type="text" style="padding: 8px; width: 150px; border-radius: 5px; border: 1px solid #ccc;">
     </div>
-
-    
+   
 <!-- Add button -->
-<div>
+<div style="display: flex; align-items: center; gap: 10px; margin-top: 10px;">
+  <!-- Add PC button -->
   <button type="button" onclick="addPC()"
-    style="margin-top: 10px; padding: 8px 16px; background-color: green; color: white; border: none; border-radius: 6px; cursor: pointer;">
+    style="padding: 8px 16px; background-color: green; color: white; border: none; border-radius: 6px; cursor: pointer;">
     Add PC
+  </button>
+
+  <!-- Remove button -->
+  <button type="button" onclick="removeBlock(this)"
+    style="padding: 8px 16px; background-color: red; color: white; border: none; border-radius: 6px; cursor: pointer;">
+    Remove
   </button>
 </div>
 
-    <!-- Remove button -->
-    <div style="display: flex; flex-direction: column;">
-      <button type="button" onclick="removeBlock(this)"
-        style="padding: 6px 12px; background-color: red; color: white; border: none; border-radius: 6px; cursor: pointer;">
-        Remove
-      </button>
-    </div>
   </div>
 </div>
-
-          
+         
           
          <!-- Container for all monitors -->
 <div id="monitor-container">
@@ -138,26 +136,19 @@ function showContent(type) {
           <input id="ser_num" type="text" style="padding: 8px; width: 150px; border-radius: 5px; border: 1px solid #ccc;">
           </div>
 
-    <!-- Remove button -->
-    <div style="display: flex; flex-direction: column; justify-content: flex-end;">
-      <button type="button" onclick="removeMonitor(this)"
-        style="padding: 6px 12px; background-color: red; color: white; border: none; border-radius: 6px; cursor: pointer;">
-        Remove
-      </button>
-    </div>
-  </div>
-</div>
+<div style="display: flex; align-items: center; gap: 10px; margin-top: 10px;">
+  <!-- Add PC button -->
+  <button type="button" onclick="addPC()"
+    style="padding: 8px 16px; background-color: green; color: white; border: none; border-radius: 6px; cursor: pointer;">
+    Add PC
+  </button>
 
-<!-- Add button -->
-<div>
-  <button type="button" onclick="addMonitor()"
-    style="margin-top: 10px; padding: 8px 16px; background-color: green; color: white; border: none; border-radius: 6px; cursor: pointer;">
-    Add Monitor
+  <!-- Remove button -->
+  <button type="button" onclick="removeBlock(this)"
+    style="padding: 8px 16px; background-color: red; color: white; border: none; border-radius: 6px; cursor: pointer;">
+    Remove
   </button>
 </div>
-</div>
-
-
 
 <!-- Save Button -->
 <div style="text-align: left; margin-bottom: 20px;">
