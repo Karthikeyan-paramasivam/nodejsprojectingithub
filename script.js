@@ -149,6 +149,7 @@ function showContent(type) {
     Remove
   </button>
 </div>
+</div>
 
 <!-- Save Button -->
 <div style="text-align: left; margin-bottom: 20px;">
