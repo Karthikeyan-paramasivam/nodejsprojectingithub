@@ -110,8 +110,15 @@ function showContent(type) {
     style="padding: 8px; width: 250px; border-radius: 5px; border: 1px solid #ccc; resize: both;"></textarea>
 </div>
 <div style="display: flex; flex-direction: column;">
-      <label>IT NAME</label>
-      <input type="text" style="padding: 8px; width: 150px; border-radius: 5px; border: 1px solid #ccc;">
+      <label>IT Name</label>
+      <select style="padding: 8px; width: 150px; border-radius: 5px; border: 1px solid #ccc;">
+        <option value="">-- Select Name --</option>
+        <option value="Padmanabha V R">Padmanabha V R</option>
+        <option value="Vijay_Kumar">Vijay Kumar S</option>
+        <option value="Thatrakal_Suresh">Thatrakal Suresh</option>
+        <option value="Karthikeyan">Karthikeyan P</option>
+        <option value="Rajshekar">Rajshekar R</option>
+      </select>
     </div>
 
 <div style="display: flex; align-items: center; gap: 10px; margin-top: 10px;">
@@ -176,7 +183,7 @@ function showContent(type) {
 </div>
 
 <div style="display: flex; flex-direction: column;">
-      <label>it-name</label>
+      <label>IT Name</label>
       <select style="padding: 8px; width: 150px; border-radius: 5px; border: 1px solid #ccc;">
         <option value="">-- Select Name --</option>
         <option value="Padmanabha V R">Padmanabha V R</option>
