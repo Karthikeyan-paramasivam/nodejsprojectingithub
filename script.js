@@ -93,7 +93,7 @@ function showContent(type) {
     </div>
 
     <!-- Remove button -->
-    <div style="display: flex; flex-direction: column; justify-content: flex-end;">
+    <div style="display: flex; flex-direction: column;">
       <button type="button" onclick="removeBlock(this)"
         style="padding: 6px 12px; background-color: red; color: white; border: none; border-radius: 6px; cursor: pointer;">
         Remove
@@ -106,7 +106,7 @@ function showContent(type) {
 <div>
   <button type="button" onclick="addPC()"
     style="margin-top: 10px; padding: 8px 16px; background-color: green; color: white; border: none; border-radius: 6px; cursor: pointer;">
-    ➕ Add PC
+    Add PC
   </button>
 </div>
           
