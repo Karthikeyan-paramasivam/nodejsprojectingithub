@@ -109,6 +109,10 @@ function showContent(type) {
   <textarea id="remarks" rows="1" placeholder="Remarks here..."
     style="padding: 8px; width: 250px; border-radius: 5px; border: 1px solid #ccc; resize: both;"></textarea>
 </div>
+<div style="display: flex; flex-direction: column;">
+      <label>IT NAME</label>
+      <input type="text" style="padding: 8px; width: 150px; border-radius: 5px; border: 1px solid #ccc;">
+    </div>
 
 <div style="display: flex; align-items: center; gap: 10px; margin-top: 10px;">
   <!-- Add PC button -->
