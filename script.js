@@ -157,62 +157,94 @@ function showContent(type) {
 
           
 
-              <div id ="headset-block" style="display: flex; align-items: center; gap: 20px; margin: 10px 0;">
+             <!-- Headset Section -->
+<div id="headset-block" style="display: flex; align-items: center; gap: 20px; margin: 10px 0;">
 
-          <div style="display: flex; flex-direction: column;">
-          <label for="Headset">Headset</label>
-          <select id="Headset" style="padding: 8px; width: 150px; border-radius: 5px; border: 1px solid #ccc;">
-          <option value="">-- Headset Type --</option>
-          <option value="w.mouse">Wired Headset</option>
-          <option value="ws.mouse">Wireless Headset</option>
-          </select>
-          </div>
+  <div style="display: flex; flex-direction: column;">
+    <label for="Headset">Headset</label>
+    <select id="Headset" style="padding: 8px; width: 150px; border-radius: 5px; border: 1px solid #ccc;">
+      <option value="">-- Headset Type --</option>
+      <option value="wired_headset">Wired Headset</option>
+      <option value="wireless_headset">Wireless Headset</option>
+    </select>
+  </div>
 
-          <div style="display: flex; flex-direction: column;">
-          <label for="Headset">Headset Assets ID</label>
-          <input id="Headset" type="text" style="padding: 8px; width: 150px; border-radius: 5px; border: 1px solid #ccc;">
-          </div>
+  <div style="display: flex; flex-direction: column;">
+    <label for="Headset_assets">Headset Assets ID</label>
+    <input id="Headset_assets" type="text" style="padding: 8px; width: 150px; border-radius: 5px; border: 1px solid #ccc;">
+  </div>
 
+  <div style="display: flex; flex-direction: column;">
+    <label for="Headset_serial">Headset Serial Number</label>
+    <input id="Headset_serial" type="text" style="padding: 8px; width: 150px; border-radius: 5px; border: 1px solid #ccc;">
+  </div>
 
-          <div style="display: flex; flex-direction: column;">
-            <label for="Headset_serial">Headset Serial Number</label>
-            <input id="Headset_serial" type="text" style="padding: 8px; width: 150px; border-radius: 5px; border: 1px solid #ccc;">
-          </div>
+  <!-- Add (show again) -->
+<div>
+  <button type="button" onclick="showBlock('headset-block')"
+    style="margin-top: 6px; padding: 8px 16px; background-color: #0ea5e9; color: white; border: none; border-radius: 6px; cursor: pointer;">
+    Add Headset
+  </button>
+</div>
 
-          </div>
-
-          <div id="mouse-block" style="display: flex; align-items: center; gap: 20px; margin: 10px 0;">
-
-          <div style="display: flex; flex-direction: column;">
-          <label for="mouse">Mouse</label>
-          <select id="mouse" style="padding: 8px; width: 150px; border-radius: 5px; border: 1px solid #ccc;">
-          <option value="">-- Mouse Type --</option>
-          <option value="w.mouse">Wired Mouse</option>
-          <option value="ws.mouse">Wireless Mouse</option>
-          </select>
-          </div>
-
-          <div style="display: flex; flex-direction: column;">
-          <label for="mouse_assets">Mouse Assets ID</label>
-          <input id="mouse_assets" type="text" style="padding: 8px; width: 150px; border-radius: 5px; border: 1px solid #ccc;">
-          </div>
+  <!-- Remove Button -->
+  <div style="display: flex; flex-direction: column; justify-content: flex-end;">
+    <button type="button" onclick="removeBlock('headset-block')"
+      style="padding: 6px 12px; background-color: green; color: white; border: none; border-radius: 6px; cursor: pointer;">
+      Remove
+    </button>
+  </div>
+</div>
 
 
-          <div style="display: flex; flex-direction: column;">
-            <label for="mouse_serial">Mouse Serial Number</label>
-            <input id="mouse_serial" type="text" style="padding: 8px; width: 150px; border-radius: 5px; border: 1px solid #ccc;">
-          </div>
+<!-- Mouse Section -->
+<div id="mouse-block" style="display: flex; align-items: center; gap: 20px; margin: 10px 0;">
 
-          </div>
+  <div style="display: flex; flex-direction: column;">
+    <label for="mouse">Mouse</label>
+    <select id="mouse" style="padding: 8px; width: 150px; border-radius: 5px; border: 1px solid #ccc;">
+      <option value="">-- Mouse Type --</option>
+      <option value="wired_mouse">Wired Mouse</option>
+      <option value="wireless_mouse">Wireless Mouse</option>
+    </select>
+  </div>
 
-          <div style="text-align: left; margin-bottom: 20px;">
-          <button id="saveUserBtn"
-          style="margin-top: 15px; padding: 10px 20px; background-color: green; color: white; border: none; border-radius: 8px; cursor: pointer;">
-           Save
-         </button>
-         </div>
+  <div style="display: flex; flex-direction: column;">
+    <label for="mouse_assets">Mouse Assets ID</label>
+    <input id="mouse_assets" type="text" style="padding: 8px; width: 150px; border-radius: 5px; border: 1px solid #ccc;">
+  </div>
 
-        </div>
+  <div style="display: flex; flex-direction: column;">
+    <label for="mouse_serial">Mouse Serial Number</label>
+    <input id="mouse_serial" type="text" style="padding: 8px; width: 150px; border-radius: 5px; border: 1px solid #ccc;">
+  </div>
+  
+
+  <!-- Remove Button -->
+  <div style="display: flex; flex-direction: column; justify-content: flex-end;">
+    <button type="button" onclick="removeBlock('mouse-block')"
+      style="padding: 6px 12px; background-color: green; color: white; border: none; border-radius: 6px; cursor: pointer;">
+      Remove
+    </button>
+  </div>
+</div>
+
+<!-- Add (show again) -->
+<div>
+  <button type="button" onclick="showBlock('mouse-block')"
+    style="margin-top: 6px; padding: 8px 16px; background-color: #0ea5e9; color: white; border: none; border-radius: 6px; cursor: pointer;">
+    Add Mouse
+  </button>
+</div>
+
+
+<!-- Save Button -->
+<div style="text-align: left; margin-bottom: 20px;">
+  <button id="saveUserBtn"
+    style="margin-top: 15px; padding: 10px 20px; background-color: green; color: white; border: none; border-radius: 8px; cursor: pointer;">
+    Save
+  </button>
+</div>
       `;
       content.innerHTML = html;
 
@@ -317,3 +349,18 @@ function removeMonitor(button) {
     alert("At least one Monitor entry must remain.");
   }
 }
+
+function removeBlock(id) {
+    const el = document.getElementById(id);
+    if (!el) return;
+    // optional: clear values when hiding so stale data isn't submitted
+    el.querySelectorAll('input').forEach(i => i.value = '');
+    el.querySelectorAll('select').forEach(s => s.selectedIndex = 0);
+    el.style.display = 'none';
+  }
+
+  function showBlock(id) {
+    const el = document.getElementById(id);
+    if (!el) return;
+    el.style.display = 'flex'; // matches your flex layout
+  }
