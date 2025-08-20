@@ -131,6 +131,11 @@ function showContent(type) {
       <input type="text" style="padding: 8px; width: 150px; border-radius: 5px; border: 1px solid #ccc;">
     </div>
 
+    <div style="display: flex; flex-direction: column;">
+          <label for="monitor_ser_num">Monitor Serial Number-2</label>
+          <input id="ser_num" type="text" style="padding: 8px; width: 150px; border-radius: 5px; border: 1px solid #ccc;">
+          </div>
+
     <!-- Remove button -->
     <div style="display: flex; flex-direction: column; justify-content: flex-end;">
       <button type="button" onclick="removeMonitor(this)"
@@ -147,6 +152,7 @@ function showContent(type) {
     style="margin-top: 10px; padding: 8px 16px; background-color: green; color: white; border: none; border-radius: 6px; cursor: pointer;">
     Add Monitor
   </button>
+</div>
 </div>
 
           <div id="monitor2-block" style="display: flex; align-items: center; gap: 20px; margin: 10px 0;">
