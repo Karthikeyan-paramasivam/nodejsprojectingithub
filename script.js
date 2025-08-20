@@ -162,13 +162,13 @@ function showContent(type) {
     <div style="display: flex; flex-direction: column; margin: 10px 0;">
   <label for="return date ">Return Date </label>
   <input id="return_date " type="date"
-    style="padding: 8px; width: 180px; border-radius: 5px; border: 1px solid #ccc;">
+    style="padding: 8px; width: 120px; border-radius: 5px; border: 1px solid #ccc;">
 </div>
 
 <div style="display: flex; flex-direction: column; margin: 10px 0;">
   <label for="remarks">Remarks</label>
-  <textarea id="remarks" rows="3" placeholder="Enter your remarks here..."
-    style="padding: 8px; width: 180px; border-radius: 5px; border: 1px solid #ccc; resize: vertical;"></textarea>
+  <textarea id="remarks" rows="3" placeholder="Enter your remarks here."
+    style="padding: 8px; width: 120px; border-radius: 5px; border: 1px solid #ccc; resize: vertical;"></textarea>
 </div>
 
 <div style="display: flex; align-items: center; gap: 10px; margin-top: 10px;">
