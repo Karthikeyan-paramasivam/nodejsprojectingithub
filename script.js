@@ -58,12 +58,12 @@ function showContent(type) {
           <h3 style="color: rgb(121, 209, 244); margin-bottom: 20px; font-size: 28px;">Create User</h3>
           
           <div style="text-align: left; margin: 25px;">
-            <label for="newEmpNo">Employee No</label>
+            <label for="newEmpNo">Employee No:</label>
             <input id="newEmpNo" type="text" placeholder="Enter Employee No">
           </div>
 
           <div style="text-align: left; margin: 25px;">
-            <label for="empName">Employee Name</label>
+            <label for="empName">Employee Name:</label>
             <input id="empName" type="text" placeholder="Enter Employee Name">
           </div>
 
