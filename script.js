@@ -156,45 +156,42 @@ function showContent(type) {
 </div>
 
           
-
-             <!-- Headset Section -->
-<div id="headset-block" style="display: flex; align-items: center; gap: 20px; margin: 10px 0;">
-
-  <div style="display: flex; flex-direction: column;">
-    <label for="Headset">Headset</label>
-    <select id="Headset" style="padding: 8px; width: 150px; border-radius: 5px; border: 1px solid #ccc;">
-      <option value="">-- Headset Type --</option>
-      <option value="wired_headset">Wired Headset</option>
-      <option value="wireless_headset">Wireless Headset</option>
-    </select>
+<div id="headset-container">
+  <div class="headset" style="display:flex; gap:20px; margin:10px 0;">
+    <div style="display:flex; flex-direction:column;">
+      <label>Headset</label>
+      <select>
+        <option value="">-- Headset Type --</option>
+        <option value="wired_headset">Wired Headset</option>
+        <option value="wireless_headset">Wireless Headset</option>
+      </select>
+    </div>
+    <div style="display:flex; flex-direction:column;">
+      <label>Headset Assets ID</label>
+      <input type="text">
+    </div>
+    <div style="display:flex; flex-direction:column;">
+      <label>Headset Serial Number</label>
+      <input type="text">
+    </div>
+    <!-- Remove -->
+    <div style="display:flex; flex-direction:column; justify-content:flex-end;">
+      <button type="button" onclick="removeBlock('headset', this)"
+        style="padding:6px 12px; background-color:green; color:white; border:none; border-radius:6px; cursor:pointer;">
+        Remove
+      </button>
+    </div>
   </div>
+</div>
 
-  <div style="display: flex; flex-direction: column;">
-    <label for="Headset_assets">Headset Assets ID</label>
-    <input id="Headset_assets" type="text" style="padding: 8px; width: 150px; border-radius: 5px; border: 1px solid #ccc;">
-  </div>
-
-  <div style="display: flex; flex-direction: column;">
-    <label for="Headset_serial">Headset Serial Number</label>
-    <input id="Headset_serial" type="text" style="padding: 8px; width: 150px; border-radius: 5px; border: 1px solid #ccc;">
-  </div>
-
-  <!-- Add (show again) -->
+<!-- Add Button -->
 <div>
-  <button type="button" onclick="showBlock('headset-block')"
-    style="margin-top: 6px; padding: 8px 16px; background-color: #0ea5e9; color: white; border: none; border-radius: 6px; cursor: pointer;">
+  <button type="button" onclick="addBlock('headset')"
+    style="margin-top:6px; padding:8px 16px; background-color:#0ea5e9; color:white; border:none; border-radius:6px; cursor:pointer;">
     Add Headset
   </button>
 </div>
 
-  <!-- Remove Button -->
-  <div style="display: flex; flex-direction: column; justify-content: flex-end;">
-    <button type="button" onclick="removeBlock('headset-block')"
-      style="padding: 6px 12px; background-color: green; color: white; border: none; border-radius: 6px; cursor: pointer;">
-      Remove
-    </button>
-  </div>
-</div>
 
 
 <!-- Mouse Section -->
@@ -350,17 +347,28 @@ function removeMonitor(button) {
   }
 }
 
-function removeBlock(id) {
-    const el = document.getElementById(id);
-    if (!el) return;
-    // optional: clear values when hiding so stale data isn't submitted
-    el.querySelectorAll('input').forEach(i => i.value = '');
-    el.querySelectorAll('select').forEach(s => s.selectedIndex = 0);
-    el.style.display = 'none';
+function removeBlock(id, button) {
+  const container = document.getElementById(id + "-container");
+  const blocks = container.querySelectorAll("." + id);
+
+  // if only 1 block, do not remove (primary must stay)
+  if (blocks.length === 1) {
+    alert("Primary " + id + " cannot be removed.");
+    return;
   }
 
-  function showBlock(id) {
-    const el = document.getElementById(id);
-    if (!el) return;
-    el.style.display = 'flex'; // matches your flex layout
-  }
+  // remove only the clicked block
+  const block = button.closest("." + id);
+  if (block) block.remove();
+}
+
+function addBlock(id) {
+  const container = document.getElementById(id + "-container");
+  const firstBlock = container.querySelector("." + id);
+  const newBlock = firstBlock.cloneNode(true);
+
+  // clear values
+  newBlock.querySelectorAll("input").forEach(i => i.value = "");
+  newBlock.querySelectorAll("select").forEach(s => s.selectedIndex = 0);
+
+  container.appendChild(newBlock);
