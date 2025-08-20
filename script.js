@@ -373,10 +373,3 @@ function removeMonitor(button) {
     alert("At least one Monitor entry must remain.");
   }
 }
-// Remove button 
-function removeMonitor(blockId) {
-  const block = document.getElementById(blockId);
-  if (block) {
-    block.remove(); // removes only for current session
-  }
-}
