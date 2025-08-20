@@ -104,7 +104,7 @@ function showContent(type) {
     style="padding: 8px; width: 110px; border-radius: 5px; border: 1px solid #ccc;">
 </div>
 
-<div style="display: flex; flex-direction: column; margin: 10px 0;">
+<div style="display: flex; flex-direction: column; margin: 5px 0;">
   <label for="remarks">Remarks</label>
   <textarea id="remarks" rows="3" placeholder="Enter your remarks here..."
     style="padding: 5px; width: 250px; border-radius: 5px; border: 1px solid #ccc; resize: vertical;"></textarea>
