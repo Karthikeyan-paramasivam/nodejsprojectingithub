@@ -186,6 +186,11 @@ function showContent(type) {
 </div>
 </div>
 
+<div style="display: flex; flex-direction: column;">
+      <label>IT NAME</label>
+      <input type="text" style="padding: 8px; width: 150px; border-radius: 5px; border: 1px solid #ccc;">
+    </div>
+
 <!-- Save Button -->
 <div style="text-align: left; margin-bottom: 20px;">
   <button id="saveUserBtn"
