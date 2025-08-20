@@ -66,6 +66,49 @@ function showContent(type) {
             <label for="empName">Employee Name</label>
             <input id="empName" type="text" placeholder="Enter Employee Name">
           </div>
+
+          <!-- Container for all PCs -->
+<div id="pc-container">
+  <!-- PC Section -->
+  <div class="pc-block" style="display: flex; align-items: center; gap: 20px; margin: 10px 0;">
+    <div style="display: flex; flex-direction: column;">
+      <label>PC Type</label>
+      <select style="padding: 8px; width: 150px; border-radius: 5px; border: 1px solid #ccc;">
+        <option value="">-- Select PC Type --</option>
+        <option value="Desktop">Desktop</option>
+        <option value="Win_Laptop">Win Laptop</option>
+        <option value="MAC_Laptop">MAC Laptop</option>
+        <option value="Laptop">Laptop</option>
+      </select>
+    </div>
+
+    <div style="display: flex; flex-direction: column;">
+      <label>PC Assets ID</label>
+      <input type="text" style="padding: 8px; width: 150px; border-radius: 5px; border: 1px solid #ccc;">
+    </div>
+
+    <div style="display: flex; flex-direction: column;">
+      <label>PC Serial Number</label>
+      <input type="text" style="padding: 8px; width: 150px; border-radius: 5px; border: 1px solid #ccc;">
+    </div>
+
+    <!-- Remove button -->
+    <div style="display: flex; flex-direction: column; justify-content: flex-end;">
+      <button type="button" onclick="removeBlock(this)"
+        style="padding: 6px 12px; background-color: red; color: white; border: none; border-radius: 6px; cursor: pointer;">
+        Remove
+      </button>
+    </div>
+  </div>
+</div>
+
+<!-- Add button -->
+<div>
+  <button type="button" onclick="addPC()"
+    style="margin-top: 10px; padding: 8px 16px; background-color: green; color: white; border: none; border-radius: 6px; cursor: pointer;">
+    ➕ Add PC
+  </button>
+</div>
           
           <!-- PC Section -->
           <div style="display: flex; align-items: center; gap: 20px; margin: 10px 0;">
@@ -308,6 +351,32 @@ function submitUser() {
 document.addEventListener("DOMContentLoaded", () => {
   showContent("user"); // default view
 });
+
+//Add button
+
+function addPC() {
+  const container = document.getElementById("pc-container");
+  const firstBlock = container.querySelector(".pc-block");
+  const newBlock = firstBlock.cloneNode(true); // clone the first block
+
+  // clear input fields
+  newBlock.querySelectorAll("input").forEach(input => input.value = "");
+  newBlock.querySelector("select").selectedIndex = 0;
+
+  container.appendChild(newBlock);
+}
+
+function removeBlock(button) {
+  const block = button.closest(".pc-block");
+  const container = document.getElementById("pc-container");
+
+  // prevent removing the last block
+  if (container.querySelectorAll(".pc-block").length > 1) {
+    block.remove();
+  } else {
+    alert("At least one PC entry must remain.");
+  }
+}
 
 // Remove button 
 function removeMonitor(blockId) {
