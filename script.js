@@ -92,6 +92,15 @@ function showContent(type) {
       <input type="text" style="padding: 8px; width: 150px; border-radius: 5px; border: 1px solid #ccc;">
     </div>
 
+    
+<!-- Add button -->
+<div>
+  <button type="button" onclick="addPC()"
+    style="margin-top: 10px; padding: 8px 16px; background-color: green; color: white; border: none; border-radius: 6px; cursor: pointer;">
+    Add PC
+  </button>
+</div>
+
     <!-- Remove button -->
     <div style="display: flex; flex-direction: column;">
       <button type="button" onclick="removeBlock(this)"
@@ -102,13 +111,6 @@ function showContent(type) {
   </div>
 </div>
 
-<!-- Add button -->
-<div>
-  <button type="button" onclick="addPC()"
-    style="margin-top: 10px; padding: 8px 16px; background-color: green; color: white; border: none; border-radius: 6px; cursor: pointer;">
-    Add PC
-  </button>
-</div>
           
           
          <!-- Container for all monitors -->
