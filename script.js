@@ -155,84 +155,6 @@ function showContent(type) {
 </div>
 </div>
 
-          
-<div id="headset-container">
-  <div class="headset" style="display:flex; gap:20px; margin:10px 0;">
-    <div style="display:flex; flex-direction:column;">
-      <label>Headset</label>
-      <select>
-        <option value="">-- Headset Type --</option>
-        <option value="wired_headset">Wired Headset</option>
-        <option value="wireless_headset">Wireless Headset</option>
-      </select>
-    </div>
-    <div style="display:flex; flex-direction:column;">
-      <label>Headset Assets ID</label>
-      <input type="text">
-    </div>
-    <div style="display:flex; flex-direction:column;">
-      <label>Headset Serial Number</label>
-      <input type="text">
-    </div>
-    <!-- Remove -->
-    <div style="display:flex; flex-direction:column; justify-content:flex-end;">
-      <button type="button" onclick="removeBlock('headset', this)"
-        style="padding:6px 12px; background-color:green; color:white; border:none; border-radius:6px; cursor:pointer;">
-        Remove
-      </button>
-    </div>
-  </div>
-</div>
-
-<!-- Add Button -->
-<div>
-  <button type="button" onclick="addBlock('headset')"
-    style="margin-top:6px; padding:8px 16px; background-color:#0ea5e9; color:white; border:none; border-radius:6px; cursor:pointer;">
-    Add Headset
-  </button>
-</div>
-
-
-
-<!-- Mouse Section -->
-<div id="mouse-block" style="display: flex; align-items: center; gap: 20px; margin: 10px 0;">
-
-  <div style="display: flex; flex-direction: column;">
-    <label for="mouse">Mouse</label>
-    <select id="mouse" style="padding: 8px; width: 150px; border-radius: 5px; border: 1px solid #ccc;">
-      <option value="">-- Mouse Type --</option>
-      <option value="wired_mouse">Wired Mouse</option>
-      <option value="wireless_mouse">Wireless Mouse</option>
-    </select>
-  </div>
-
-  <div style="display: flex; flex-direction: column;">
-    <label for="mouse_assets">Mouse Assets ID</label>
-    <input id="mouse_assets" type="text" style="padding: 8px; width: 150px; border-radius: 5px; border: 1px solid #ccc;">
-  </div>
-
-  <div style="display: flex; flex-direction: column;">
-    <label for="mouse_serial">Mouse Serial Number</label>
-    <input id="mouse_serial" type="text" style="padding: 8px; width: 150px; border-radius: 5px; border: 1px solid #ccc;">
-  </div>
-  
-
-  <!-- Remove Button -->
-  <div style="display: flex; flex-direction: column; justify-content: flex-end;">
-    <button type="button" onclick="removeBlock('mouse-block')"
-      style="padding: 6px 12px; background-color: green; color: white; border: none; border-radius: 6px; cursor: pointer;">
-      Remove
-    </button>
-  </div>
-</div>
-
-<!-- Add (show again) -->
-<div>
-  <button type="button" onclick="showBlock('mouse-block')"
-    style="margin-top: 6px; padding: 8px 16px; background-color: #0ea5e9; color: white; border: none; border-radius: 6px; cursor: pointer;">
-    Add Mouse
-  </button>
-</div>
 
 
 <!-- Save Button -->
@@ -347,28 +269,4 @@ function removeMonitor(button) {
   }
 }
 
-function removeBlock(id, button) {
-  const container = document.getElementById(id + "-container");
-  const blocks = container.querySelectorAll("." + id);
 
-  // if only 1 block, do not remove (primary must stay)
-  if (blocks.length === 1) {
-    alert("Primary " + id + " cannot be removed.");
-    return;
-  }
-
-  // remove only the clicked block
-  const block = button.closest("." + id);
-  if (block) block.remove();
-}
-
-function addBlock(id) {
-  const container = document.getElementById(id + "-container");
-  const firstBlock = container.querySelector("." + id);
-  const newBlock = firstBlock.cloneNode(true);
-
-  // clear values
-  newBlock.querySelectorAll("input").forEach(i => i.value = "");
-  newBlock.querySelectorAll("select").forEach(s => s.selectedIndex = 0);
-
-  container.appendChild(newBlock);
