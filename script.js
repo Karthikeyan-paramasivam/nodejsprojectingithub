@@ -111,28 +111,43 @@ function showContent(type) {
 </div>
           
           
-          <!-- Monitor Section -->
-          <div id="monitor1-block" style="display: flex; align-items: center; gap: 20px; margin: 10px 0;">
+         <!-- Container for all monitors -->
+<div id="monitor-container">
+  <!-- Monitor Section -->
+  <div class="monitor-block" style="display: flex; align-items: center; gap: 20px; margin: 10px 0;">
+    
+    <div style="display: flex; flex-direction: column;">
+      <label>Monitor</label>
+      <select style="padding: 8px; width: 150px; border-radius: 5px; border: 1px solid #ccc;">
+        <option value="">-- Select Monitor --</option>
+        <option value="monitor-1">Monitor-1</option>
+        <option value="monitor-2">Monitor-2</option>
+        <option value="monitor-3">Monitor-3</option>
+      </select>
+    </div>
 
-          <div style="display: flex; flex-direction: column;">
-          <label for="monitor">Monitor-1</label>
-          <select id="monitor" style="padding: 8px; width: 150px; border-radius: 5px; border: 1px solid #ccc;">
-          <option value="">-- Select Monitor --</option>
-          <option value="monitor-1">Monitor-1</option>
-          </select>
-          </div>
+    <div style="display: flex; flex-direction: column;">
+      <label>Monitor Assets ID</label>
+      <input type="text" style="padding: 8px; width: 150px; border-radius: 5px; border: 1px solid #ccc;">
+    </div>
 
-          <div style="display: flex; flex-direction: column;">
-          <label for="monitor_id">Monitor Assets ID-1</label>
-          <input id="ass_idpc" type="text" style="padding: 8px; width: 150px; border-radius: 5px; border: 1px solid #ccc;">
-          </div>
+    <!-- Remove button -->
+    <div style="display: flex; flex-direction: column; justify-content: flex-end;">
+      <button type="button" onclick="removeMonitor(this)"
+        style="padding: 6px 12px; background-color: red; color: white; border: none; border-radius: 6px; cursor: pointer;">
+        Remove
+      </button>
+    </div>
+  </div>
+</div>
 
-
-          <div style="display: flex; flex-direction: column;">
-            <label for="monitor_ser_num">Monitor Serial Number-1</label>
-            <input id="ser_num" type="text" style="padding: 8px; width: 150px; border-radius: 5px; border: 1px solid #ccc;">
-          </div>
-          </div>
+<!-- Add button -->
+<div>
+  <button type="button" onclick="addMonitor()"
+    style="margin-top: 10px; padding: 8px 16px; background-color: green; color: white; border: none; border-radius: 6px; cursor: pointer;">
+    Add Monitor
+  </button>
+</div>
 
           <div id="monitor2-block" style="display: flex; align-items: center; gap: 20px; margin: 10px 0;">
 
@@ -318,7 +333,7 @@ document.addEventListener("DOMContentLoaded", () => {
   showContent("user"); // default view
 });
 
-//Add button
+//Add PC button
 
 function addPC() {
   const container = document.getElementById("pc-container");
@@ -343,4 +358,34 @@ function removeBlock(button) {
     alert("At least one PC entry must remain.");
   }
 }
+ //Add Monitor button
+function addMonitor() {
+  const container = document.getElementById("monitor-container");
+  const firstBlock = container.querySelector(".monitor-block");
+  const newBlock = firstBlock.cloneNode(true); // clone first block
 
+  // clear inputs
+  newBlock.querySelectorAll("input").forEach(input => input.value = "");
+  newBlock.querySelector("select").selectedIndex = 0;
+
+  container.appendChild(newBlock);
+}
+
+function removeMonitor(button) {
+  const block = button.closest(".monitor-block");
+  const container = document.getElementById("monitor-container");
+
+  // prevent removing the last block
+  if (container.querySelectorAll(".monitor-block").length > 1) {
+    block.remove();
+  } else {
+    alert("At least one Monitor entry must remain.");
+  }
+}
+// Remove button 
+function removeMonitor(blockId) {
+  const block = document.getElementById(blockId);
+  if (block) {
+    block.remove(); // removes only for current session
+  }
+}
