@@ -91,8 +91,19 @@ function showContent(type) {
       <label>PC Serial Number</label>
       <input type="text" style="padding: 8px; width: 150px; border-radius: 5px; border: 1px solid #ccc;">
     </div>
-   
-<!-- Add button -->
+
+    <div style="display: flex; flex-direction: column; margin: 10px 0;">
+  <label for="assigned date">Assigned Date</label>
+  <input id="assigned_date" type="date"
+    style="padding: 8px; width: 180px; border-radius: 5px; border: 1px solid #ccc;">
+</div>
+
+    <div style="display: flex; flex-direction: column; margin: 10px 0;">
+  <label for="return date ">Return Date </label>
+  <input id="return_date " type="date"
+    style="padding: 8px; width: 180px; border-radius: 5px; border: 1px solid #ccc;">
+</div>
+
 <div style="display: flex; align-items: center; gap: 10px; margin-top: 10px;">
   <!-- Add PC button -->
   <button type="button" onclick="addPC()"
@@ -106,8 +117,7 @@ function showContent(type) {
     Remove
   </button>
 </div>
-
-  </div>
+</div>
 </div>
          
           
