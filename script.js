@@ -73,7 +73,7 @@ function showContent(type) {
   <div class="pc-block" style="display: flex; align-items: center; gap: 20px; margin: 10px 0;">
     <div style="display: flex; flex-direction: column;">
       <label>PC Type</label>
-      <select style="padding: 8px; width: 150px; border-radius: 5px; border: 1px solid #ccc;">
+      <select style="padding: 8px; width: 100px; border-radius: 5px; border: 1px solid #ccc;">
         <option value="">-- Select PC Type --</option>
         <option value="Desktop">Desktop</option>
         <option value="Win_Laptop">Win Laptop</option>
@@ -84,24 +84,24 @@ function showContent(type) {
 
     <div style="display: flex; flex-direction: column;">
       <label>PC Assets ID</label>
-      <input type="text" style="padding: 8px; width: 150px; border-radius: 5px; border: 1px solid #ccc;">
+      <input type="text" style="padding: 8px; width: 110px; border-radius: 5px; border: 1px solid #ccc;">
     </div>
 
     <div style="display: flex; flex-direction: column;">
       <label>PC Serial Number</label>
-      <input type="text" style="padding: 8px; width: 150px; border-radius: 5px; border: 1px solid #ccc;">
+      <input type="text" style="padding: 8px; width: 100px; border-radius: 5px; border: 1px solid #ccc;">
     </div>
 
     <div style="display: flex; flex-direction: column; margin: 10px 0;">
   <label for="assigned date">Assigned Date</label>
   <input id="assigned_date" type="date"
-    style="padding: 8px; width: 180px; border-radius: 5px; border: 1px solid #ccc;">
+    style="padding: 8px; width: 110px; border-radius: 5px; border: 1px solid #ccc;">
 </div>
 
     <div style="display: flex; flex-direction: column; margin: 10px 0;">
   <label for="return date ">Return Date </label>
   <input id="return_date " type="date"
-    style="padding: 8px; width: 180px; border-radius: 5px; border: 1px solid #ccc;">
+    style="padding: 8px; width: 110px; border-radius: 5px; border: 1px solid #ccc;">
 </div>
 
 <div style="display: flex; flex-direction: column; margin: 10px 0;">
@@ -144,7 +144,7 @@ function showContent(type) {
 
     <div style="display: flex; flex-direction: column;">
       <label>Monitor Assets ID</label>
-      <input type="text" style="padding: 8px; width: 150px; border-radius: 5px; border: 1px solid #ccc;">
+      <input type="text" style="padding: 8px; width: 100px; border-radius: 5px; border: 1px solid #ccc;">
     </div>
 
     <div style="display: flex; flex-direction: column;">
@@ -156,19 +156,19 @@ function showContent(type) {
     <div style="display: flex; flex-direction: column; margin: 10px 0;">
   <label for="assigned date">Assigned Date</label>
   <input id="assigned_date" type="date"
-    style="padding: 8px; width: 180px; border-radius: 5px; border: 1px solid #ccc;">
+    style="padding: 8px; width: 110px; border-radius: 5px; border: 1px solid #ccc;">
 </div>
 
     <div style="display: flex; flex-direction: column; margin: 10px 0;">
   <label for="return date ">Return Date </label>
   <input id="return_date " type="date"
-    style="padding: 8px; width: 120px; border-radius: 5px; border: 1px solid #ccc;">
+    style="padding: 8px; width: 110px; border-radius: 5px; border: 1px solid #ccc;">
 </div>
 
 <div style="display: flex; flex-direction: column; margin: 10px 0;">
   <label for="remarks">Remarks</label>
   <textarea id="remarks" rows="3" placeholder="Enter your remarks here."
-    style="padding: 8px; width: 120px; border-radius: 5px; border: 1px solid #ccc; resize: vertical;"></textarea>
+    style="padding: 8px; width: 250px; border-radius: 5px; border: 1px solid #ccc; resize: vertical;"></textarea>
 </div>
 
 <div style="display: flex; align-items: center; gap: 10px; margin-top: 10px;">
