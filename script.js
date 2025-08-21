@@ -130,10 +130,10 @@ function showContent(type) {
         Add PC
       </button>
 
-      <button type="button" onclick="removePC(this)"
-        style="padding: 8px 16px; background-color: red; color: white; border: none; border-radius: 6px; cursor: pointer;">
-        Remove
-      </button>
+      <button type="button" onclick="removeBlock(this, 'pc-container', 'pc-block')"
+  style="padding: 8px 16px; background-color: red; color: white; border: none; border-radius: 6px; cursor: pointer;">
+  Remove
+</button>
     </div>
   </div>
 </div>
@@ -195,10 +195,10 @@ function showContent(type) {
         Add Monitor
       </button>
 
-      <button type="button" onclick="removeMonitor(this)"
-        style="padding: 8px 16px; background-color: red; color: white; border: none; border-radius: 6px; cursor: pointer;">
-        Remove
-      </button>
+      <button type="button" onclick="removeBlock(this, 'monitor-container', 'monitor-block')"
+  style="padding: 8px 16px; background-color: red; color: white; border: none; border-radius: 6px; cursor: pointer;">
+  Remove
+</button>
     </div>
   </div>
 </div>
@@ -259,10 +259,10 @@ function showContent(type) {
         Add Headset
       </button>
 
-      <button type="button" onclick="removeHeadset(this)"
-        style="padding: 8px 16px; background-color: red; color: white; border: none; border-radius: 6px; cursor: pointer;">
-        Remove
-      </button>
+      <button type="button" onclick="removeBlock(this, 'headset-container', 'headset-block')"
+  style="padding: 8px 16px; background-color: red; color: white; border: none; border-radius: 6px; cursor: pointer;">
+  Remove
+</button>
     </div>
   </div>
 </div>
@@ -335,11 +335,11 @@ function addPC() {
   const firstBlock = container.querySelector(".pc-block");
   const newBlock = firstBlock.cloneNode(true);
 
+  // clear all inputs
   newBlock.querySelectorAll("input, select, textarea").forEach(el => el.value = "");
   container.appendChild(newBlock);
 }
 
-// Add Monitor
 function addMonitor() {
   const container = document.getElementById("monitor-container");
   const firstBlock = container.querySelector(".monitor-block");
@@ -349,7 +349,6 @@ function addMonitor() {
   container.appendChild(newBlock);
 }
 
-// Add Headset
 function addHeadset() {
   const container = document.getElementById("headset-container");
   const firstBlock = container.querySelector(".headset-block");
@@ -359,15 +358,15 @@ function addHeadset() {
   container.appendChild(newBlock);
 }
 
-// ✅ Single Remove Function for all
+// ✅ Universal remove function
 function removeBlock(button, containerId, blockClass) {
   const container = document.getElementById(containerId);
   const blocks = container.querySelectorAll("." + blockClass);
   const block = button.closest("." + blockClass);
 
-  // prevent removing the very first block
+  // Don’t allow deleting the first row
   if (block === blocks[0]) {
-    alert("The first row cannot be removed.");
+    alert("You cannot remove the first row.");
     return;
   }
 
