@@ -331,41 +331,52 @@ document.addEventListener("DOMContentLoaded", () => {
 
 // Add PC
 function addPC() {
-  addBlock("pc-container", "pc-block");
-}
-
-// Add Monitor
-function addMonitor() {
-  addBlock("monitor-container", "monitor-block");
-}
-
-// Add Headset
-function addHeadset() {
-  addBlock("Headset-container", "Headset-block");
-}
-
-// Generic function to clone & clear
-function addBlock(containerId, blockClass) {
-  const container = document.getElementById(containerId);
-  const firstBlock = container.querySelector("." + blockClass);
+  const container = document.getElementById("pc-container");
+  const firstBlock = container.querySelector(".pc-block");
   const newBlock = firstBlock.cloneNode(true);
 
   // clear inputs
   newBlock.querySelectorAll("input").forEach(input => input.value = "");
-  newBlock.querySelectorAll("select").forEach(sel => sel.selectedIndex = 0);
+  newBlock.querySelectorAll("select").forEach(select => select.selectedIndex = 0);
 
   container.appendChild(newBlock);
 }
 
-// Generic remove
+// Add Monitor
+function addMonitor() {
+  const container = document.getElementById("monitor-container");
+  const firstBlock = container.querySelector(".monitor-block");
+  const newBlock = firstBlock.cloneNode(true);
+
+  // clear inputs
+  newBlock.querySelectorAll("input").forEach(input => input.value = "");
+  newBlock.querySelectorAll("select").forEach(select => select.selectedIndex = 0);
+
+  container.appendChild(newBlock);
+}
+
+// Add Headset
+function addHeadset() {
+  const container = document.getElementById("headset-container");
+  const firstBlock = container.querySelector(".headset-block");
+  const newBlock = firstBlock.cloneNode(true);
+
+  // clear inputs
+  newBlock.querySelectorAll("input").forEach(input => input.value = "");
+  newBlock.querySelectorAll("select").forEach(select => select.selectedIndex = 0);
+
+  container.appendChild(newBlock);
+}
+
+// ✅ Generic removeBlock function
 function removeBlock(button, blockClass, containerId) {
   const block = button.closest("." + blockClass);
   const container = document.getElementById(containerId);
 
-  // prevent removing the last one
   if (container.querySelectorAll("." + blockClass).length > 1) {
     block.remove();
   } else {
-    alert("At least one entry must remain.");
+    alert(`At least one ${blockClass.replace("-block","")} must remain.`);
   }
 }
+
