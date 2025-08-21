@@ -215,9 +215,80 @@ function showContent(type) {
 </div>
 
 
+          
+         <!-- Container Headset -->
+<div id="Headset-container">
+  <!-- Headset Section -->
+  <div class="Headset-block" style="display: flex; align-items: center; gap: 20px; margin: 10px 0;">
+    
+    <div style="display: flex; flex-direction: column;">
+      <label>HeadSet</label>
+      <select style="padding: 8px; width: 150px; border-radius: 5px; border: 1px solid #ccc;">
+        <option value="">-- Select Headset --</option>
+        <option value="Headsetwired">Headset_Wired</option>
+        <option value="HeadsetWirless">Headset_Wireless</option>
+        </select>
+    </div>
+
+    <div style="display: flex; flex-direction: column;">
+      <label>Headset Assets ID</label>
+      <input type="text" style="padding: 8px; width: 150px; border-radius: 5px; border: 1px solid #ccc;">
+    </div>
+
+    <div style="display: flex; flex-direction: column;">
+          <label for="Headset_ser_num">Headset Serial Number</label>
+          <input id="Headset_ser_num" type="text" style="padding: 8px; width: 150px; border-radius: 5px; border: 1px solid #ccc;">
+          </div>
+
+          
+    <div style="display: flex; flex-direction: column; margin: 10px 0;">
+  <label for="assigned date">Assigned Date</label>
+  <input id="assigned_date" type="date"
+    style="padding: 8px; width: 110px; border-radius: 5px; border: 1px solid #ccc;">
+</div>
+
+    <div style="display: flex; flex-direction: column; margin: 10px 0;">
+  <label for="return date ">Return Date </label>
+  <input id="return_date " type="date"
+    style="padding: 8px; width: 110px; border-radius: 5px; border: 1px solid #ccc;">
+</div>
+
+<div style="display: flex; flex-direction: column; margin: 10px 0;">
+  <label for="remarks">Remarks</label>
+  <textarea id="remarks" rows="1" placeholder="Enter your remarks here."
+    style="padding: 8px; width: 250px; border-radius: 5px; border: 1px solid #ccc; resize: both;"></textarea>
+</div>
+
+<div style="display: flex; flex-direction: column;">
+      <label>IT Name</label>
+      <select style="padding: 8px; width: 150px; border-radius: 5px; border: 1px solid #ccc;">
+        <option value="">-- Select Name --</option>
+        <option value="Padmanabha V R">Padmanabha V R</option>
+        <option value="Vijay_Kumar">Vijay Kumar S</option>
+        <option value="Thatrakal_Suresh">Thatrakal Suresh</option>
+        <option value="Karthikeyan">Karthikeyan P</option>
+        <option value="Rajshekar">Rajshekar R</option>
+      </select>
+    </div>
+
+<div style="display: flex; align-items: center; gap: 10px; margin-top: 10px;">
+  <!-- Add PC button -->
+  <button type="button" onclick="addPC()"
+    style="padding: 8px 16px; background-color: green; color: white; border: none; border-radius: 6px; cursor: pointer;">
+    Add PC
+  </button>
+
+  <!-- Remove button -->
+  <button type="button" onclick="removeBlock(this)"
+    style="padding: 8px 16px; background-color: red; color: white; border: none; border-radius: 6px; cursor: pointer;">
+    Remove
+  </button>
+</div>
+</div>
+
 
 <!-- Save Button -->
-<div style="text-align: left; margin-bottom: 20px;">
+<div style="text-align: center; margin-bottom: 20px;">
   <button id="saveUserBtn"
     style="margin-top: 15px; padding: 10px 20px; background-color: green; color: white; border: none; border-radius: 8px; cursor: pointer;">
     Save
@@ -328,4 +399,27 @@ function removeMonitor(button) {
   }
 }
 
+ //Add Headset button
+function addHeadset() {
+  const container = document.getElementById("Headset-container");
+  const firstBlock = container.querySelector(".Headset-block");
+  const newBlock = firstBlock.cloneNode(true); // clone first block
 
+  // clear inputs
+  newBlock.querySelectorAll("input").forEach(input => input.value = "");
+  newBlock.querySelector("select").selectedIndex = 0;
+
+  container.appendChild(newBlock);
+}
+
+function removeHeadset(button) {
+  const block = button.closest(".Headset-block");
+  const container = document.getElementById("Headset-container");
+
+  // prevent removing the last block
+  if (container.querySelectorAll(".Headset-block").length > 1) {
+    block.remove();
+  } else {
+    alert("At least one Monitor entry must remain.");
+  }
+}
