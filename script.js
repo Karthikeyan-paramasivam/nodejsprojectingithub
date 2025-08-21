@@ -201,7 +201,7 @@ function showContent(type) {
 
 <div style="display: flex; align-items: center; gap: 10px; margin-top: 10px;">
   <!-- Add PC button -->
-  <button type="button" onclick="addPC()"
+  <button type="button" onclick="addmonitor()"
     style="padding: 8px 16px; background-color: green; color: white; border: none; border-radius: 6px; cursor: pointer;">
     Add PC
   </button>
@@ -273,7 +273,7 @@ function showContent(type) {
 
 <div style="display: flex; align-items: center; gap: 10px; margin-top: 10px;">
   <!-- Add PC button -->
-  <button type="button" onclick="addPC()"
+  <button type="button" onclick="addHeadset()"
     style="padding: 8px 16px; background-color: green; color: white; border: none; border-radius: 6px; cursor: pointer;">
     Add PC
   </button>
