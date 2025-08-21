@@ -387,7 +387,7 @@ function addMonitor() {
   container.appendChild(newBlock);
 }
 
-function removeMonitor(button) {
+function removeBlock(button) {
   const block = button.closest(".monitor-block");
   const container = document.getElementById("monitor-container");
 
@@ -412,7 +412,7 @@ function addHeadset() {
   container.appendChild(newBlock);
 }
 
-function removeHeadset(button) {
+function removeBlock(button) {
   const block = button.closest(".Headset-block");
   const container = document.getElementById("Headset-container");
 
@@ -420,6 +420,6 @@ function removeHeadset(button) {
   if (container.querySelectorAll(".Headset-block").length > 1) {
     block.remove();
   } else {
-    alert("At least one Monitor entry must remain.");
+    alert("At least one Headset entry must remain.");
   }
 }
