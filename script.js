@@ -71,8 +71,7 @@ function showContent(type) {
             <label for="empName">Employee Name:</label>
             <input id="empName" type="text" placeholder="Enter Employee Name">
           </div>
-
-          <!-- Container for all PCs -->
+<!-- Container for all PCs -->
 <div id="pc-container">
   <!-- PC Section -->
   <div class="pc-block" style="display: flex; align-items: center; gap: 20px; margin: 10px 0;">
@@ -98,23 +97,22 @@ function showContent(type) {
     </div>
 
     <div style="display: flex; flex-direction: column; margin: 10px 0;">
-  <label for="assigned date">Assigned Date</label>
-  <input id="assigned_date" type="date"
-    style="padding: 8px; width: 110px; border-radius: 5px; border: 1px solid #ccc;">
-</div>
+      <label>Assigned Date</label>
+      <input type="date" style="padding: 8px; width: 110px; border-radius: 5px; border: 1px solid #ccc;">
+    </div>
 
     <div style="display: flex; flex-direction: column; margin: 10px 0;">
-  <label for="return date ">Return Date </label>
-  <input id="return_date " type="date"
-    style="padding: 8px; width: 110px; border-radius: 5px; border: 1px solid #ccc;">
-</div>
+      <label>Return Date</label>
+      <input type="date" style="padding: 8px; width: 110px; border-radius: 5px; border: 1px solid #ccc;">
+    </div>
 
-<div style="display: flex; flex-direction: column; margin: 10px 0;">
-  <label for="remarks">Remarks</label>
-  <textarea id="remarks" rows="1" placeholder="Remarks here..."
-    style="padding: 8px; width: 250px; border-radius: 5px; border: 1px solid #ccc; resize: both;"></textarea>
-</div>
-<div style="display: flex; flex-direction: column;">
+    <div style="display: flex; flex-direction: column; margin: 10px 0;">
+      <label>Remarks</label>
+      <textarea rows="1" placeholder="Remarks here..."
+        style="padding: 8px; width: 250px; border-radius: 5px; border: 1px solid #ccc; resize: both;"></textarea>
+    </div>
+
+    <div style="display: flex; flex-direction: column;">
       <label>IT Name</label>
       <select style="padding: 8px; width: 150px; border-radius: 5px; border: 1px solid #ccc;">
         <option value="">-- Select Name --</option>
@@ -126,28 +124,23 @@ function showContent(type) {
       </select>
     </div>
 
-<div style="display: flex; align-items: center; gap: 10px; margin-top: 10px;">
-  <!-- Add PC button -->
-  <button type="button" onclick="addPC()"
-    style="padding: 8px 16px; background-color: green; color: white; border: none; border-radius: 6px; cursor: pointer;">
-    Add PC
-  </button>
+    <div style="display: flex; align-items: center; gap: 10px; margin-top: 10px;">
+      <button type="button" onclick="addPC()"
+        style="padding: 8px 16px; background-color: green; color: white; border: none; border-radius: 6px; cursor: pointer;">
+        Add PC
+      </button>
 
-  <!-- Remove button -->
-  <button type="button" onclick="removeBlock(this)"
-    style="padding: 8px 16px; background-color: red; color: white; border: none; border-radius: 6px; cursor: pointer;">
-    Remove
-  </button>
+      <button type="button" onclick="removePC(this)"
+        style="padding: 8px 16px; background-color: red; color: white; border: none; border-radius: 6px; cursor: pointer;">
+        Remove
+      </button>
+    </div>
+  </div>
 </div>
-</div>
-</div>
-         
-          
-         <!-- Container for all monitors -->
+
+<!-- Container for all Monitors -->
 <div id="monitor-container">
-  <!-- Monitor Section -->
   <div class="monitor-block" style="display: flex; align-items: center; gap: 20px; margin: 10px 0;">
-    
     <div style="display: flex; flex-direction: column;">
       <label>Monitor</label>
       <select style="padding: 8px; width: 150px; border-radius: 5px; border: 1px solid #ccc;">
@@ -164,30 +157,27 @@ function showContent(type) {
     </div>
 
     <div style="display: flex; flex-direction: column;">
-          <label for="monitor_ser_num">Monitor Serial Number</label>
-          <input id="ser_num" type="text" style="padding: 8px; width: 150px; border-radius: 5px; border: 1px solid #ccc;">
-          </div>
-
-          
-    <div style="display: flex; flex-direction: column; margin: 10px 0;">
-  <label for="assigned date">Assigned Date</label>
-  <input id="assigned_date" type="date"
-    style="padding: 8px; width: 110px; border-radius: 5px; border: 1px solid #ccc;">
-</div>
+      <label>Monitor Serial Number</label>
+      <input type="text" style="padding: 8px; width: 150px; border-radius: 5px; border: 1px solid #ccc;">
+    </div>
 
     <div style="display: flex; flex-direction: column; margin: 10px 0;">
-  <label for="return date ">Return Date </label>
-  <input id="return_date " type="date"
-    style="padding: 8px; width: 110px; border-radius: 5px; border: 1px solid #ccc;">
-</div>
+      <label>Assigned Date</label>
+      <input type="date" style="padding: 8px; width: 110px; border-radius: 5px; border: 1px solid #ccc;">
+    </div>
 
-<div style="display: flex; flex-direction: column; margin: 10px 0;">
-  <label for="remarks">Remarks</label>
-  <textarea id="remarks" rows="1" placeholder="Enter your remarks here."
-    style="padding: 8px; width: 250px; border-radius: 5px; border: 1px solid #ccc; resize: both;"></textarea>
-</div>
+    <div style="display: flex; flex-direction: column; margin: 10px 0;">
+      <label>Return Date</label>
+      <input type="date" style="padding: 8px; width: 110px; border-radius: 5px; border: 1px solid #ccc;">
+    </div>
 
-<div style="display: flex; flex-direction: column;">
+    <div style="display: flex; flex-direction: column; margin: 10px 0;">
+      <label>Remarks</label>
+      <textarea rows="1" placeholder="Enter remarks here..."
+        style="padding: 8px; width: 250px; border-radius: 5px; border: 1px solid #ccc; resize: both;"></textarea>
+    </div>
+
+    <div style="display: flex; flex-direction: column;">
       <label>IT Name</label>
       <select style="padding: 8px; width: 150px; border-radius: 5px; border: 1px solid #ccc;">
         <option value="">-- Select Name --</option>
@@ -199,35 +189,30 @@ function showContent(type) {
       </select>
     </div>
 
-<div style="display: flex; align-items: center; gap: 10px; margin-top: 10px;">
-  <!-- Add PC button -->
-  <button type="button" onclick="addmonitor()"
-    style="padding: 8px 16px; background-color: green; color: white; border: none; border-radius: 6px; cursor: pointer;">
-    Add PC
-  </button>
+    <div style="display: flex; align-items: center; gap: 10px; margin-top: 10px;">
+      <button type="button" onclick="addMonitor()"
+        style="padding: 8px 16px; background-color: green; color: white; border: none; border-radius: 6px; cursor: pointer;">
+        Add Monitor
+      </button>
 
-  <!-- Remove button -->
-  <button type="button" onclick="removeBlock(this)"
-    style="padding: 8px 16px; background-color: red; color: white; border: none; border-radius: 6px; cursor: pointer;">
-    Remove
-  </button>
+      <button type="button" onclick="removeMonitor(this)"
+        style="padding: 8px 16px; background-color: red; color: white; border: none; border-radius: 6px; cursor: pointer;">
+        Remove
+      </button>
+    </div>
+  </div>
 </div>
-</div>
 
-
-          
-         <!-- Container Headset -->
-<div id="Headset-container">
-  <!-- Headset Section -->
-  <div class="Headset-block" style="display: flex; align-items: center; gap: 20px; margin: 10px 0;">
-    
+<!-- Container Headset -->
+<div id="headset-container">
+  <div class="headset-block" style="display: flex; align-items: center; gap: 20px; margin: 10px 0;">
     <div style="display: flex; flex-direction: column;">
       <label>HeadSet</label>
       <select style="padding: 8px; width: 150px; border-radius: 5px; border: 1px solid #ccc;">
         <option value="">-- Select Headset --</option>
-        <option value="Headsetwired">Headset_Wired</option>
-        <option value="HeadsetWirless">Headset_Wireless</option>
-        </select>
+        <option value="Headset_Wired">Headset Wired</option>
+        <option value="Headset_Wireless">Headset Wireless</option>
+      </select>
     </div>
 
     <div style="display: flex; flex-direction: column;">
@@ -236,30 +221,27 @@ function showContent(type) {
     </div>
 
     <div style="display: flex; flex-direction: column;">
-          <label for="Headset_ser_num">Headset Serial Number</label>
-          <input id="Headset_ser_num" type="text" style="padding: 8px; width: 150px; border-radius: 5px; border: 1px solid #ccc;">
-          </div>
-
-          
-    <div style="display: flex; flex-direction: column; margin: 10px 0;">
-  <label for="assigned date">Assigned Date</label>
-  <input id="assigned_date" type="date"
-    style="padding: 8px; width: 110px; border-radius: 5px; border: 1px solid #ccc;">
-</div>
+      <label>Headset Serial Number</label>
+      <input type="text" style="padding: 8px; width: 150px; border-radius: 5px; border: 1px solid #ccc;">
+    </div>
 
     <div style="display: flex; flex-direction: column; margin: 10px 0;">
-  <label for="return date ">Return Date </label>
-  <input id="return_date " type="date"
-    style="padding: 8px; width: 110px; border-radius: 5px; border: 1px solid #ccc;">
-</div>
+      <label>Assigned Date</label>
+      <input type="date" style="padding: 8px; width: 110px; border-radius: 5px; border: 1px solid #ccc;">
+    </div>
 
-<div style="display: flex; flex-direction: column; margin: 10px 0;">
-  <label for="remarks">Remarks</label>
-  <textarea id="remarks" rows="1" placeholder="Enter your remarks here."
-    style="padding: 8px; width: 250px; border-radius: 5px; border: 1px solid #ccc; resize: both;"></textarea>
-</div>
+    <div style="display: flex; flex-direction: column; margin: 10px 0;">
+      <label>Return Date</label>
+      <input type="date" style="padding: 8px; width: 110px; border-radius: 5px; border: 1px solid #ccc;">
+    </div>
 
-<div style="display: flex; flex-direction: column;">
+    <div style="display: flex; flex-direction: column; margin: 10px 0;">
+      <label>Remarks</label>
+      <textarea rows="1" placeholder="Enter remarks here..."
+        style="padding: 8px; width: 250px; border-radius: 5px; border: 1px solid #ccc; resize: both;"></textarea>
+    </div>
+
+    <div style="display: flex; flex-direction: column;">
       <label>IT Name</label>
       <select style="padding: 8px; width: 150px; border-radius: 5px; border: 1px solid #ccc;">
         <option value="">-- Select Name --</option>
@@ -271,21 +253,19 @@ function showContent(type) {
       </select>
     </div>
 
-<div style="display: flex; align-items: center; gap: 10px; margin-top: 10px;">
-  <!-- Add PC button -->
-  <button type="button" onclick="addHeadset()"
-    style="padding: 8px 16px; background-color: green; color: white; border: none; border-radius: 6px; cursor: pointer;">
-    Add PC
-  </button>
+    <div style="display: flex; align-items: center; gap: 10px; margin-top: 10px;">
+      <button type="button" onclick="addHeadset()"
+        style="padding: 8px 16px; background-color: green; color: white; border: none; border-radius: 6px; cursor: pointer;">
+        Add Headset
+      </button>
 
-  <!-- Remove button -->
-  <button type="button" onclick="removeBlock(this)"
-    style="padding: 8px 16px; background-color: red; color: white; border: none; border-radius: 6px; cursor: pointer;">
-    Remove
-  </button>
+      <button type="button" onclick="removeHeadset(this)"
+        style="padding: 8px 16px; background-color: red; color: white; border: none; border-radius: 6px; cursor: pointer;">
+        Remove
+      </button>
+    </div>
+  </div>
 </div>
-</div>
-
 
 <!-- Save Button -->
 <div style="text-align: center; margin-bottom: 20px;">
