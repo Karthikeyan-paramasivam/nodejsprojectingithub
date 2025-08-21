@@ -335,65 +335,48 @@ function addPC() {
   const firstBlock = container.querySelector(".pc-block");
   const newBlock = firstBlock.cloneNode(true);
 
-  // clear inputs
-  newBlock.querySelectorAll("input").forEach(input => input.value = "");
-  newBlock.querySelectorAll("select").forEach(select => select.selectedIndex = 0);
+  // clear values
+  newBlock.querySelectorAll("input, select, textarea").forEach(el => el.value = "");
 
   container.appendChild(newBlock);
 }
 
-// Add Monitor
 function addMonitor() {
   const container = document.getElementById("monitor-container");
   const firstBlock = container.querySelector(".monitor-block");
   const newBlock = firstBlock.cloneNode(true);
 
-  // clear inputs
-  newBlock.querySelectorAll("input").forEach(input => input.value = "");
-  newBlock.querySelectorAll("select").forEach(select => select.selectedIndex = 0);
+  newBlock.querySelectorAll("input, select, textarea").forEach(el => el.value = "");
 
   container.appendChild(newBlock);
 }
 
-// Add Headset
 function addHeadset() {
   const container = document.getElementById("headset-container");
   const firstBlock = container.querySelector(".headset-block");
   const newBlock = firstBlock.cloneNode(true);
 
-  // clear inputs
-  newBlock.querySelectorAll("input").forEach(input => input.value = "");
-  newBlock.querySelectorAll("select").forEach(select => select.selectedIndex = 0);
+  newBlock.querySelectorAll("input, select, textarea").forEach(el => el.value = "");
 
   container.appendChild(newBlock);
 }
 
-// Remove button (manual remove)
-function removeBlock(button, blockClass) {
-  const block = button.closest("." + blockClass);
-  if (block) block.remove();
-}
-
-// ✅ Cleanup before saving: remove rows with all empty inputs
-function cleanupEmptyBlocks(containerId, blockClass) {
+// ✅ Remove row: allow removal if data exists OR empty, but never remove the very first row
+function removeBlock(button, containerId, blockClass) {
   const container = document.getElementById(containerId);
   const blocks = container.querySelectorAll("." + blockClass);
+  const block = button.closest("." + blockClass);
 
-  blocks.forEach(block => {
-    const inputs = block.querySelectorAll("input, select, textarea");
-    const hasValue = Array.from(inputs).some(el => el.value.trim() !== "");
+  // check if it's the very first block
+  if (block === blocks[0]) {
+    alert("The first row cannot be removed.");
+    return;
+  }
 
-    if (!hasValue) {
-      block.remove(); // remove if everything is empty
-    }
-  });
-}
+  // check if any input/select/textarea inside has value
+  const hasData = Array.from(block.querySelectorAll("input, select, textarea"))
+    .some(el => el.value.trim() !== "");
 
-// ✅ Final save function
-function saveData() {
-  cleanupEmptyBlocks("pc-container", "pc-block");
-  cleanupEmptyBlocks("monitor-container", "monitor-block");
-  cleanupEmptyBlocks("headset-container", "headset-block");
-
-  alert("Data saved! (empty rows removed)");
+  // ✅ always allow remove, whether it has data or not
+  block.remove();
 }
