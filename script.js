@@ -44,9 +44,8 @@ function showContent(type) {
                          border: none; border-radius: 8px; cursor: pointer;">
             Submit
           </button>
-          </div>
-
           <p id="resultMsg" style="margin-top: 20px; font-size: 18px; color: green;"></p>
+        </div>
         </div>
       `;
       content.innerHTML = html;
