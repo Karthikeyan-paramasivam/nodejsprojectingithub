@@ -397,6 +397,278 @@ function showContent(type) {
   </div>
 </div>
 
+<!-- Container USBCamera -->
+<div id="usbcamera-container">
+  <div class="usbcamera-block" style="display: flex; align-items: center; gap: 20px; margin: 10px 0;">
+    <div style="display: flex; flex-direction: column;">
+      <label>USBCamera</label>
+      <select style="padding: 8px; width: 150px; border-radius: 5px; border: 1px solid #ccc;">
+        <option value="USBCamera">USBCamera</option>
+        </select>
+    </div>
+
+    <div style="display: flex; flex-direction: column;">
+      <label>USBCamera Assets ID</label>
+      <input type="text" style="padding: 8px; width: 150px; border-radius: 5px; border: 1px solid #ccc;">
+    </div>
+
+    <div style="display: flex; flex-direction: column;">
+      <label>USBCamera Serial Number</label>
+      <input type="text" style="padding: 8px; width: 150px; border-radius: 5px; border: 1px solid #ccc;">
+    </div>
+
+    <div style="display: flex; flex-direction: column; margin: 10px 0;">
+      <label>Assigned Date</label>
+      <input type="date" style="padding: 8px; width: 110px; border-radius: 5px; border: 1px solid #ccc;">
+    </div>
+
+    <div style="display: flex; flex-direction: column; margin: 10px 0;">
+      <label>Return Date</label>
+      <input type="date" style="padding: 8px; width: 110px; border-radius: 5px; border: 1px solid #ccc;">
+    </div>
+
+    <div style="display: flex; flex-direction: column; margin: 10px 0;">
+      <label>Remarks</label>
+      <textarea rows="1" placeholder="Enter remarks here..."
+        style="padding: 8px; width: 250px; border-radius: 5px; border: 1px solid #ccc; resize: both;"></textarea>
+    </div>
+
+    <div style="display: flex; flex-direction: column;">
+      <label>IT Name</label>
+      <select style="padding: 8px; width: 150px; border-radius: 5px; border: 1px solid #ccc;">
+        <option value="">-- Select Name --</option>
+        <option value="Padmanabha V R">Padmanabha V R</option>
+        <option value="Vijay_Kumar">Vijay Kumar S</option>
+        <option value="Thatrakal_Suresh">Thatrakal Suresh</option>
+        <option value="Karthikeyan">Karthikeyan P</option>
+        <option value="Rajshekar">Rajshekar R</option>
+      </select>
+    </div>
+
+    <div style="display: flex; align-items: center; gap: 10px; margin-top: 10px;">
+      <button type="button" onclick="addUSBCamera()"
+        style="padding: 8px 16px; background-color: green; color: white; border: none; border-radius: 6px; cursor: pointer;">
+        Add Keyboard
+      </button>
+
+      <button type="button" onclick="removeBlock(this, 'usbcamera-container', 'usbcamera-block')"
+  style="padding: 8px 16px; background-color: red; color: white; border: none; border-radius: 6px; cursor: pointer;">
+  Remove
+</button>
+    </div>
+  </div>
+</div>
+
+
+
+<!-- Container Keyboard -->
+<div id="keyboard-container">
+  <div class="keyboard-block" style="display: flex; align-items: center; gap: 20px; margin: 10px 0;">
+    <div style="display: flex; flex-direction: column;">
+      <label>Keyboard</label>
+      <select style="padding: 8px; width: 150px; border-radius: 5px; border: 1px solid #ccc;">
+        <option value="">-- Select Keyboard --</option>
+        <option value="Keyboard_Wired">Keyboard Wired</option>
+        <option value="Keyboard_Wireless">Keyboard Wireless</option>
+      </select>
+    </div>
+
+    <div style="display: flex; flex-direction: column;">
+      <label>Keyboard Assets ID</label>
+      <input type="text" style="padding: 8px; width: 150px; border-radius: 5px; border: 1px solid #ccc;">
+    </div>
+
+    <div style="display: flex; flex-direction: column;">
+      <label>Keyboard Serial Number</label>
+      <input type="text" style="padding: 8px; width: 150px; border-radius: 5px; border: 1px solid #ccc;">
+    </div>
+
+    <div style="display: flex; flex-direction: column; margin: 10px 0;">
+      <label>Assigned Date</label>
+      <input type="date" style="padding: 8px; width: 110px; border-radius: 5px; border: 1px solid #ccc;">
+    </div>
+
+    <div style="display: flex; flex-direction: column; margin: 10px 0;">
+      <label>Return Date</label>
+      <input type="date" style="padding: 8px; width: 110px; border-radius: 5px; border: 1px solid #ccc;">
+    </div>
+
+    <div style="display: flex; flex-direction: column; margin: 10px 0;">
+      <label>Remarks</label>
+      <textarea rows="1" placeholder="Enter remarks here..."
+        style="padding: 8px; width: 250px; border-radius: 5px; border: 1px solid #ccc; resize: both;"></textarea>
+    </div>
+
+    <div style="display: flex; flex-direction: column;">
+      <label>IT Name</label>
+      <select style="padding: 8px; width: 150px; border-radius: 5px; border: 1px solid #ccc;">
+        <option value="">-- Select Name --</option>
+        <option value="Padmanabha V R">Padmanabha V R</option>
+        <option value="Vijay_Kumar">Vijay Kumar S</option>
+        <option value="Thatrakal_Suresh">Thatrakal Suresh</option>
+        <option value="Karthikeyan">Karthikeyan P</option>
+        <option value="Rajshekar">Rajshekar R</option>
+      </select>
+    </div>
+
+    <div style="display: flex; align-items: center; gap: 10px; margin-top: 10px;">
+      <button type="button" onclick="addKeyboard()"
+        style="padding: 8px 16px; background-color: green; color: white; border: none; border-radius: 6px; cursor: pointer;">
+        Add Keyboard
+      </button>
+
+      <button type="button" onclick="removeBlock(this, 'keyboard-container', 'keyboard-block')"
+  style="padding: 8px 16px; background-color: red; color: white; border: none; border-radius: 6px; cursor: pointer;">
+  Remove
+</button>
+    </div>
+  </div>
+</div>
+
+<!-- Save Button -->
+<div style="text-align: center; margin-bottom: 20px;">
+  <button id="saveUserBtn"
+    style="margin-top: 15px; padding: 10px 20px; background-color: green; color: white; border: none; border-radius: 8px; cursor: pointer;">
+    Save
+  </button>
+</div>
+
+<!-- Container Keyboard -->
+<div id="keyboard-container">
+  <div class="keyboard-block" style="display: flex; align-items: center; gap: 20px; margin: 10px 0;">
+    <div style="display: flex; flex-direction: column;">
+      <label>Keyboard</label>
+      <select style="padding: 8px; width: 150px; border-radius: 5px; border: 1px solid #ccc;">
+        <option value="">-- Select Keyboard --</option>
+        <option value="Keyboard_Wired">Keyboard Wired</option>
+        <option value="Keyboard_Wireless">Keyboard Wireless</option>
+      </select>
+    </div>
+
+    <div style="display: flex; flex-direction: column;">
+      <label>Keyboard Assets ID</label>
+      <input type="text" style="padding: 8px; width: 150px; border-radius: 5px; border: 1px solid #ccc;">
+    </div>
+
+    <div style="display: flex; flex-direction: column;">
+      <label>Keyboard Serial Number</label>
+      <input type="text" style="padding: 8px; width: 150px; border-radius: 5px; border: 1px solid #ccc;">
+    </div>
+
+    <div style="display: flex; flex-direction: column; margin: 10px 0;">
+      <label>Assigned Date</label>
+      <input type="date" style="padding: 8px; width: 110px; border-radius: 5px; border: 1px solid #ccc;">
+    </div>
+
+    <div style="display: flex; flex-direction: column; margin: 10px 0;">
+      <label>Return Date</label>
+      <input type="date" style="padding: 8px; width: 110px; border-radius: 5px; border: 1px solid #ccc;">
+    </div>
+
+    <div style="display: flex; flex-direction: column; margin: 10px 0;">
+      <label>Remarks</label>
+      <textarea rows="1" placeholder="Enter remarks here..."
+        style="padding: 8px; width: 250px; border-radius: 5px; border: 1px solid #ccc; resize: both;"></textarea>
+    </div>
+
+    <div style="display: flex; flex-direction: column;">
+      <label>IT Name</label>
+      <select style="padding: 8px; width: 150px; border-radius: 5px; border: 1px solid #ccc;">
+        <option value="">-- Select Name --</option>
+        <option value="Padmanabha V R">Padmanabha V R</option>
+        <option value="Vijay_Kumar">Vijay Kumar S</option>
+        <option value="Thatrakal_Suresh">Thatrakal Suresh</option>
+        <option value="Karthikeyan">Karthikeyan P</option>
+        <option value="Rajshekar">Rajshekar R</option>
+      </select>
+    </div>
+
+    <div style="display: flex; align-items: center; gap: 10px; margin-top: 10px;">
+      <button type="button" onclick="addKeyboard()"
+        style="padding: 8px 16px; background-color: green; color: white; border: none; border-radius: 6px; cursor: pointer;">
+        Add Keyboard
+      </button>
+
+      <button type="button" onclick="removeBlock(this, 'keyboard-container', 'keyboard-block')"
+  style="padding: 8px 16px; background-color: red; color: white; border: none; border-radius: 6px; cursor: pointer;">
+  Remove
+</button>
+    </div>
+  </div>
+</div>
+
+<!-- Save Button -->
+<div style="text-align: center; margin-bottom: 20px;">
+  <button id="saveUserBtn"
+    style="margin-top: 15px; padding: 10px 20px; background-color: green; color: white; border: none; border-radius: 8px; cursor: pointer;">
+    Save
+  </button>
+</div>
+
+<!-- Container Keyboard -->
+<div id="keyboard-container">
+  <div class="keyboard-block" style="display: flex; align-items: center; gap: 20px; margin: 10px 0;">
+    <div style="display: flex; flex-direction: column;">
+      <label>Keyboard</label>
+      <select style="padding: 8px; width: 150px; border-radius: 5px; border: 1px solid #ccc;">
+        <option value="">-- Select Keyboard --</option>
+        <option value="Keyboard_Wired">Keyboard Wired</option>
+        <option value="Keyboard_Wireless">Keyboard Wireless</option>
+      </select>
+    </div>
+
+    <div style="display: flex; flex-direction: column;">
+      <label>Keyboard Assets ID</label>
+      <input type="text" style="padding: 8px; width: 150px; border-radius: 5px; border: 1px solid #ccc;">
+    </div>
+
+    <div style="display: flex; flex-direction: column;">
+      <label>Keyboard Serial Number</label>
+      <input type="text" style="padding: 8px; width: 150px; border-radius: 5px; border: 1px solid #ccc;">
+    </div>
+
+    <div style="display: flex; flex-direction: column; margin: 10px 0;">
+      <label>Assigned Date</label>
+      <input type="date" style="padding: 8px; width: 110px; border-radius: 5px; border: 1px solid #ccc;">
+    </div>
+
+    <div style="display: flex; flex-direction: column; margin: 10px 0;">
+      <label>Return Date</label>
+      <input type="date" style="padding: 8px; width: 110px; border-radius: 5px; border: 1px solid #ccc;">
+    </div>
+
+    <div style="display: flex; flex-direction: column; margin: 10px 0;">
+      <label>Remarks</label>
+      <textarea rows="1" placeholder="Enter remarks here..."
+        style="padding: 8px; width: 250px; border-radius: 5px; border: 1px solid #ccc; resize: both;"></textarea>
+    </div>
+
+    <div style="display: flex; flex-direction: column;">
+      <label>IT Name</label>
+      <select style="padding: 8px; width: 150px; border-radius: 5px; border: 1px solid #ccc;">
+        <option value="">-- Select Name --</option>
+        <option value="Padmanabha V R">Padmanabha V R</option>
+        <option value="Vijay_Kumar">Vijay Kumar S</option>
+        <option value="Thatrakal_Suresh">Thatrakal Suresh</option>
+        <option value="Karthikeyan">Karthikeyan P</option>
+        <option value="Rajshekar">Rajshekar R</option>
+      </select>
+    </div>
+
+    <div style="display: flex; align-items: center; gap: 10px; margin-top: 10px;">
+      <button type="button" onclick="addKeyboard()"
+        style="padding: 8px 16px; background-color: green; color: white; border: none; border-radius: 6px; cursor: pointer;">
+        Add Keyboard
+      </button>
+
+      <button type="button" onclick="removeBlock(this, 'keyboard-container', 'keyboard-block')"
+  style="padding: 8px 16px; background-color: red; color: white; border: none; border-radius: 6px; cursor: pointer;">
+  Remove
+</button>
+    </div>
+  </div>
+</div>
+
 <!-- Save Button -->
 <div style="text-align: center; margin-bottom: 20px;">
   <button id="saveUserBtn"
@@ -500,6 +772,15 @@ function addMouse() {
 function addKeyboard() {
   const container = document.getElementById("keyboard-container");
   const firstBlock = container.querySelector(".keyboard-block");
+  const newBlock = firstBlock.cloneNode(true);
+
+  newBlock.querySelectorAll("input, select, textarea").forEach(el => el.value = "");
+  container.appendChild(newBlock);
+}
+
+function addUSBCamera() {
+  const container = document.getElementById("usbcamera-container");
+  const firstBlock = container.querySelector(".usbcamera-block");
   const newBlock = firstBlock.cloneNode(true);
 
   newBlock.querySelectorAll("input, select, textarea").forEach(el => el.value = "");
