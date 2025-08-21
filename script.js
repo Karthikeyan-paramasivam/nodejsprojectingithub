@@ -368,15 +368,32 @@ function addHeadset() {
   container.appendChild(newBlock);
 }
 
-// ✅ Generic removeBlock function
-function removeBlock(button, blockClass, containerId) {
+// Remove button (manual remove)
+function removeBlock(button, blockClass) {
   const block = button.closest("." + blockClass);
-  const container = document.getElementById(containerId);
-
-  if (container.querySelectorAll("." + blockClass).length > 1) {
-    block.remove();
-  } else {
-    alert(`At least one ${blockClass.replace("-block","")} must remain.`);
-  }
+  if (block) block.remove();
 }
 
+// ✅ Cleanup before saving: remove rows with all empty inputs
+function cleanupEmptyBlocks(containerId, blockClass) {
+  const container = document.getElementById(containerId);
+  const blocks = container.querySelectorAll("." + blockClass);
+
+  blocks.forEach(block => {
+    const inputs = block.querySelectorAll("input, select, textarea");
+    const hasValue = Array.from(inputs).some(el => el.value.trim() !== "");
+
+    if (!hasValue) {
+      block.remove(); // remove if everything is empty
+    }
+  });
+}
+
+// ✅ Final save function
+function saveData() {
+  cleanupEmptyBlocks("pc-container", "pc-block");
+  cleanupEmptyBlocks("monitor-container", "monitor-block");
+  cleanupEmptyBlocks("headset-container", "headset-block");
+
+  alert("Data saved! (empty rows removed)");
+}
