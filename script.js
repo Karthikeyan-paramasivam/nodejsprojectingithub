@@ -448,7 +448,7 @@ function showContent(type) {
     <div style="display: flex; align-items: center; gap: 10px; margin-top: 10px;">
       <button type="button" onclick="addUSBCamera()"
         style="padding: 8px 16px; background-color: green; color: white; border: none; border-radius: 6px; cursor: pointer;">
-        Add Keyboard
+        Add USBCamera 
       </button>
 
       <button type="button" onclick="removeBlock(this, 'usbcamera-container', 'usbcamera-block')"
@@ -460,26 +460,23 @@ function showContent(type) {
 </div>
 
 
-
-<!-- Container Keyboard -->
-<div id="keyboard-container">
-  <div class="keyboard-block" style="display: flex; align-items: center; gap: 20px; margin: 10px 0;">
+<!-- Container WIFI_Device -->
+<div id="wifi_device-container">
+  <div class="wifi_device-block" style="display: flex; align-items: center; gap: 20px; margin: 10px 0;">
     <div style="display: flex; flex-direction: column;">
-      <label>Keyboard</label>
+      <label>WIFI_Device</label>
       <select style="padding: 8px; width: 150px; border-radius: 5px; border: 1px solid #ccc;">
-        <option value="">-- Select Keyboard --</option>
-        <option value="Keyboard_Wired">Keyboard Wired</option>
-        <option value="Keyboard_Wireless">Keyboard Wireless</option>
+        <option value="WIFI_Device">WIFI_Device</option>
       </select>
     </div>
 
     <div style="display: flex; flex-direction: column;">
-      <label>Keyboard Assets ID</label>
+      <label>WIFI_Device Assets ID</label>
       <input type="text" style="padding: 8px; width: 150px; border-radius: 5px; border: 1px solid #ccc;">
     </div>
 
     <div style="display: flex; flex-direction: column;">
-      <label>Keyboard Serial Number</label>
+      <label>WIFI_Device Serial Number</label>
       <input type="text" style="padding: 8px; width: 150px; border-radius: 5px; border: 1px solid #ccc;">
     </div>
 
@@ -512,12 +509,12 @@ function showContent(type) {
     </div>
 
     <div style="display: flex; align-items: center; gap: 10px; margin-top: 10px;">
-      <button type="button" onclick="addKeyboard()"
+      <button type="button" onclick="addWIFI_Device()"
         style="padding: 8px 16px; background-color: green; color: white; border: none; border-radius: 6px; cursor: pointer;">
-        Add Keyboard
+        Add WIFI_Device
       </button>
 
-      <button type="button" onclick="removeBlock(this, 'keyboard-container', 'keyboard-block')"
+      <button type="button" onclick="removeBlock(this, 'wifi_device-container', 'wifi_device-block')"
   style="padding: 8px 16px; background-color: red; color: white; border: none; border-radius: 6px; cursor: pointer;">
   Remove
 </button>
@@ -525,33 +522,23 @@ function showContent(type) {
   </div>
 </div>
 
-<!-- Save Button -->
-<div style="text-align: center; margin-bottom: 20px;">
-  <button id="saveUserBtn"
-    style="margin-top: 15px; padding: 10px 20px; background-color: green; color: white; border: none; border-radius: 8px; cursor: pointer;">
-    Save
-  </button>
-</div>
-
-<!-- Container Keyboard -->
-<div id="keyboard-container">
-  <div class="keyboard-block" style="display: flex; align-items: center; gap: 20px; margin: 10px 0;">
+<!-- Container Laptop_Bag -->
+<div id="laptop_bag-container">
+  <div class="laptop_bag-block" style="display: flex; align-items: center; gap: 20px; margin: 10px 0;">
     <div style="display: flex; flex-direction: column;">
-      <label>Keyboard</label>
+      <label>Laptop_Bag</label>
       <select style="padding: 8px; width: 150px; border-radius: 5px; border: 1px solid #ccc;">
-        <option value="">-- Select Keyboard --</option>
-        <option value="Keyboard_Wired">Keyboard Wired</option>
-        <option value="Keyboard_Wireless">Keyboard Wireless</option>
+      <option value="Laptop_Bag">Laptop_Bag</option>
       </select>
     </div>
 
     <div style="display: flex; flex-direction: column;">
-      <label>Keyboard Assets ID</label>
+      <label>Laptop_Bag Assets ID</label>
       <input type="text" style="padding: 8px; width: 150px; border-radius: 5px; border: 1px solid #ccc;">
     </div>
 
     <div style="display: flex; flex-direction: column;">
-      <label>Keyboard Serial Number</label>
+      <label>Laptop_Bag Serial Number</label>
       <input type="text" style="padding: 8px; width: 150px; border-radius: 5px; border: 1px solid #ccc;">
     </div>
 
@@ -584,12 +571,12 @@ function showContent(type) {
     </div>
 
     <div style="display: flex; align-items: center; gap: 10px; margin-top: 10px;">
-      <button type="button" onclick="addKeyboard()"
+      <button type="button" onclick="addLaptop_Bag()"
         style="padding: 8px 16px; background-color: green; color: white; border: none; border-radius: 6px; cursor: pointer;">
-        Add Keyboard
+        Add Laptop_Bag
       </button>
 
-      <button type="button" onclick="removeBlock(this, 'keyboard-container', 'keyboard-block')"
+      <button type="button" onclick="removeBlock(this, 'laptop_bag-container', 'laptop_bag-block')"
   style="padding: 8px 16px; background-color: red; color: white; border: none; border-radius: 6px; cursor: pointer;">
   Remove
 </button>
@@ -597,33 +584,23 @@ function showContent(type) {
   </div>
 </div>
 
-<!-- Save Button -->
-<div style="text-align: center; margin-bottom: 20px;">
-  <button id="saveUserBtn"
-    style="margin-top: 15px; padding: 10px 20px; background-color: green; color: white; border: none; border-radius: 8px; cursor: pointer;">
-    Save
-  </button>
-</div>
-
-<!-- Container Keyboard -->
-<div id="keyboard-container">
-  <div class="keyboard-block" style="display: flex; align-items: center; gap: 20px; margin: 10px 0;">
+<!-- Container UPS -->
+<div id="ups-container">
+  <div class="ups-block" style="display: flex; align-items: center; gap: 20px; margin: 10px 0;">
     <div style="display: flex; flex-direction: column;">
-      <label>Keyboard</label>
+      <label>UPS</label>
       <select style="padding: 8px; width: 150px; border-radius: 5px; border: 1px solid #ccc;">
-        <option value="">-- Select Keyboard --</option>
-        <option value="Keyboard_Wired">Keyboard Wired</option>
-        <option value="Keyboard_Wireless">Keyboard Wireless</option>
+        <option value="UPS">UPS</option>
       </select>
     </div>
 
     <div style="display: flex; flex-direction: column;">
-      <label>Keyboard Assets ID</label>
+      <label>UPS Assets ID</label>
       <input type="text" style="padding: 8px; width: 150px; border-radius: 5px; border: 1px solid #ccc;">
     </div>
 
     <div style="display: flex; flex-direction: column;">
-      <label>Keyboard Serial Number</label>
+      <label>UPS Serial Number</label>
       <input type="text" style="padding: 8px; width: 150px; border-radius: 5px; border: 1px solid #ccc;">
     </div>
 
@@ -656,12 +633,12 @@ function showContent(type) {
     </div>
 
     <div style="display: flex; align-items: center; gap: 10px; margin-top: 10px;">
-      <button type="button" onclick="addKeyboard()"
+      <button type="button" onclick="addUPS()"
         style="padding: 8px 16px; background-color: green; color: white; border: none; border-radius: 6px; cursor: pointer;">
-        Add Keyboard
+        Add UPS
       </button>
 
-      <button type="button" onclick="removeBlock(this, 'keyboard-container', 'keyboard-block')"
+      <button type="button" onclick="removeBlock(this, 'ups-container', 'ups-block')"
   style="padding: 8px 16px; background-color: red; color: white; border: none; border-radius: 6px; cursor: pointer;">
   Remove
 </button>
@@ -786,6 +763,34 @@ function addUSBCamera() {
   newBlock.querySelectorAll("input, select, textarea").forEach(el => el.value = "");
   container.appendChild(newBlock);
 }
+
+function addWIFI_Device() {
+  const container = document.getElementById("wifi_device-container");
+  const firstBlock = container.querySelector(".wifi_device-block");
+  const newBlock = firstBlock.cloneNode(true);
+
+  newBlock.querySelectorAll("input, select, textarea").forEach(el => el.value = "");
+  container.appendChild(newBlock);
+}
+
+function addLaptop_Bag() {
+  const container = document.getElementById("laptop_bag-container");
+  const firstBlock = container.querySelector(".laptop_bag-block");
+  const newBlock = firstBlock.cloneNode(true);
+
+  newBlock.querySelectorAll("input, select, textarea").forEach(el => el.value = "");
+  container.appendChild(newBlock);
+}
+
+function addUPS() {
+  const container = document.getElementById("ups-container");
+  const firstBlock = container.querySelector(".ups-block");
+  const newBlock = firstBlock.cloneNode(true);
+
+  newBlock.querySelectorAll("input, select, textarea").forEach(el => el.value = "");
+  container.appendChild(newBlock);
+}
+
 
 // ✅ Universal remove function
 function removeBlock(button, containerId, blockClass) {
