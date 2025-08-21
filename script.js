@@ -349,77 +349,43 @@ document.addEventListener("DOMContentLoaded", () => {
   showContent("user"); // default view
 });
 
-//Add PC button
-
+// Add PC
 function addPC() {
-  const container = document.getElementById("pc-container");
-  const firstBlock = container.querySelector(".pc-block");
-  const newBlock = firstBlock.cloneNode(true); // clone the first block
-
-  // clear input fields
-  newBlock.querySelectorAll("input").forEach(input => input.value = "");
-  newBlock.querySelector("select").selectedIndex = 0;
-
-  container.appendChild(newBlock);
+  addBlock("pc-container", "pc-block");
 }
 
-function removeBlock(button) {
-  const block = button.closest(".pc-block");
-  const container = document.getElementById("pc-container");
-
-  // prevent removing the last block
-  if (container.querySelectorAll(".pc-block").length > 1) {
-    block.remove();
-  } else {
-    alert("At least one PC entry must remain.");
-  }
-}
- //Add Monitor button
+// Add Monitor
 function addMonitor() {
-  const container = document.getElementById("monitor-container");
-  const firstBlock = container.querySelector(".monitor-block");
-  const newBlock = firstBlock.cloneNode(true); // clone first block
-
-  // clear inputs
-  newBlock.querySelectorAll("input").forEach(input => input.value = "");
-  newBlock.querySelector("select").selectedIndex = 0;
-
-  container.appendChild(newBlock);
+  addBlock("monitor-container", "monitor-block");
 }
 
-function removeBlock(button) {
-  const block = button.closest(".monitor-block");
-  const container = document.getElementById("monitor-container");
-
-  // prevent removing the last block
-  if (container.querySelectorAll(".monitor-block").length > 1) {
-    block.remove();
-  } else {
-    alert("At least one Monitor entry must remain.");
-  }
-}
-
- //Add Headset button
+// Add Headset
 function addHeadset() {
-  const container = document.getElementById("Headset-container");
-  const firstBlock = container.querySelector(".Headset-block");
-  const newBlock = firstBlock.cloneNode(true); // clone first block
+  addBlock("Headset-container", "Headset-block");
+}
+
+// Generic function to clone & clear
+function addBlock(containerId, blockClass) {
+  const container = document.getElementById(containerId);
+  const firstBlock = container.querySelector("." + blockClass);
+  const newBlock = firstBlock.cloneNode(true);
 
   // clear inputs
   newBlock.querySelectorAll("input").forEach(input => input.value = "");
-  newBlock.querySelector("select").selectedIndex = 0;
+  newBlock.querySelectorAll("select").forEach(sel => sel.selectedIndex = 0);
 
   container.appendChild(newBlock);
 }
 
-function removeBlock(button) {
-  const block = button.closest(".Headset-block");
-  const container = document.getElementById("Headset-container");
+// Generic remove
+function removeBlock(button, blockClass, containerId) {
+  const block = button.closest("." + blockClass);
+  const container = document.getElementById(containerId);
 
-  // prevent removing the last block
-  if (container.querySelectorAll(".Headset-block").length > 1) {
+  // prevent removing the last one
+  if (container.querySelectorAll("." + blockClass).length > 1) {
     block.remove();
   } else {
-    alert("At least one Headset entry must remain.");
+    alert("At least one entry must remain.");
   }
 }
