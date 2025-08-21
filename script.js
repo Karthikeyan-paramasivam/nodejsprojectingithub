@@ -17,7 +17,7 @@ function showContent(type) {
 
         <!-- Create Button -->
         <div style="text-align: center;">
-  <button id="createBtn"
+      <button id="createBtn"
           style="padding: 10px 20px; font-size: 16px;
                  background-color: rgba(144, 244, 121, 1); color: white;
                  border: none; border-radius: 8px; cursor: pointer;">
@@ -32,6 +32,11 @@ function showContent(type) {
             <input id="empNo" type="text" placeholder="Enter Employee No"
                    style="padding: 10px; font-size: 16px; width: 250px; border-radius: 8px; border: 1px solid #ccc;">
           </div>
+      <label for="empNo" style="font-size: 16px; margin-right: 10px;">Employee Name</label>
+            <input id="empname" type="text" placeholder="Enter Employee Name"
+                   style="padding: 10px; font-size: 16px; width: 250px; border-radius: 8px; border: 1px solid #ccc;">
+          </div>
+
 
           <button id="submitBtn"
                   style="margin-top: 15px; padding: 10px 20px; font-size: 16px;
