@@ -37,13 +37,14 @@ function showContent(type) {
                    style="padding: 10px; font-size: 16px; width: 250px; border-radius: 8px; border: 1px solid #ccc;">
           </div>
 
-
+          <div style="text-align:center; font-family: Arial, sans-serif;">
           <button id="submitBtn"
                   style="margin-top: 15px; padding: 10px 20px; font-size: 16px;
                          background-color: rgba(232, 121, 244, 1); color: white;
                          border: none; border-radius: 8px; cursor: pointer;">
             Submit
           </button>
+          </div>
 
           <p id="resultMsg" style="margin-top: 20px; font-size: 18px; color: green;"></p>
         </div>
