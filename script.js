@@ -335,48 +335,41 @@ function addPC() {
   const firstBlock = container.querySelector(".pc-block");
   const newBlock = firstBlock.cloneNode(true);
 
-  // clear values
   newBlock.querySelectorAll("input, select, textarea").forEach(el => el.value = "");
-
   container.appendChild(newBlock);
 }
 
+// Add Monitor
 function addMonitor() {
   const container = document.getElementById("monitor-container");
   const firstBlock = container.querySelector(".monitor-block");
   const newBlock = firstBlock.cloneNode(true);
 
   newBlock.querySelectorAll("input, select, textarea").forEach(el => el.value = "");
-
   container.appendChild(newBlock);
 }
 
+// Add Headset
 function addHeadset() {
   const container = document.getElementById("headset-container");
   const firstBlock = container.querySelector(".headset-block");
   const newBlock = firstBlock.cloneNode(true);
 
   newBlock.querySelectorAll("input, select, textarea").forEach(el => el.value = "");
-
   container.appendChild(newBlock);
 }
 
-// ✅ Remove row: allow removal if data exists OR empty, but never remove the very first row
+// ✅ Single Remove Function for all
 function removeBlock(button, containerId, blockClass) {
   const container = document.getElementById(containerId);
   const blocks = container.querySelectorAll("." + blockClass);
   const block = button.closest("." + blockClass);
 
-  // check if it's the very first block
+  // prevent removing the very first block
   if (block === blocks[0]) {
     alert("The first row cannot be removed.");
     return;
   }
 
-  // check if any input/select/textarea inside has value
-  const hasData = Array.from(block.querySelectorAll("input, select, textarea"))
-    .some(el => el.value.trim() !== "");
-
-  // ✅ always allow remove, whether it has data or not
   block.remove();
 }
