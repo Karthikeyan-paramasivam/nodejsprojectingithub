@@ -64,11 +64,11 @@ function showContent(type) {
           
           <div style="text-align: left; margin: 25px;">
             <label for="newEmpNo">Employee No:</label>
-            <input id="newEmpNo" type="text" placeholder="Enter Employee No">
+            <input id="newEmpNo" type="text" placeholder="Enter Employee No:">
 
           <div style="text-align: left; margin: 25px;">
             <label for="empName">Employee Name:</label>
-            <input id="empName" type="text" placeholder="Enter Employee Name">
+            <input id="empName" type="text" placeholder="Enter Employee Name:">
           </div>
           </div>
 <!-- Container for all PCs -->
